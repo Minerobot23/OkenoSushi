@@ -90,7 +90,7 @@ function RollCards({ section }: { section: Section }) {
                     <img src={d.photo.src} alt="" width={d.photo.width} height={d.photo.height} loading="lazy" decoding="async" />
                   </picture>
                 ) : (
-                  <span className="roll__nophoto">Photo coming soon</span>
+                  <span className="roll__nophoto">No photo</span>
                 )}
               </span>
               <span className="roll__head">

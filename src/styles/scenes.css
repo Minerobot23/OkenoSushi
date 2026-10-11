@@ -130,12 +130,11 @@
   min-height: 40vh;
 }
 .menu__section {
-  animation: menu-in 0.45s var(--ease);
+  animation: menu-in 0.35s ease;
 }
 @keyframes menu-in {
   from {
-    opacity: 0.1;
-    transform: translateY(12px);
+    opacity: 0;
   }
 }
 .menu__blurb {
@@ -175,8 +174,6 @@
 }
 .dishes li {
   break-inside: avoid;
-  animation: rise 0.5s var(--ease) both;
-  animation-delay: calc(var(--n, 0) * 25ms);
 }
 .dish {
   display: flex;
@@ -323,51 +320,44 @@
   gap: 12px;
 }
 
-/* Special rolls as photo cards */
+/* Special rolls as cards: a small photo (kept near its real size, so it stays sharp) and the text. */
 .rolls {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 232px), 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
   margin-top: 26px;
-}
-.rolls li {
-  animation: card-in 0.6s var(--ease) both;
-  animation-delay: calc(var(--n, 0) * 35ms);
-}
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(26px) scale(0.97);
-  }
 }
 .roll {
   position: relative;
   display: grid;
-  gap: 6px;
+  grid-template-columns: 104px 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 16px;
+  row-gap: 4px;
+  align-items: start;
   width: 100%;
   height: 100%;
-  padding: 10px 10px 14px;
+  padding: 12px;
   border: 0;
   border-radius: 10px;
-  background: rgba(246, 241, 231, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(246, 241, 231, 0.09);
+  background: rgba(246, 241, 231, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(246, 241, 231, 0.08);
   color: var(--ivory);
   text-align: left;
-  align-content: start;
   transition:
-    transform 0.35s var(--ease),
-    background-color 0.25s,
-    box-shadow 0.35s;
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .roll:hover,
 .roll:focus-visible {
-  transform: translateY(-4px);
-  background: rgba(246, 241, 231, 0.09);
-  box-shadow: inset 0 0 0 1px rgba(246, 241, 231, 0.18), 0 24px 40px -24px rgba(0, 0, 0, 0.9);
+  background: rgba(246, 241, 231, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(246, 241, 231, 0.18);
 }
 .roll__photo {
+  grid-row: 1 / span 3;
   display: grid;
   place-items: center;
+  width: 104px;
   overflow: hidden;
   border-radius: 6px;
   background: #fff;
@@ -377,13 +367,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-.roll:hover .roll__photo img {
-  transform: scale(1.07);
 }
 .roll__nophoto {
-  font-size: 13px;
+  padding: 6px;
+  font-size: 11.5px;
+  line-height: 1.2;
+  text-align: center;
   color: var(--ink-muted);
 }
 .roll__head {
@@ -391,11 +380,10 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 10px;
-  margin-top: 6px;
 }
 .roll__name {
   font-family: var(--serif);
-  font-size: 23px;
+  font-size: 22px;
   line-height: 1.05;
 }
 .roll__price {
@@ -408,10 +396,8 @@
   color: var(--ivory-muted);
 }
 .roll__tag {
-  position: absolute;
-  top: 18px;
-  left: 10px;
-  background: rgba(17, 19, 17, 0.85);
+  justify-self: start;
+  margin-left: 0;
 }
 
 /* ---------- Platters ---------- */
@@ -428,20 +414,11 @@
 }
 .platters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 28px 16px;
   margin-top: 44px;
 }
-.platters li {
-  animation: platter-in 0.8s var(--ease) both;
-  animation-delay: calc(var(--i) * 90ms + 100ms);
-}
-@keyframes platter-in {
-  from {
-    opacity: 0;
-    transform: translateY(40px) rotate(-30deg) scale(0.85);
-  }
-}
+
 .platter {
   display: grid;
   justify-items: center;
@@ -455,7 +432,7 @@
 }
 .platter__disc {
   display: block;
-  width: min(100%, 236px);
+  width: min(100%, 160px);
   aspect-ratio: 1;
   margin-bottom: 8px;
   filter: drop-shadow(0 28px 22px rgba(0, 0, 0, 0.6));
@@ -465,19 +442,15 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: lazy-susan 70s linear infinite;
+  transition: transform 1.2s cubic-bezier(0.25, 0.6, 0.3, 1);
 }
-.platters li:nth-child(even) .platter__disc img {
-  animation-direction: reverse;
-}
-@keyframes lazy-susan {
-  to {
-    transform: rotate(360deg);
-  }
+.platter:hover .platter__disc img,
+.platter:focus-visible .platter__disc img {
+  transform: rotate(12deg);
 }
 .platter:hover .platter__disc,
 .platter:focus-visible .platter__disc {
-  transform: translateY(-10px) scale(1.04);
+  transform: translateY(-4px);
 }
 .platter__name {
   font-family: var(--serif);
@@ -540,16 +513,10 @@
     column-gap: 16px;
   }
 }
-@media (min-width: 1200px) {
-  .wall {
-    columns: 4;
-  }
-}
+
 .wall__item {
   break-inside: avoid;
   margin-bottom: 12px;
-  animation: card-in 0.7s var(--ease) both;
-  animation-delay: calc(var(--n) * 45ms);
 }
 @media (min-width: 768px) {
   .wall__item {
@@ -569,15 +536,11 @@
 .wall__button img {
   width: 100%;
   height: auto;
-  transition: transform 0.8s var(--ease), filter 0.5s;
-}
-.wall__item:not(.wall__item--tall) .wall__button img {
-  aspect-ratio: 1;
-  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.25, 0.6, 0.3, 1);
 }
 .wall__button:hover img,
 .wall__button:focus-visible img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 .wall__button:focus-visible {
   outline: 2px solid var(--ivory);
@@ -743,14 +706,7 @@
   object-fit: cover;
   object-position: 50% 40%;
 }
-.is-entering .visit__frame img {
-  animation: settle 1.4s var(--ease) both;
-}
-@keyframes settle {
-  from {
-    transform: scale(1.08);
-  }
-}
+
 .visit__photo figcaption {
   margin-top: 10px;
   color: var(--ivory-muted);
@@ -819,13 +775,6 @@
   height: 9px;
   border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 0 0 currentColor;
-  animation: pulse 2.4s ease-out infinite;
-}
-@keyframes pulse {
-  70% {
-    box-shadow: 0 0 0 7px transparent;
-  }
 }
 .hours__table {
   width: 100%;
@@ -935,9 +884,4 @@
   width: 100%;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .platter__disc img,
-  .hours__dot {
-    animation: none;
-  }
-}
+

@@ -1,127 +1,102 @@
-/* The counter scene: room light, headline, tasting fan, and the belt on the wood counter. */
+/* The counter: a full-bleed photo of Okeno's rolls, the headline, and the belt along the bottom. */
 
 .scene--counter {
   display: flex;
   flex-direction: column;
-  background: #0f110f;
-  isolation: isolate;
+  background: #0d0f0d;
 }
 html:not(.js) .scene--counter {
   min-height: 100svh;
 }
 
-/* The real dining room, blurred into light. */
-.counter__room {
+/* ---------- Hero photo ---------- */
+.hero {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero__frame {
   position: absolute;
   inset: 0;
   z-index: -2;
   overflow: hidden;
 }
-.counter__room img {
+.hero__img {
   position: absolute;
-  inset: -8%;
-  width: 116%;
-  height: 116%;
-  max-width: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  filter: blur(28px) saturate(1.25) brightness(0.42);
-  transform: translate(calc(var(--px, 0) * -22px), calc(var(--py, 0) * -14px)) scale(1.04);
-  transition: transform 1.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+  object-position: 62% 58%;
+  transform-origin: 60% 60%;
+  /* A very slow drift closer, once. */
+  animation: slow-push 28s cubic-bezier(0.2, 0.35, 0.3, 1) forwards;
 }
-.counter__glow {
+@keyframes slow-push {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.045);
+  }
+}
+.hero__shade {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(38% 30% at 72% 22%, rgba(255, 196, 120, 0.22), transparent 70%),
-    radial-gradient(30% 26% at 18% 12%, rgba(255, 170, 90, 0.14), transparent 70%),
-    radial-gradient(120% 90% at 50% 40%, transparent 40%, rgba(5, 6, 5, 0.75) 100%);
-  animation: lantern 9s ease-in-out infinite alternate;
-}
-@keyframes lantern {
-  to {
-    opacity: 0.78;
-  }
+    linear-gradient(90deg, rgba(9, 10, 9, 0.9) 0%, rgba(9, 10, 9, 0.66) 30%, rgba(9, 10, 9, 0.12) 58%, rgba(9, 10, 9, 0) 72%),
+    linear-gradient(0deg, rgba(9, 10, 9, 0.75) 0%, rgba(9, 10, 9, 0) 26%),
+    linear-gradient(180deg, rgba(9, 10, 9, 0.6) 0%, rgba(9, 10, 9, 0) 20%);
 }
 
-.counter__stage {
-  flex: 1;
-  display: grid;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  max-width: calc(var(--max) + var(--gutter) * 2);
-  margin-inline: auto;
-  padding: calc(var(--top-h) + 18px) max(var(--gutter), env(safe-area-inset-right)) 22px max(var(--gutter), env(safe-area-inset-left));
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: calc(620px + max(var(--gutter), (100vw - var(--max)) / 2));
+  padding: calc(var(--top-h) + 20px) var(--gutter) 40px max(var(--gutter), calc((100vw - var(--max)) / 2));
 }
-@media (min-width: 1024px) {
-  .counter__stage {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-    gap: 40px;
-  }
-}
-
-.counter__title {
-  position: relative;
-  margin-top: 16px;
-  max-width: 13ch;
+.hero__title {
+  margin-top: 18px;
+  max-width: 11ch;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: min(clamp(2.6rem, 1.2rem + 4.8vw, 6.4rem), 8.4svh);
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  font-size: min(clamp(3rem, 1.4rem + 4.4vw, 6.6rem), 9.6svh);
+  line-height: 0.95;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
   outline: none;
 }
-.word {
-  display: inline-block;
-  white-space: pre;
+.hero__title em {
+  font-style: italic;
+  color: #f7e6d6;
 }
-.brushed {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-  color: #fff6e6;
-}
-.brush {
-  position: absolute;
-  left: -2%;
-  width: 104%;
-  bottom: -0.1em;
-  height: 0.3em;
-  pointer-events: none;
-  overflow: visible;
-}
-.brush path {
-  fill: none;
-  stroke: var(--vermilion);
-  stroke-width: 7;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  opacity: 0.95;
-}
-.counter__lede {
-  max-width: 34ch;
+.hero__lede {
   margin-top: 20px;
-  font-size: clamp(1.05rem, 0.98rem + 0.4vw, 1.25rem);
-  color: var(--ivory-muted);
+  max-width: 30ch;
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.22rem);
+  color: rgba(246, 241, 231, 0.82);
 }
-.counter__actions {
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 30px;
 }
-.counter__meta {
+.hero__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 18px;
-  margin-top: 22px;
+  gap: 2px 18px;
+  margin-top: 24px;
   font-size: 14px;
-  color: var(--ivory-muted);
+  color: rgba(246, 241, 231, 0.72);
 }
-.counter__meta a {
+.hero__meta a {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -129,7 +104,7 @@ html:not(.js) .scene--counter {
   min-height: 44px;
   text-decoration: none;
 }
-.counter__meta a:hover {
+.hero__meta a:hover {
   color: var(--ivory);
 }
 .rating strong {
@@ -143,180 +118,52 @@ html:not(.js) .scene--counter {
 .rating__date {
   color: rgba(246, 241, 231, 0.55);
 }
-@media (max-height: 760px) {
-  .counter__meta {
-    display: none;
-  }
-}
 
-/* Entrance: on arrival it waits for the curtain; on a later visit it starts at once. */
+/* Arrival: the curtain parts onto a dark room whose lights come up; then the words. */
 .scene--counter {
-  --d: 0.1s;
+  --d: 0.05s;
 }
 .arrive .scene--counter {
-  --d: 1.7s;
+  --d: 1.85s;
 }
-.arrive .scene--counter .word,
-.scene--counter.is-entering .word,
-.arrive .scene--counter .counter__rise,
-.scene--counter.is-entering .counter__rise {
-  animation: word-rise 0.75s var(--ease) both;
-  animation-delay: calc(var(--d) + var(--i, 0) * 75ms);
+.arrive .hero__frame {
+  animation: lights-up 1.6s ease 1.5s both;
 }
-@keyframes word-rise {
+@keyframes lights-up {
   from {
-    opacity: 0;
-    transform: translateY(0.45em) rotate(2deg);
-    filter: blur(6px);
+    opacity: 0.25;
+    filter: brightness(0.5);
   }
 }
-.arrive .scene--counter .brush path,
-.scene--counter.is-entering .brush path {
-  animation: brush 0.7s cubic-bezier(0.6, 0, 0.3, 1) both;
-  animation-delay: calc(var(--d) + 0.62s);
+.arrive .hero__in,
+.scene--counter.is-entering .hero__in {
+  animation: copy-in 0.8s cubic-bezier(0.25, 0.6, 0.3, 1) both;
+  animation-delay: calc(var(--d) + var(--i, 0) * 90ms);
 }
-@keyframes brush {
+@keyframes copy-in {
   from {
-    stroke-dashoffset: 1;
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
 
-/* ---------- Tasting fan ---------- */
-.fan {
-  display: none;
-  position: relative;
-  justify-self: center;
-  width: min(100%, 520px, 54svh);
-  aspect-ratio: 1.05;
-}
-@media (min-width: 1024px) {
-  .fan {
-    display: block;
-  }
-}
-.fan__card {
-  --r: -8deg;
-  --depth: 18;
-  position: absolute;
-  width: 56%;
-  padding: 10px 10px 0;
-  border: 0;
-  border-radius: 6px;
-  background: #fbf7ee;
-  color: var(--ink);
-  box-shadow: 0 30px 50px -22px rgba(0, 0, 0, 0.9), 0 2px 0 rgba(255, 255, 255, 0.6) inset;
-  transform: translate(calc(var(--px, 0) * var(--depth) * 1px), calc(var(--py, 0) * var(--depth) * 1px)) rotate(var(--r));
-  transition:
-    transform 0.7s var(--ease),
-    box-shadow 0.4s;
-  text-align: left;
-}
-.fan__card--0 {
-  left: 0;
-  top: 14%;
-  --r: -9deg;
-  --depth: 14;
-}
-.fan__card--1 {
-  left: 40%;
-  top: 0;
-  --r: 6deg;
-  --depth: 26;
-  z-index: 2;
-}
-.fan__card--2 {
-  left: 24%;
-  top: 40%;
-  --r: -2deg;
-  --depth: 36;
-  z-index: 3;
-}
-.fan:hover .fan__card--0 {
-  --r: -14deg;
-  transform: translate(-18px, 6px) rotate(var(--r));
-}
-.fan:hover .fan__card--1 {
-  --r: 11deg;
-  transform: translate(22px, -14px) rotate(var(--r));
-}
-.fan:hover .fan__card--2 {
-  transform: translate(0, 26px) rotate(var(--r));
-}
-.fan__card:hover,
-.fan__card:focus-visible {
-  z-index: 4;
-  box-shadow: 0 40px 60px -22px rgba(0, 0, 0, 0.95);
-}
-.fan__photo {
-  display: block;
-  overflow: hidden;
-  border-radius: 3px;
-  aspect-ratio: 1;
-  animation: bob 6s ease-in-out infinite alternate;
-  animation-delay: calc(var(--c) * -2s);
-}
-.fan__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
-}
-.fan__card:hover .fan__photo img {
-  transform: scale(1.06);
-}
-.fan__label {
-  display: block;
-  padding: 9px 4px 11px;
-  font-family: var(--serif);
-  font-size: 19px;
-  line-height: 1.1;
-}
-@keyframes bob {
-  to {
-    transform: translateY(-5px);
-  }
-}
-.arrive .fan__card,
-.scene--counter.is-entering .fan__card {
-  animation: deal 0.9s var(--ease) both;
-  animation-delay: calc(var(--d) + 0.25s + var(--c) * 0.12s);
-}
-@keyframes deal {
-  from {
-    opacity: 0;
-    transform: translate(60px, 40px) rotate(18deg) scale(0.9);
-  }
-}
-
-/* ---------- The wood counter and the belt ---------- */
-.counter__wood {
+/* ---------- Belt ---------- */
+.counter__belt {
   position: relative;
   flex: none;
-  padding: 16px 0 calc(var(--dock-space) + 10px);
-  background:
-    linear-gradient(180deg, rgba(255, 228, 180, 0.35), rgba(255, 228, 180, 0) 3px),
-    repeating-linear-gradient(178deg, rgba(90, 50, 15, 0.12) 0 2px, transparent 2px 11px),
-    repeating-linear-gradient(181deg, rgba(255, 235, 200, 0.06) 0 1px, transparent 1px 17px),
-    linear-gradient(180deg, #c99254, #b27a41 45%, #8f5d2e);
-  box-shadow: 0 -18px 40px -10px rgba(0, 0, 0, 0.7);
+  padding: 12px 0 calc(var(--dock-space) + 12px);
+  background: #0d0f0d;
+  box-shadow: 0 -1px 0 rgba(246, 241, 231, 0.08);
 }
-.counter__wood::before {
-  /* Counter edge. */
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -6px;
-  height: 6px;
-  background: linear-gradient(180deg, #e2b77d, #a8733d);
+.counter__belt-label {
+  padding: 0 max(var(--gutter), calc((100vw - var(--max)) / 2));
+  margin-bottom: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 231, 0.6);
 }
-@media (min-width: 1024px) {
-  /* The floating dock is 20px off the bottom and about 62px tall: clear it by a little. */
-  .counter__wood {
-    padding-bottom: 92px;
-  }
-}
-
 .belt {
   position: relative;
 }
@@ -326,14 +173,6 @@ html:not(.js) .scene--counter {
   overflow-y: hidden;
   scrollbar-width: none;
   cursor: grab;
-  padding: 0;
-  background: #161816;
-  box-shadow:
-    inset 0 6px 0 #9aa09a,
-    inset 0 8px 0 #4c514c,
-    inset 0 -6px 0 #9aa09a,
-    inset 0 -8px 0 #4c514c,
-    0 10px 24px -8px rgba(0, 0, 0, 0.7);
 }
 .belt__track::-webkit-scrollbar {
   display: none;
@@ -343,77 +182,47 @@ html:not(.js) .scene--counter {
 }
 .belt__plates {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: max-content;
-  padding: 18px 0 14px;
-  /* Slats travel with the plates. */
-  background-image: repeating-linear-gradient(90deg, #232623 0 54px, #121412 54px 56px);
+  padding: 6px 0 4px;
 }
 .plate {
   flex: none;
-  padding: 0 14px;
+  padding: 0 12px;
 }
 .plate__button {
   display: grid;
   justify-items: center;
   gap: 8px;
+  width: 128px;
   padding: 0;
   border: 0;
   background: none;
   color: var(--ivory);
   cursor: inherit;
 }
-.plate__ride {
-  display: block;
-  animation: ride 3.4s ease-in-out infinite alternate;
-  animation-delay: calc(var(--k) * -0.8s);
-}
-@keyframes ride {
-  from {
-    transform: rotate(-1.4deg);
-  }
-  to {
-    transform: rotate(1.4deg) translateY(-2px);
-  }
-}
 .plate__dish {
   display: block;
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s;
-}
-.plate--round .plate__dish {
-  width: 128px;
-  height: 128px;
-  padding: 8px;
+  width: 104px;
+  height: 104px;
+  padding: 5px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ffffff, #ece6da 60%, #cfc6b5);
-  box-shadow: 0 12px 18px -8px rgba(0, 0, 0, 0.8), inset 0 0 0 3px rgba(185, 53, 43, 0.85);
+  background: linear-gradient(150deg, #fbf8f2, #e4ddcf);
+  box-shadow: 0 10px 18px -10px rgba(0, 0, 0, 0.9);
+  transition:
+    transform 0.45s cubic-bezier(0.25, 0.6, 0.3, 1),
+    box-shadow 0.45s ease;
 }
-.plate--round .plate__dish img {
+.plate__dish img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
-.plate--long .plate__dish {
-  width: 206px;
-  padding: 7px;
-  border-radius: 8px;
-  background: linear-gradient(160deg, #ffffff, #ebe5d8);
-  box-shadow: 0 12px 18px -8px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(23, 26, 23, 0.85);
-}
-.plate--long .plate__dish img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 182 / 100;
-  object-fit: cover;
-  border-radius: 4px;
-}
 .plate__button:hover .plate__dish,
 .plate__button:focus-visible .plate__dish {
-  transform: translateY(-10px) scale(1.06);
-  box-shadow: 0 26px 26px -12px rgba(0, 0, 0, 0.9), inset 0 0 0 3px rgba(185, 53, 43, 0.85);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 22px -12px rgba(0, 0, 0, 0.95);
 }
 .plate__button:focus-visible {
   outline: none;
@@ -423,106 +232,101 @@ html:not(.js) .scene--counter {
   outline-offset: 3px;
 }
 .plate__tag {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  max-width: 220px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(10, 11, 10, 0.7);
+  display: grid;
+  justify-items: center;
+  max-width: 128px;
   font-size: 13px;
-  white-space: nowrap;
+  line-height: 1.25;
+  text-align: center;
 }
 .plate__name {
-  font-weight: 600;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
 }
 .plate__price {
-  color: #f0b39f;
+  color: rgba(246, 241, 231, 0.65);
   font-variant-numeric: tabular-nums;
 }
 .belt__toggle {
   position: absolute;
-  right: max(10px, env(safe-area-inset-right));
-  top: -46px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: 0 14px;
-  border: 1px solid rgba(246, 241, 231, 0.3);
-  border-radius: 999px;
-  background: rgba(14, 16, 14, 0.7);
-  color: var(--ivory);
-  font-size: 13px;
-  font-weight: 600;
-  backdrop-filter: blur(6px);
+  right: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  top: -42px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(246, 241, 231, 0.22);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(246, 241, 231, 0.8);
+  transition: border-color 0.2s, color 0.2s;
 }
 .belt__toggle:hover {
-  background: rgba(14, 16, 14, 0.92);
+  border-color: var(--ivory);
+  color: var(--ivory);
 }
-@media (max-width: 599.98px) {
-  .belt__toggle span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
+
+/* ---------- Phones and portrait tablets: photo on top, words below ---------- */
+@media (max-width: 1023.98px) {
+  .scene--counter {
+    display: block;
   }
-  .belt__toggle {
-    width: 44px;
-    padding: 0;
-    justify-content: center;
+  .hero {
+    flex: none;
+    overflow: visible;
   }
-  .plate--round .plate__dish {
-    width: 108px;
-    height: 108px;
+  .hero__frame {
+    position: relative;
+    inset: auto;
+    height: min(58svh, 640px);
   }
-  .plate--long .plate__dish {
-    width: 176px;
+  .hero__img {
+    object-position: 50% 62%;
   }
-  .plate {
-    padding: 0 10px;
+  .hero__shade {
+    bottom: auto;
+    height: min(58svh, 640px);
+    background:
+      linear-gradient(0deg, #0d0f0d 0%, rgba(13, 15, 13, 0) 38%),
+      linear-gradient(180deg, rgba(9, 10, 9, 0.65) 0%, rgba(9, 10, 9, 0) 22%);
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  .plate__ride,
-  .fan__photo,
-  .counter__glow {
-    animation: none;
+  .hero__copy {
+    height: auto;
+    max-width: none;
+    margin-top: -88px;
+    padding: 0 max(var(--gutter), env(safe-area-inset-right)) 30px max(var(--gutter), env(safe-area-inset-left));
+  }
+  .hero__title {
+    font-size: clamp(2.6rem, 1.6rem + 4.6vw, 4.4rem);
+    max-width: 12ch;
+  }
+  .counter__belt {
+    padding-top: 18px;
   }
 }
 
-/* Short laptop screens (720 to 820px tall): keep the whole belt above the dock. */
-@media (max-height: 820px) and (min-width: 1024px) {
-  .counter__title {
-    max-width: 18ch;
-  }
-  .counter__lede {
-    margin-top: 12px;
-  }
-  .counter__actions {
-    margin-top: 18px;
-  }
-  .counter__meta {
+/* ---------- Short laptop screens: keep everything on one screen ---------- */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .hero__meta {
     display: none;
   }
-  .fan {
-    width: min(100%, 520px, 46svh);
+  .hero__actions {
+    margin-top: 22px;
   }
-  .counter__wood {
-    padding-top: 12px;
-    padding-bottom: 80px;
+  .counter__belt-label {
+    margin-bottom: 4px;
   }
-  .belt__plates {
-    padding: 14px 0 10px;
+  .plate__dish {
+    width: 92px;
+    height: 92px;
   }
-  .plate--round .plate__dish {
-    width: 104px;
-    height: 104px;
-  }
-  .plate--long .plate__dish {
-    width: 172px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__img {
+    animation: none;
   }
 }

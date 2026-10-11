@@ -51,50 +51,24 @@ export function dish(name: string): DishInfo {
 export const PLATTER_PHOTOS = PHOTOS.filter((p) => p.kind === "platter");
 
 /**
- * The dishes that ride the counter belt, in order: real photos only, alternating the restaurant's
- * long roll plates (printed menu) with round plates (ordering page).
+ * The dishes that ride the counter belt: the restaurant's ordering-page photos, the largest dish
+ * photos available, on round plates small enough that they stay sharp on high-density screens.
  */
 export const BELT: DishInfo[] = [
-  "Shirley Roll",
-  "Spicy Tuna Roll",
-  "Godzilla",
   "Sashimi Regular",
-  "Red Dragon",
+  "Spicy Tuna Roll",
+  "Sushi & Sashimi Combo For 2",
   "California Roll",
-  "Golden Shrimp Tempura",
   "Gyoza (Pork)",
-  "Eel Dragon",
-  "Sushi & Sashimi Combo For 2",
-  "Scorpion",
   "Spicy Salmon Roll",
-  "Fancy Lobster Roll",
+  "Xanadu Roll",
   "Edamame",
-  "Volcano Roll",
-  "Seaweed Salad",
-  "Sun Kissed Roll",
-  "Shrimp & Veg Tempura",
-  "Ikura Salmon Roll",
-  "Chicken Vegetable Udon",
-  "Phoenix Roll",
-  "Spicy Kani Roll",
-].map((name) => {
-  const d = dish(name);
-  // Long rolls ride on long plates (printed photos); everything else on round plates.
-  return { ...d, photo: d.section === "special-rolls" ? photoFor(name, "printed") : photoFor(name, "ordering") ?? d.photo };
-});
-
-/** Photos for the gallery's food wall (largest available). */
-export const FOOD_WALL: DishInfo[] = [
-  "Sashimi Regular",
-  "Spicy Tuna Roll",
-  "Sushi & Sashimi Combo For 2",
-  "California Roll",
   "Chicken Teriyaki Bento",
-  "Gyoza (Pork)",
-  "Chicken Vegetable Udon",
-  "Edamame",
-  "Spicy Salmon Roll",
-  "Shrimp & Veg Tempura",
   "Seaweed Salad",
+  "Spicy Kani Roll",
+  "Shrimp & Veg Tempura",
+  "Chicken Vegetable Udon",
+  "Kani Salad",
+  "Fire Ball",
   "Spring Roll (Veg.)",
 ].map((name) => ({ ...dish(name), photo: photoFor(name, "ordering") }));

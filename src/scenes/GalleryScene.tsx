@@ -1,36 +1,8 @@
-import { useRef, useState, type CSSProperties } from "react";
-import { GALLERY, type Photo } from "../data/images";
-import { FOOD_WALL } from "../lib/dishes";
+import { useRef, useState } from "react";
+import { GALLERY as PHOTOS } from "../data/images";
 import { Lightbox } from "../components/Lightbox";
 
-/** The four photos of the place, then twelve of Okeno's own dish photos. */
-const PHOTOS: Photo[] = [
-  GALLERY[0],
-  ...FOOD_WALL.slice(0, 3).map(toPhoto),
-  GALLERY[1],
-  ...FOOD_WALL.slice(3, 7).map(toPhoto),
-  GALLERY[3],
-  ...FOOD_WALL.slice(7, 10).map(toPhoto),
-  GALLERY[2],
-  ...FOOD_WALL.slice(10).map(toPhoto),
-];
-
-function toPhoto(d: (typeof FOOD_WALL)[number]): Photo {
-  const p = d.photo!;
-  return {
-    id: `dish-${d.name}`,
-    alt: `${d.name} from Okeno Sushi`,
-    caption: d.name,
-    credit: "Photo: Okeno Sushi's online-ordering page",
-    width: p.width,
-    height: p.height,
-    src: p.src,
-    webp: p.webp,
-    srcSet: `${p.src} ${p.width}w`,
-    webpSet: `${p.webp} ${p.width}w`,
-  };
-}
-
+/** Eight photos of the food and the place, all at full resolution so none is shown blurry. */
 export function GalleryScene() {
   const [index, setIndex] = useState<number | null>(null);
   const triggers = useRef<(HTMLButtonElement | null)[]>([]);
@@ -44,7 +16,7 @@ export function GalleryScene() {
         </h2>
         <ul className="wall">
           {PHOTOS.map((photo, i) => (
-            <li key={photo.id} className={`wall__item${photo.height > photo.width * 1.1 ? " wall__item--tall" : ""}`} style={{ "--n": i } as CSSProperties}>
+            <li key={photo.id} className="wall__item">
               <button
                 type="button"
                 ref={(el) => {
@@ -57,8 +29,8 @@ export function GalleryScene() {
                 }}
               >
                 <picture>
-                  <source type="image/webp" srcSet={photo.webpSet} sizes="(min-width: 1024px) 25vw, 50vw" />
-                  <img src={photo.src} srcSet={photo.srcSet} sizes="(min-width: 1024px) 25vw, 50vw" alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+                  <source type="image/webp" srcSet={photo.webpSet} sizes="(min-width: 768px) 33vw, 50vw" />
+                  <img src={photo.src} srcSet={photo.srcSet} sizes="(min-width: 768px) 33vw, 50vw" alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
                 </picture>
                 <span className="wall__caption">{photo.caption}</span>
               </button>

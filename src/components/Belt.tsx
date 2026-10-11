@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { BELT } from "../lib/dishes";
 import { useScene } from "../lib/scenes";
 import { Plate } from "./Plate";
 import { PauseIcon, PlayIcon } from "./Icons";
 
 /** Belt speed in CSS pixels per second. */
-const SPEED = 38;
+const SPEED = 24;
 /** After the visitor drags, swipes or leaves the belt, it waits this long before moving again. */
 const RESUME_MS = 2200;
 
@@ -60,11 +60,11 @@ export function Belt({ active }: { active: boolean }) {
   };
 
   // Mouse drag to scroll (touch and trackpads scroll natively).
-  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== "mouse" || !track.current) return;
     drag.current = { x: event.clientX, left: track.current.scrollLeft, moved: false };
   };
-  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const d = drag.current;
     if (!d || !track.current) return;
     const dx = event.clientX - d.x;
@@ -131,7 +131,7 @@ export function Belt({ active }: { active: boolean }) {
       {!reduced && (
         <button type="button" className="belt__toggle" onClick={() => setPaused((p) => !p)} aria-pressed={paused}>
           {paused ? <PlayIcon /> : <PauseIcon />}
-          <span>{paused ? "Run the belt" : "Pause the belt"}</span>
+          <span className="sr-only">{paused ? "Run the belt" : "Pause the belt"}</span>
         </button>
       )}
     </div>
