@@ -6,8 +6,8 @@ arrival, a conveyor of the restaurant's real dishes, and full-screen scenes for 
 gallery and visit.
 
 **State (October 11, 2026).**
-- Second version, built after feedback on the first. The first version is on `master` and
-  deployed as a Vercel preview; this one is on branch `counter-experience`.
+- Second version, built after feedback on the first, merged into `master` (Vercel project
+  `okeno-sushi-demo`, team FluxlineSolutions; deployments are behind Vercel login, shared by link).
 - 42 of 42 browser checks pass (`verification/report.md`).
 - Feedback addressed:
   - the photo zoom-out is removed;
@@ -24,5 +24,5 @@ gallery and visit.
 - Not tested on real phones, Safari or iOS, or with screen readers.
 - The printed-menu photos are small (about 180 px), so the owner's originals would sharpen the site.
 
-**Next action.** Review the preview. If approved, merge `counter-experience` into `master`.
-Pushing `master` deploys production on Vercel, so that waits for the go-ahead.
+**Next action.** Show the owner. Then resolve the items in `OWNER-HANDOFF.md`, and decide on a
+public domain (making it public is a separate step from deploying).
