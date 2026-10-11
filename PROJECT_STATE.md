@@ -1,28 +1,28 @@
 # Project state
 
-**Objective.** A sales demo of a redesigned website for Okeno Sushi (451 Glen Drive, Shirley, NY).
-It follows the Okeno build prompt and the Cinematic Demo Playbook: an arrival film that hands over
-to an interactive storefront scene, then a full restaurant site with a readable menu.
+**Objective.** A sales demo of a redesigned website for Okeno Sushi (451 Glen Drive, Shirley, NY),
+in the spirit of the Fluxline demos but its own idea: take a seat at the counter. It has a noren
+arrival, a conveyor of the restaurant's real dishes, and full-screen scenes for the menu, platters,
+gallery and visit.
 
 **State (October 11, 2026).**
-- Built.
-- Verified locally: 61 of 61 browser checks pass (`verification/report.md`).
-- Not deployed. Committed to `master` on `Minerobot23/OkenoSushi`.
+- Second version, built after feedback on the first. The first version is on `master` and
+  deployed as a Vercel preview; this one is on branch `counter-experience`.
+- 42 of 42 browser checks pass (`verification/report.md`).
+- Feedback addressed:
+  - the photo zoom-out is removed;
+  - the replay button is removed;
+  - much more sushi (75 real dish photos) and much more motion;
+  - Fluxline-style format with a different concept.
 
-**Decisions.** See "Decisions made without asking" in `README.md`. The main one: the arrival film is
-a camera move over the real storefront photo, not a 3D render, because the restaurant is real and
-the brief forbids generated spaces.
-
-**Evidence.**
-- `verification/report.md` and `verification/screens/`, from a headless Chromium run against the
-  production build.
-- `ffprobe` output from `media/storefront-film/encode.sh`.
-- The ordering page check is recorded in `OWNER-HANDOFF.md`.
+**Evidence.** `verification/report.md` and `verification/screens/`, plus
+`media/dishes/contact-sheet.jpg` for the photo-to-name mapping.
 
 **Remaining issues.**
+- Photo permissions.
 - The ordering page said "temporarily unavailable" when checked.
-- Photo permissions are open.
 - Not tested on real phones, Safari or iOS, or with screen readers.
+- The printed-menu photos are small (about 180 px), so the owner's originals would sharpen the site.
 
-**Next action.** The owner reviews the demo and `OWNER-HANDOFF.md`. Then choose hosting and deploy a
-preview, which needs the owner's go-ahead because it publishes the site.
+**Next action.** Review the preview. If approved, merge `counter-experience` into `master`.
+Pushing `master` deploys production on Vercel, so that waits for the go-ahead.

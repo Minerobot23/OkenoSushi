@@ -72,22 +72,3 @@ export const MENU_SCANS = [1, 2, 3, 4].map((n) => ({
   height: 992,
   alt: `Printed menu, page ${n} of 4`,
 }));
-
-/**
- * The arrival film (media/storefront-film/). "tall" is 4:5, "wide" is 4:3. Each cut exists as VP9
- * WebM (smaller) and H.264 MP4 (Safari and older browsers); the player requests only one.
- */
-export const FILM = {
-  tall: {
-    webm: "/film/arrival-tall.webm",
-    video: "/film/arrival-tall.mp4",
-    poster: "/film/arrival-tall-poster.jpg",
-    end: "/film/arrival-tall-end.webp",
-  },
-  wide: {
-    webm: "/film/arrival-wide.webm",
-    video: "/film/arrival-wide.mp4",
-    poster: "/film/arrival-wide-poster.jpg",
-    end: "/film/arrival-wide-end.webp",
-  },
-} as const;

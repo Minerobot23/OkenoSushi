@@ -1,71 +1,52 @@
 # Verification report
 
-Run against http://localhost:4173/ on 2026-10-11T21:41:47.539Z with Playwright Chromium (headless).
+Run against http://localhost:4173/ on 2026-10-11T22:47:11.326Z with Playwright Chromium (headless).
 
-**61 of 61 checks passed.**
+**42 of 42 checks passed.**
 
 | Group | Check | Result | Detail |
 | --- | --- | --- | --- |
-| Film | plays after 3 s | pass | t=3.01 arrival-tall.webm |
-| Film | plays in real time | pass | rate 1.00x, samples 3.0, 5.0, 7.0 |
-| Film | plays to the end, hands over to the scene | pass | 4 hotspots |
-| Console | no errors (desktop film run) | pass |  |
-| Film | 390px gets the tall cut | pass | arrival-tall.webm |
-| Film | 768px gets the wide cut | pass | arrival-wide.webm |
-| Film | 1440px gets the tall cut | pass | arrival-tall.webm |
-| Film | 2560px gets the wide cut | pass | arrival-wide.webm |
-| Film | pause holds, play resumes | pass | 2.08 → 2.08 → 3.59 |
-| Film | Skip at 2 s opens the scene | pass |  |
-| Film | Replay restarts the film | pass | t=1.98 |
-| Film | navigation during the film is not undone | pass | menu top at 84px after the film ended |
-| Film | reduced motion: no film, scene at once | pass | video=0 replay=0 |
-| Film | blocked film file falls through to the scene | pass |  |
-| Film | no requestAnimationFrame: scene still reached | pass | hero title opacity 1 |
-| Hero | headline visible without animation frames | pass |  |
-| Hotspots | audit at 11 sizes: on screen, unclipped, apart, 44px targets | pass |  |
-| Layout 390 | no horizontal overflow | pass | 0px |
-| Layout 390 | no broken images | pass |  |
-| Layout 390 | images have alt text and dimensions | pass |  |
-| Layout 390 | every in-page link has a target | pass |  |
-| Layout 390 | touch targets at least 40px | pass |  |
-| Layout 390 | mobile bar never covers the end of the page | pass |  |
-| Layout 390 | exactly one h1 | pass |  |
-| Console 390 | no errors | pass |  |
-| Layout 768 | no horizontal overflow | pass | 0px |
-| Layout 768 | no broken images | pass |  |
-| Layout 768 | images have alt text and dimensions | pass |  |
-| Layout 768 | every in-page link has a target | pass |  |
-| Layout 768 | touch targets at least 40px | pass |  |
-| Layout 768 | mobile bar never covers the end of the page | pass |  |
-| Layout 768 | exactly one h1 | pass |  |
-| Console 768 | no errors | pass |  |
-| Layout 1440 | no horizontal overflow | pass | 0px |
-| Layout 1440 | no broken images | pass |  |
-| Layout 1440 | images have alt text and dimensions | pass |  |
-| Layout 1440 | every in-page link has a target | pass |  |
-| Layout 1440 | touch targets at least 40px | pass |  |
-| Layout 1440 | mobile bar never covers the end of the page | pass |  |
-| Layout 1440 | exactly one h1 | pass |  |
-| Console 1440 | no errors | pass |  |
-| Menu | tab switches the panel | pass |  |
-| Menu | arrow keys move between tabs | pass | focused Kitchen |
-| Menu | search finds dishes across categories | pass | 17 dishes match “eel” |
+| Arrival | noren arrival runs and ends by itself | pass | {"arrive":false,"noren":"hidden","title":"1"} |
+| Console | no errors (desktop arrival) | pass |  |
+| Arrival | a click skips the arrival | pass |  |
+| Arrival | the dock works during the arrival | pass |  |
+| Arrival | reduced motion: no arrival at all | pass | {"arrive":false,"noren":"none"} |
+| Belt | reduced motion: the belt does not move by itself | pass |  |
+| Belt | reduced motion: no pause control is needed | pass |  |
+| Arrival | no animation frames: arrival still ends, headline visible | pass | {"arrive":false,"title":"1"} |
+| Scenes | no animation frames: scenes still switch | pass |  |
+| Fallback | without JavaScript every scene is readable as one page | pass | {"scenes":5,"menuText":true,"hours":true} |
+| Scenes | every dock link opens its scene and moves focus to its heading | pass |  |
+| Scenes | the back button returns to the previous scene | pass |  |
+| Console | no errors (scene tour) | pass |  |
+| Scenes | a deep link (#visit) opens that scene before anything else | pass |  |
+| Scenes | two quick clicks during a curtain wipe end on the last one | pass | platters |
+| Belt | the belt advances by itself | pass | 137 → 213 |
+| Belt | hovering stops the belt | pass |  |
+| Belt | Pause the belt holds it | pass |  |
+| Belt | dragging scrolls without opening a dish | pass |  |
+| Belt | each dish is reachable by keyboard once (the loop copy is hidden) | pass | {"focusable":22,"clonesHidden":true} |
+| Dish sheet | a plate opens its dish | pass | Godzilla |
+| Dish sheet | Tab stays inside the sheet | pass |  |
+| Dish sheet | Escape closes it and focus returns to the plate | pass | Godzilla |
+| Dish sheet | Find it on the menu opens the menu searched for the dish | pass | Godzilla |
+| Menu | 45 special rolls as cards, 43 with their own photo | pass | {"cards":45,"photos":43} |
+| Menu | all roll photos load | pass | 0 broken |
+| Menu | tabs switch the panel | pass |  |
+| Menu | arrow keys move between tabs | pass |  |
+| Menu | search finds dishes across categories | pass |  |
 | Menu | search ignores accents | pass |  |
 | Menu | empty state | pass |  |
-| Menu | clearing the search restores the tab | pass |  |
-| Menu | Show all expands the preview | pass | 12 → 45 |
-| Mobile nav | opens, focuses the panel, Escape closes and returns focus | pass |  |
-| Mobile nav | a link closes the menu and goes to the section | pass | visit top 72 |
-| Lightbox | opens with focus on Close, arrows move, Tab is trapped | pass | 2 / 4 |
-| Lightbox | Escape closes and focus returns to the photo | pass |  |
-| Lightbox | swipe moves to the next photo | pass |  |
-| Original menu | opens labelled as a reference, shows 4 pages, Escape closes | pass | 4 pages |
+| Menu | a menu row opens the dish sheet | pass |  |
+| Menu | original printed menu: labelled as a reference, 4 pages, Escape closes | pass |  |
+| Platters | five real platters load; catering calls the restaurant | pass | {"count":5,"loaded":5,"tel":"tel:+16316688188"} |
+| Gallery | 16 photos; lightbox opens on Close, arrows move, Escape returns focus | pass | 2 / 16 |
 | Hours | open/closed computed in New York time from a Los Angeles browser | pass |  |
+| Layout | 9 sizes × 5 scenes: no overflow, no broken images, 40px targets, bars clear | pass |  |
 | Links | phone links all dial +1 631 668 8188 | pass | tel:+16316688188 |
 | Links | new-tab links use rel=noopener | pass |  |
-| Links | external links are only the ordering page and Google Maps | pass | https://order.mealkeyway.com/customer/release/index?mid=46446152716f555a75486368787758744767753937673d3d , https://www.google.com/maps/dir/?api=1&destination=Okeno+Sushi+451+Glen+Dr+Shirley+NY , https://www.google.com/maps/search/?api=1&query=Okeno+Sushi+451+Glen+Dr+Shirley+NY&query_place_id=ChIJi_5RpCVb6IkRGTkRnC8s4h4 |
+| Links | external links are only the ordering page and Google Maps | pass | https://order.mealkeyway.com/customer/release/index?mid=46446152716f555a75486368787758744767753937673d3d , https://www.google.com/maps/search/?api=1&query=Okeno+Sushi+451+Glen+Dr+Shirley+NY&query_place_id=ChIJi_5RpCVb6IkRGTkRnC8s4h4 , https://www.google.com/maps/dir/?api=1&destination=Okeno+Sushi+451+Glen+Dr+Shirley+NY |
 | SEO | Restaurant structured data, no ratings or reviews | pass |  |
-| SEO | title, description and favicon | pass | Okeno Sushi / Sushi & Japanese food on Glen Drive, Shirley, NY |
-| SEO | page content is prerendered HTML (menu included) | pass |  |
+| SEO | content is prerendered HTML (menu and belt included) | pass |  |
 
-Not covered here: real phones, Safari (it will receive the H.264 MP4; headless Chromium played the VP9 WebM), screen readers, and the ordering provider's own pages.
+Not covered here: real phones, Safari and iOS, screen readers, and the ordering provider's own pages.

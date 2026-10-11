@@ -14,17 +14,30 @@
     <meta property="og:type" content="restaurant" />
     <meta property="og:title" content="Okeno Sushi · Shirley, NY" />
     <meta property="og:description" content="Sushi, sashimi, and Japanese favorites on Glen Drive." />
-    <meta property="og:image" content="/film/arrival-wide-end.webp" />
-    <!-- Same media queries as WIDE_CUT in src/experience/cuts.ts. -->
-    <link rel="preload" as="image" href="/film/arrival-tall-poster.jpg" media="(max-width: 599.98px), (min-width: 1024px) and (max-aspect-ratio: 19/10)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/film/arrival-wide-poster.jpg" media="(min-width: 600px) and (max-width: 1023.98px), (min-width: 1024px) and (min-aspect-ratio: 19/10)" fetchpriority="high" />
+    <meta property="og:image" content="/images/dishes/ordering-sushi-sashimi-combo-for-2.jpg" />
+    <link rel="preload" as="image" href="/images/counter-768.jpg" />
     <script>
-      // Hero entrance: CSS plays it from first paint; this timer writes the end state even if the
-      // animation never runs (Cinematic Demo Playbook: no access waits on an animation).
-      document.documentElement.classList.add("intro");
-      setTimeout(function () {
-        document.documentElement.classList.remove("intro");
-      }, 2200);
+      // Before first paint: switch to the scene layout, show the scene named in the URL, and start
+      // the noren arrival. index.html ends the arrival on a timer even if no script below runs
+      // (Cinematic Demo Playbook: nothing waits on an animation). Reduced motion skips it.
+      (function () {
+        var d = document.documentElement;
+        var ids = ["counter", "menu", "platters", "gallery", "visit"];
+        var h = location.hash.slice(1);
+        d.classList.add("js");
+        d.setAttribute("data-scene", ids.indexOf(h) >= 0 ? h : "counter");
+        // Until the app takes over (window.__okeno), links to a scene still switch it.
+        window.addEventListener("hashchange", function () {
+          var id = location.hash.slice(1);
+          if (!window.__okeno && ids.indexOf(id) >= 0) d.setAttribute("data-scene", id);
+        });
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          d.classList.add("arrive");
+          setTimeout(function () {
+            d.classList.remove("arrive");
+          }, 2900);
+        }
+      })();
     </script>
     <!--structured-data-->
   </head>

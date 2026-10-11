@@ -27,7 +27,6 @@
   --gutter: 16px;
   --max: 1240px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --bar-h: 0px;
 
   color-scheme: light;
 }
@@ -41,11 +40,6 @@
   :root {
     --header-h: 76px;
     --gutter: 44px;
-  }
-}
-@media (max-width: 767.98px) {
-  :root {
-    --bar-h: calc(68px + env(safe-area-inset-bottom));
   }
 }
 
@@ -79,7 +73,6 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  padding-bottom: var(--bar-h);
   overflow-x: clip;
 }
 
@@ -91,6 +84,10 @@ svg {
 }
 img {
   height: auto;
+}
+/* <picture> only chooses a file; let the <img> inside lay out as if it were the direct child. */
+picture {
+  display: contents;
 }
 
 a {
@@ -200,6 +197,8 @@ ul {
   padding: 0 22px;
   border: 1px solid transparent;
   border-radius: 3px;
+  background: transparent;
+  color: inherit;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -246,6 +245,7 @@ ul {
 }
 .button--ghost {
   border-color: rgba(246, 241, 231, 0.4);
+  background: rgba(17, 19, 17, 0.25);
   color: var(--ivory);
 }
 .button--ghost:hover {
@@ -343,8 +343,9 @@ figcaption {
     opacity: 1;
     transform: none;
   }
-  .mobile-bar,
-  .header {
+  .dock,
+  .topbar,
+  .noren {
     display: none;
   }
 }

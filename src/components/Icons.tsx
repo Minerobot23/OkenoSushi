@@ -66,3 +66,41 @@ export const StarIcon = (p: IconProps) => (
     <path d="m12 3.6 2.5 5.3 5.8.7-4.3 4 1.1 5.8L12 16.6l-5.1 2.8L8 13.6l-4.3-4 5.8-.7L12 3.6Z" />
   </svg>
 );
+export const HomeIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M4 11.5 12 5l8 6.5" />
+    <path d="M6.5 10v9h11v-9" />
+  </svg>
+);
+export const MenuBookIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M5 4.5h10a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2V4.5Z" />
+    <path d="M8.5 9h5M8.5 12.5h5M17 7h2v13h-2" />
+  </svg>
+);
+export const PlatterIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <ellipse cx="12" cy="13" rx="9" ry="6.5" />
+    <circle cx="9" cy="12" r="1.8" />
+    <circle cx="13.5" cy="11" r="1.8" />
+    <circle cx="13" cy="15" r="1.8" />
+  </svg>
+);
+export const GridIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="4" y="4" width="7" height="9" rx="1" />
+    <rect x="13" y="4" width="7" height="6" rx="1" />
+    <rect x="4" y="15" width="7" height="5" rx="1" />
+    <rect x="13" y="12" width="7" height="8" rx="1" />
+  </svg>
+);
+export const PauseIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M9 6v12M15 6v12" />
+  </svg>
+);
+export const PlayIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+  </svg>
+);

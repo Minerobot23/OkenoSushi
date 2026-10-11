@@ -3,8 +3,9 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import "@fontsource/instrument-serif/latin-400.css";
 import "@fontsource-variable/dm-sans/index.css";
 import "./styles/base.css";
-import "./styles/hero.css";
-import "./styles/sections.css";
+import "./styles/chrome.css";
+import "./styles/counter.css";
+import "./styles/scenes.css";
 import { App } from "./App";
 
 const root = document.getElementById("root")!;

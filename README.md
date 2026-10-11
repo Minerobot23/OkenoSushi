@@ -1,33 +1,60 @@
 # Okeno Sushi: website redesign demo
 
 A working redesign of [okenosushi.com](http://www.okenosushi.com/) for Okeno Sushi, 451 Glen Drive,
-Shirley, NY 11967. It is a sales demo for the restaurant's owner. It is not deployed and is not the
-restaurant's live site.
+Shirley, NY 11967. It is a sales demo for the restaurant's owner. It is not the restaurant's live
+site.
 
-It follows two briefs: the Okeno build prompt (`docs/brief/okeno-build-prompt.md`) and the
-**Cinematic Demo Playbook** (Fluxline Solutions, v1.0). The page opens on a short arrival film that
-ends on an interactive scene of the real storefront.
+It follows the Okeno build prompt (`docs/brief/okeno-build-prompt.md`) and the **Cinematic Demo
+Playbook** (Fluxline Solutions). Like the Fluxline demos, it is a full-screen experience you move
+through rather than a long page: an arrival, a main scene you interact with, and destinations one
+tap away. The idea is its own, though: **take a seat at the counter.**
+
+- **The arrival.** You walk in under a noren, the split fabric curtain in a Japanese restaurant's
+  doorway. Okeno's own swirl logo draws itself on the vermilion cloth, then the four strips part.
+  It takes about 2.5 seconds. A click, a key or the wheel skips it, and the navigation works
+  throughout.
+- **The counter.** A sushi conveyor runs along a honey-wood counter like the one in the restaurant,
+  carrying 22 of Okeno's real dishes on long roll plates and round plates. It advances by itself,
+  stops when you hover or touch it, and can be dragged, swiped, paused or tabbed through. Tap a
+  plate to open the dish: its photo, ingredients, price, Order online, and "Find it on the menu".
+  Behind it, the real dining room is blurred into ambient light that drifts with the pointer. A fan
+  of three dish photos leans toward the pointer too.
+- **The scenes.** Menu, Platters, Gallery and Visit open from the dock with a curtain-wipe
+  transition:
+  - **Menu:** 198 dishes, with 43 of the 45 special rolls shown as photo cards.
+  - **Platters:** five real platters turning slowly like a lazy Susan, plus catering.
+  - **Gallery:** 16 photos with a lightbox.
+  - **Visit:** live "Open now", hours and directions.
 
 ## What improved
 
 Compared with the current site (an "Order Online" link above four scanned menu pages):
 
-- **Scanned menu pages → a readable, searchable menu.** 198 dishes in 7 categories as real HTML text,
-  with tabs, search across the whole menu (accent-insensitive), spicy tags, and current prices from
-  the online-ordering menu. The original scans are still one click away, labelled as a reference.
-- **Plain ordering link → ordering everywhere.** A red "Order online" button in the header, the hero,
-  the menu, the storefront scene and the closing section. On phones, a bottom bar gives Order, Call
-  and Directions.
-- **Menu-only presentation → real photography.** The four real photos of this restaurant: its
-  storefront, its sushi counter, its rolls and a bento. Plus the restaurant's own logo, traced from
-  its printed menu.
-- **Static page → an arrival and smooth interactions.** A 9-second camera move up to the real
-  storefront hands over to an interactive scene: the menu poster in the window opens the menu, the
-  OPEN sign opens hours, the phone number on the sign calls, the door orders. There is also a
-  gallery with a lightbox, responsive navigation, and section reveals. All of it respects
-  reduced-motion settings.
-- **Information inside images → clear facts.** Address, weekly hours with a live "Open now" that is
-  calculated in New York time, a call button, directions, lunch hours, and catering by phone.
+- **Scanned menu pages → a readable, searchable menu with photos.**
+  - 198 dishes as real text, with tabs and accent-insensitive search.
+  - 72 of them now show the restaurant's own photo.
+  - Current prices come from the ordering menu.
+  - Every dish opens in a detail sheet.
+  - The original scans remain one click away, labelled as a reference.
+- **Plain ordering link → ordering everywhere.** Order online sits in the top bar, the dock, the
+  counter, every dish sheet and the menu. Call is on every screen.
+- **Menu-only presentation → real food, all over.** 75 photos of Okeno's own dishes, cut from its
+  printed menu and its ordering page, plus its storefront, counter and logo. Nothing is generated
+  or stock.
+- **Static page → a place to explore.** It has:
+  - the noren arrival;
+  - the moving belt;
+  - curtain transitions between scenes;
+  - words rising in turn;
+  - a brush stroke that draws itself;
+  - turning platters;
+  - pointer parallax;
+  - staggered card entrances;
+  - a lightbox.
+
+  All of it respects reduced-motion settings.
+- **Information inside images → clear facts.** Address, weekly hours with "Open now" calculated in
+  New York time, directions, lunch hours, and catering by phone.
 
 ## Run it
 
@@ -36,105 +63,86 @@ npm install
 npm run dev            # development server
 npm run build          # type-check, build, prerender to dist/
 npm run preview        # serve dist/ on http://localhost:4173
-npm run verify         # browser checks against the preview server (see verification/report.md)
+npm run verify         # 42 browser checks against the preview server (verification/report.md)
 npm run lint
 ```
-
-Node 22. `npm run verify` uses Playwright's Chromium.
 
 ## Where things live
 
 | To change | Edit |
 | --- | --- |
 | Address, phone, hours, ordering link, Google rating snapshot | `src/data/business.ts` (`ORDER_URL` is the one ordering link) |
-| Menu dishes, descriptions, prices | `src/data/menu.json` (or re-run `npm run menu:build` from a new ordering snapshot; see below) |
-| Photos, captions, credits | `src/data/images.ts`, web copies from `media/images/build_images.py` |
-| Arrival film and its hotspots | `media/storefront-film/` (see `media/README.md`) |
+| Menu dishes, descriptions, prices | `src/data/menu.json` (or `npm run menu:build` from a new ordering snapshot) |
+| Which dishes ride the belt, the gallery's food photos | `BELT` and `FOOD_WALL` in `src/lib/dishes.ts` |
+| Dish photos | `media/dishes/build_dishes.py` writes `public/images/dishes/` and `src/data/dishes.json` |
+| Place photos, captions, credits | `src/data/images.ts` (web copies from `media/images/build_images.py`) |
 | Logo | `src/data/logo.json`, traced by `media/logo/extract_logo.py` |
 
 ```
 src/
-  experience/      HeroFilm (film player), Hotspot, coverBox, cuts: ported from the playbook
-  components/      page sections (Header, Hero, ArrivalStage, MenuSection, Gallery, Lightbox, Visit, ...)
-  data/            business facts, menu.json, film.json (hotspot positions), images, logo
-  lib/             hours ("open now"), menu search, section reveals
-  styles/          base.css (tokens), hero.css, sections.css
-public/film/       arrival films (WebM + MP4 per cut), posters, end frames
-public/images/     web-sized photos and menu scans
-media/             sources, film script, image and logo scripts (not served)
-scripts/           build-menu, prerender, build-icons, verify
-verification/      report.md and screenshots from the last `npm run verify`
+  App.tsx            top bar, scenes, dock, noren, dish sheet
+  lib/scenes.tsx     scene director: hash routing, curtain wipes on timers, focus, titles
+  lib/dishes.ts      joins dish photos to menu items; belt and gallery line-ups
+  scenes/            Counter, MenuScene, PlattersScene, GalleryScene, VisitScene
+  components/        Noren, Belt, Plate, TastingFan, DishSheet, Dock, TopBar, Lightbox, ...
+  styles/            base.css (tokens), chrome.css, counter.css, scenes.css
+media/               sources and scripts (not served)
+scripts/             build-menu, prerender, build-icons, verify
+verification/        report.md and screenshots from the last `npm run verify`
 ```
 
-The production build is prerendered (`scripts/prerender.mjs`), so all content, the menu included,
-is in the HTML before any script runs. It also writes Restaurant structured data with verified
-facts only: no ratings and no reviews.
+How it holds up when things go wrong:
 
-## Menu data
-
-`media/sources/mealkeyway-menu-2026-10-11.json` is a trimmed snapshot of the public online-ordering
-menu (visible items only), taken on October 11, 2026. `scripts/build-menu.mjs` turns it into
-`src/data/menu.json` in seven sections:
-
-- Ordering-system typos are corrected to the printed menu's spelling, for example "Anary Bird Roll"
-  → "Angry Bird Roll". Every correction is listed in the script.
-- Text is tidied ("w." → "with", sentence case).
-- Identical size prices are collapsed ("Sushi or sashimi $5.00").
-
-Sides and drinks are left to the ordering page. Re-running the script overwrites hand edits to
-`menu.json`.
+- **Prerendered:** the production build renders every scene into `index.html`, so content is in the
+  HTML before any script runs.
+- **No JavaScript:** the scenes simply stack into one readable page.
+- **Before the app loads:** a tiny inline script picks the scene from the URL before first paint,
+  ends the arrival on a timer, and keeps dock links working even if the app bundle never loads.
 
 ## Decisions made without asking
 
-These are reversible, and each one is described in the code where it lives:
+1. **The arrival film was removed, at your request.** The noren curtain replaces it: a CSS
+   animation built only from Okeno's real logo, not a video.
+2. **More sushi comes from the restaurant's own published photos.**
+   - The printed menu: 48 photos printed above their dish names, so each label is certain.
+   - The online-ordering page: 22 photos, each attached to its item.
 
-1. **The arrival film is a camera move over the real storefront photograph, not a rendered 3D
-   scene.** The playbook's default is a Blender scene. The Okeno brief forbids generated
-   interiors, invented spaces and fabricated video for this real restaurant, and this machine has
-   no Blender or GPU anyway. Every pixel comes from the storefront photo. The film is one
-   continuous move with no cuts, no text rendered into it, and a poster and end frame taken from
-   its own first and last frames.
-2. **Film length is 9 s rather than 12–14 s.** A move over a single still holds attention for less
-   time than a 3D walk-through.
-3. **The film sits in the split hero's image panel, not full screen.** The source photos are 520 and
-   768 px wide, so full-screen would mean a 2–4× upscale, and the Okeno brief asks for a split hero.
-   There are two cuts with their own camera paths: tall (4:5) for phones and desktop, wide (4:3) for
-   tablets and ultrawide monitors.
-4. **The ordering destination is the MealKeyway (MenuSifu) link the owner posted on Google Maps.**
-   It loads, is titled "Okeno Sushi" and shows 451 Glen Drive with the current menu. The old
-   ChowNow link could not be checked from here (Cloudflare blocked it).
-5. **Prices are shown**, because they come from the current ordering menu (October 11, 2026). They
-   carry a "may change" note.
-6. **Delivery is not mentioned.** It was not verified. The service strip says "Dine in · Takeout ·
-   Catering inquiries".
-7. **Hotspots are links**, not buttons, because every destination is a place on the page or an
-   outside page. They are still keyboard-focusable, labelled and always visible.
-8. **Films come as VP9 WebM and H.264 MP4.** The player requests one: WebM where the browser is
-   sure it can play it (it is about half the size), otherwise MP4.
-9. **The menu shows 12 dishes per long category, then "Show all".** The full list stays in the
-   HTML.
-10. **Photo credits appear in the lightbox captions.** The permission note is in
-    `OWNER-HANDOFF.md`, not on the page.
-11. **Left out on purpose:** a map embed (the brief made it optional; it would add third-party
-    requests), parallax (optional) and Framer Motion (CSS and timers were enough).
+   I left out two banner images and one fried-rice photo because they look like generic stock.
+   See `PHOTO-CREDITS.md`.
+3. **The conveyor belt is an interface idea, not a claim.** Okeno is not a conveyor-belt
+   restaurant, and the site doesn't say it is. The plates carry no kaiten-style price colours.
+4. **Fluxline was used for the format only:** full-screen scenes, a persistent dock, a
+   main-action button. There is no 3D room, no glowing-light hotspots and no film. The concept,
+   the transitions and the look are different.
+5. **The ordering link stays MealKeyway (MenuSifu),** the link the owner posted on Google Maps.
+   It is verified as Okeno at 451 Glen Drive. When I checked on October 11, it said ordering was
+   temporarily unavailable.
+6. **Prices are shown** from the ordering menu, with a "may change" note. **Delivery is not
+   mentioned**, because it was not verified.
 
-## What was verified, and what was not
+## Verified, and not
 
-`npm run verify` ran 61 checks in headless Chromium against the production build, and all passed.
-`verification/report.md` has the full list.
+`npm run verify` runs 42 checks in headless Chromium against the production build. All passed
+(`verification/report.md`):
 
-- **The film:** plays in real time, the right cut per screen, pause and resume, skip, replay, and
-  navigation during the film. It also falls back correctly with reduced motion, when the film file
-  is blocked, and when animation frames never arrive.
-- **The hotspot audit:** at 11 screen sizes, from 360×740 to 2560×1080.
-- **Layout and accessibility:** no overflow at 390/768/1440, no broken images, alt text, dead-link
-  check, touch targets, and the mobile bar never covering content.
-- **Interactions:** menu tabs, search and its empty state, mobile navigation, lightbox keyboard,
-  swipe and focus return, and the original-menu viewer.
-- **Hours:** "open now" in New York time, tested from a Los Angeles browser and across standard
-  and daylight time.
+- **Arrival:**
+  - runs and ends by itself;
+  - a click skips it;
+  - the dock works during it;
+  - reduced motion skips it;
+  - it still ends when animation frames never arrive.
+- **Scenes:** every scene opens and takes focus, back button, deep links, rapid clicks during a wipe,
+  and the no-JavaScript fallback.
+- **Belt:** advances, hover stops it, pause holds it, dragging doesn't open dishes, and every dish is
+  reachable by keyboard once.
+- **Dish sheet:** Tab is trapped inside it, Escape closes it with focus returned, and "Find it on
+  the menu" works.
+- **Menu:** cards, photos, tabs, search and the empty state.
+- **Platters, gallery and lightbox.**
+- **Hours:** "Open now" in New York time, tested from a Los Angeles browser.
+- **Layout:** 9 screen sizes × 5 scenes, checking overflow, broken images, touch targets, and that
+  the belt stays above the dock.
 - **Links and structured data.**
 
-Not verified: real phones, Safari and iOS (they get the MP4 file), screen readers, and placing an
-order through the ordering provider. See `OWNER-HANDOFF.md` for the items the owner must confirm
-before launch.
+Not verified: real phones, Safari and iOS, screen readers, and placing an order. See
+`OWNER-HANDOFF.md` for what the owner must confirm before launch.

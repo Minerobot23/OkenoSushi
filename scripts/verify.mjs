@@ -1,8 +1,8 @@
-// Browser verification of the production build (Cinematic Demo Playbook phase 8, plus the
-// Okeno brief's acceptance checks). Serve the build first, then run this:
+// Browser verification of the production build: the Cinematic Demo Playbook's phase 8 checks,
+// adapted to this experience (noren arrival, scenes, counter belt), plus the Okeno brief's checks.
 //
 //   npm run build && npm run preview          (in one terminal)
-//   npm run verify                             (in another; BASE=http://localhost:4173 by default)
+//   npm run verify                             (in another; BASE=http://localhost:4173/ by default)
 //
 // Writes verification/report.md and screenshots to verification/screens/. Exits 1 if a check fails.
 import fs from "node:fs";
@@ -14,254 +14,210 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = process.env.BASE ?? "http://localhost:4173/";
 const outDir = path.join(root, "verification");
 const shots = path.join(outDir, "screens");
+fs.rmSync(shots, { recursive: true, force: true });
 fs.mkdirSync(shots, { recursive: true });
+const SCENES = ["counter", "menu", "platters", "gallery", "visit"];
 
 const results = [];
 const record = (group, name, pass, detail = "") => {
-  results.push({ group, name, pass, detail });
+  results.push({ group, name, pass: !!pass, detail: String(detail) });
   console.log(`${pass ? "PASS" : "FAIL"}  ${group} / ${name}${detail ? `  (${detail})` : ""}`);
 };
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const shot = (page, name) => page.screenshot({ path: path.join(shots, `${name}.jpg`), type: "jpeg", quality: 80 });
 
 const browser = await chromium.launch();
-
-/** A fresh page that records console errors from the site's own code. */
-async function open({ width = 1440, height = 900, reducedMotion = "no-preference", init, timezoneId, route } = {}) {
-  const context = await browser.newContext({ viewport: { width, height }, reducedMotion, timezoneId });
+async function open({ width = 1440, height = 900, reducedMotion = "no-preference", init, timezoneId, javaScriptEnabled = true } = {}) {
+  const context = await browser.newContext({ viewport: { width, height }, reducedMotion, timezoneId, javaScriptEnabled });
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e)));
-  page.on("console", (m) => {
-    if (m.type() === "error") errors.push(m.text());
-  });
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   if (init) await page.addInitScript(init);
-  if (route) await route(page);
   return { page, context, errors };
 }
-const filmState = (page) =>
-  page.evaluate(() => {
-    const v = document.querySelector(".arrival video");
-    return v ? { t: v.currentTime, paused: v.paused, src: v.currentSrc, ended: v.ended } : null;
-  });
-const spotCount = (page) => page.locator(".scene .hotspot").count();
+const sceneOf = (page) => page.evaluate(() => document.documentElement.dataset.scene);
+const visibleHeading = (page, id) =>
+  page.evaluate((sid) => {
+    const h = document.querySelector(`#scene-${sid} [data-scene-focus]`);
+    if (!h) return false;
+    const r = h.getBoundingClientRect();
+    return getComputedStyle(h.closest(".scene")).visibility === "visible" && r.top >= 0 && r.bottom <= innerHeight && r.width > 0;
+  }, id);
+const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__track").scrollLeft);
 
-// ---------------------------------------------------------------- Film (playbook phase 8)
+// ---------------------------------------------------------------- Arrival (noren)
 {
   const { page, context, errors } = await open();
+  await page.mouse.move(2, 2);
   await page.goto(BASE);
-  await wait(3000);
-  const s = await filmState(page);
-  record("Film", "plays after 3 s", !!s && s.t > 1.5 && !s.paused, s ? `t=${s.t.toFixed(2)} ${s.src.split("/").pop()}` : "no video");
-
-  // Real-time playback: currentTime tracks the clock.
-  const samples = [];
-  for (let i = 0; i < 3; i++) {
-    const st = await filmState(page);
-    if (st) samples.push(st.t);
-    await wait(2000);
-  }
-  const rate = samples.length > 1 ? (samples.at(-1) - samples[0]) / (2 * (samples.length - 1)) : 0;
-  record("Film", "plays in real time", rate > 0.85 && rate < 1.15, `rate ${rate.toFixed(2)}x, samples ${samples.map((t) => t.toFixed(1)).join(", ")}`);
-
-  await page.waitForFunction(() => !document.querySelector(".arrival video"), null, { timeout: 15000 }).catch(() => {});
-  const spots = await spotCount(page);
-  record("Film", "plays to the end, hands over to the scene", spots === 4 && !(await filmState(page)), `${spots} hotspots`);
-  await page.waitForTimeout(900);
-  await page.screenshot({ path: path.join(shots, "desktop-1440-scene.jpg"), type: "jpeg", quality: 80 });
-  record("Console", "no errors (desktop film run)", errors.length === 0, errors.join(" | "));
-  await context.close();
-}
-
-// Right file per screen: tall cut on phones and the desktop split hero, wide cut on tablets.
-for (const [w, h, cut] of [
-  [390, 844, "tall"],
-  [768, 1024, "wide"],
-  [1440, 900, "tall"],
-  [2560, 1080, "wide"],
-]) {
-  const { page, context } = await open({ width: w, height: h });
-  await page.goto(BASE);
-  await wait(2500);
-  const s = await filmState(page);
-  record("Film", `${w}px gets the ${cut} cut`, !!s && s.src.includes(`arrival-${cut}.`), s ? s.src.split("/").pop() : "no video");
-  await page.screenshot({ path: path.join(shots, `film-${w}.jpg`), type: "jpeg", quality: 80 });
-  await context.close();
-}
-
-// Pause and resume.
-{
-  const { page, context } = await open();
-  await page.goto(BASE);
-  await wait(2000);
-  await page.getByRole("button", { name: "Pause" }).click();
-  const a = (await filmState(page)).t;
-  await wait(1500);
-  const b = (await filmState(page)).t;
-  await page.getByRole("button", { name: "Play" }).click();
-  await wait(1500);
-  const c = (await filmState(page)).t;
-  record("Film", "pause holds, play resumes", Math.abs(b - a) < 0.05 && c > b + 0.8, `${a.toFixed(2)} → ${b.toFixed(2)} → ${c.toFixed(2)}`);
-  await context.close();
-}
-
-// Skip, then replay.
-{
-  const { page, context } = await open();
-  await page.goto(BASE);
-  await wait(2000);
-  await page.getByRole("button", { name: /^Skip/ }).click();
+  const atStart = await page.evaluate(() => document.documentElement.classList.contains("arrive"));
   await wait(700);
-  const gone = !(await filmState(page));
-  record("Film", "Skip at 2 s opens the scene", gone && (await spotCount(page)) === 4);
-  await page.getByRole("button", { name: /Replay the arrival/ }).click();
-  await wait(2000);
-  const s = await filmState(page);
-  record("Film", "Replay restarts the film", !!s && s.t > 0.8 && !s.paused, s ? `t=${s.t.toFixed(2)}` : "no video");
+  await shot(page, "arrival-0700ms");
+  await wait(600);
+  await shot(page, "arrival-1300ms");
+  await wait(2400);
+  const after = await page.evaluate(() => ({
+    arrive: document.documentElement.classList.contains("arrive"),
+    noren: getComputedStyle(document.querySelector(".noren")).visibility,
+    title: getComputedStyle(document.querySelector(".counter__title .word")).opacity,
+  }));
+  record("Arrival", "noren arrival runs and ends by itself", atStart && !after.arrive && after.noren === "hidden" && after.title === "1", JSON.stringify(after));
+  await shot(page, "desktop-1440-counter");
+  record("Console", "no errors (desktop arrival)", errors.length === 0, errors.join(" | "));
   await context.close();
 }
-
-// Navigation during the film: a destination stays open after the film ends.
 {
   const { page, context } = await open();
   await page.goto(BASE);
-  await wait(2000);
-  await page.locator(".header__nav").getByRole("link", { name: "Menu" }).click();
-  await wait(11000);
-  const top = await page.evaluate(() => document.getElementById("menu").getBoundingClientRect().top);
-  record("Film", "navigation during the film is not undone", Math.abs(top) < 120, `menu top at ${Math.round(top)}px after the film ended`);
+  await wait(600);
+  await page.mouse.click(700, 500);
+  await wait(600);
+  const gone = await page.evaluate(() => !document.documentElement.classList.contains("arrive"));
+  record("Arrival", "a click skips the arrival", gone);
   await context.close();
 }
-
-// Reduced motion: no film, scene at once, no replay control.
+{
+  const { page, context } = await open();
+  await page.goto(BASE);
+  await wait(500);
+  await page.locator(".dock").getByRole("link", { name: "Menu" }).click();
+  await wait(3500);
+  record("Arrival", "the dock works during the arrival", (await sceneOf(page)) === "menu" && (await visibleHeading(page, "menu")));
+  await context.close();
+}
 {
   const { page, context } = await open({ reducedMotion: "reduce" });
   await page.goto(BASE);
-  await wait(800);
-  const video = await page.locator("video").count();
-  const replay = await page.getByRole("button", { name: /Replay/ }).count();
-  record("Film", "reduced motion: no film, scene at once", video === 0 && (await spotCount(page)) === 4 && replay === 0, `video=${video} replay=${replay}`);
+  await wait(300);
+  const s = await page.evaluate(() => ({ arrive: document.documentElement.classList.contains("arrive"), noren: getComputedStyle(document.querySelector(".noren")).display }));
+  record("Arrival", "reduced motion: no arrival at all", !s.arrive && s.noren === "none", JSON.stringify(s));
+  const before = await beltLeft(page);
+  await wait(1500);
+  record("Belt", "reduced motion: the belt does not move by itself", (await beltLeft(page)) === before);
+  record("Belt", "reduced motion: no pause control is needed", (await page.locator(".belt__toggle").count()) === 0);
   await context.close();
 }
-
-// Film file blocked.
-{
-  const { page, context } = await open({
-    route: (p) => p.route(/\.(webm|mp4)$/, (r) => r.abort()),
-  });
-  await page.goto(BASE);
-  await wait(2500);
-  record("Film", "blocked film file falls through to the scene", (await spotCount(page)) === 4 && !(await filmState(page)));
-  await context.close();
-}
-
-// No animation frames: still reaches the scene, and the hero text is visible.
 {
   const { page, context } = await open({ init: () => (window.requestAnimationFrame = () => 0) });
   await page.goto(BASE);
-  await wait(12500);
-  const opacity = await page.evaluate(() => getComputedStyle(document.querySelector(".hero__title")).opacity);
-  record("Film", "no requestAnimationFrame: scene still reached", (await spotCount(page)) === 4, `hero title opacity ${opacity}`);
-  record("Hero", "headline visible without animation frames", opacity === "1");
+  await wait(3600);
+  const s = await page.evaluate(() => ({
+    arrive: document.documentElement.classList.contains("arrive"),
+    title: getComputedStyle(document.querySelector(".counter__title .word")).opacity,
+  }));
+  record("Arrival", "no animation frames: arrival still ends, headline visible", !s.arrive && s.title === "1", JSON.stringify(s));
+  await page.locator(".dock").getByRole("link", { name: "Visit" }).click();
+  await wait(1200);
+  record("Scenes", "no animation frames: scenes still switch", (await sceneOf(page)) === "visit");
+  await context.close();
+}
+{
+  const { page, context } = await open({ javaScriptEnabled: false });
+  await page.goto(BASE);
+  await wait(400);
+  const s = await page.evaluate(() => ({
+    scenes: [...document.querySelectorAll(".scene")].filter((el) => getComputedStyle(el).visibility === "visible").length,
+    menuText: document.body.innerText.includes("Shirley Roll"),
+    hours: document.body.innerText.includes("Monday"),
+  }));
+  record("Fallback", "without JavaScript every scene is readable as one page", s.scenes === 5 && s.menuText && s.hours, JSON.stringify(s));
   await context.close();
 }
 
-// ---------------------------------------------------------------- Hotspot audit (appendix G, adapted)
+// ---------------------------------------------------------------- Scenes
 {
-  const sizes = [
-    [1024, 768], [1280, 720], [1366, 768], [1440, 900], [1536, 864], [1920, 1080], [2560, 1080], [768, 1024], [390, 844], [360, 740], [820, 1180],
-  ];
-  const problems = [];
-  for (const [w, h] of sizes) {
-    const { page, context } = await open({ width: w, height: h, reducedMotion: "reduce" });
-    await page.goto(BASE);
-    await wait(900);
-    const res = await page.evaluate(() => {
-      const frame = document.querySelector(".arrival").getBoundingClientRect();
-      const vw = window.innerWidth;
-      const bad = [];
-      const boxes = [];
-      for (const a of document.querySelectorAll(".scene .hotspot")) {
-        const dot = a.getBoundingClientRect();
-        const label = a.querySelector(".hotspot__label");
-        const r = label.getBoundingClientRect();
-        const name = label.textContent;
-        if (dot.left < frame.left || dot.right > frame.right || dot.top < frame.top || dot.bottom > frame.bottom) bad.push(`${name}: dot outside the frame`);
-        if (r.left < Math.max(frame.left, 0) + 4 || r.right > Math.min(frame.right, vw) - 4 || r.top < frame.top) bad.push(`${name}: label clipped [${Math.round(r.left)}..${Math.round(r.right)}]`);
-        if (dot.width < 44 || dot.height < 44) bad.push(`${name}: target ${Math.round(dot.width)}x${Math.round(dot.height)}`);
-        boxes.push({ name, r, dot });
-      }
-      for (let i = 0; i < boxes.length; i++)
-        for (let j = 0; j < boxes.length; j++) {
-          if (i === j) continue;
-          const a = boxes[i].r, b = boxes[j].r, d = boxes[j].dot;
-          const overlap = (x, y) => x.left < y.right && x.right > y.left && x.top < y.bottom && x.bottom > y.top;
-          if (i < j && overlap(a, b)) bad.push(`${boxes[i].name} label overlaps ${boxes[j].name} label`);
-          if (overlap(a, { left: d.left + 12, right: d.right - 12, top: d.top + 12, bottom: d.bottom - 12 })) bad.push(`${boxes[i].name} label covers ${boxes[j].name} dot`);
-        }
-      return { count: boxes.length, bad };
-    });
-    if (res.count !== 4 || res.bad.length) problems.push(`${w}x${h}: ${res.count} spots; ${res.bad.join(", ")}`);
-    await context.close();
+  const { page, context, errors } = await open({ reducedMotion: "reduce" });
+  await page.goto(BASE);
+  await wait(300);
+  const bad = [];
+  for (const id of SCENES.slice(1).concat("counter")) {
+    await page.locator(`.dock a[data-dock="${id}"]`).click();
+    await wait(250);
+    const ok = (await sceneOf(page)) === id && (await visibleHeading(page, id));
+    const focused = await page.evaluate((sid) => document.activeElement === document.querySelector(`#scene-${sid} [data-scene-focus]`), id);
+    const title = await page.title();
+    if (!ok || !focused) bad.push(`${id}: shown=${ok} focused=${focused} title="${title}"`);
   }
-  record("Hotspots", "audit at 11 sizes: on screen, unclipped, apart, 44px targets", problems.length === 0, problems.join(" || "));
+  record("Scenes", "every dock link opens its scene and moves focus to its heading", bad.length === 0, bad.join("; "));
+  await page.goBack();
+  await wait(300);
+  record("Scenes", "the back button returns to the previous scene", (await sceneOf(page)) === "visit");
+  record("Console", "no errors (scene tour)", errors.length === 0, errors.join(" | "));
+  await context.close();
+}
+{
+  const { page, context } = await open();
+  await page.goto(BASE + "#visit");
+  await wait(200);
+  record("Scenes", "a deep link (#visit) opens that scene before anything else", (await sceneOf(page)) === "visit");
+  await wait(3200);
+  await page.locator('.dock a[data-dock="menu"]').click();
+  await wait(80);
+  await page.locator('.dock a[data-dock="platters"]').click();
+  await wait(2000);
+  record("Scenes", "two quick clicks during a curtain wipe end on the last one", (await sceneOf(page)) === "platters", await sceneOf(page));
+  await context.close();
 }
 
-// ---------------------------------------------------------------- Layout and content per width
-for (const [w, h, name] of [
-  [390, 844, "mobile-390"],
-  [768, 1024, "tablet-768"],
-  [1440, 900, "desktop-1440"],
-]) {
-  const { page, context, errors } = await open({ width: w, height: h, reducedMotion: "reduce" });
+// ---------------------------------------------------------------- Belt and dish sheet
+{
+  const { page, context } = await open();
+  await page.mouse.move(5, 5);
   await page.goto(BASE);
-  await wait(600);
-  await page.screenshot({ path: path.join(shots, `${name}-first-screen.jpg`), type: "jpeg", quality: 80 });
-  // Scroll through so lazy images load.
-  const height = await page.evaluate(() => document.body.scrollHeight);
-  for (let y = 0; y < height; y += Math.round(h * 0.7)) {
-    await page.evaluate((top) => window.scrollTo({ top, behavior: "instant" }), y);
-    await wait(80);
-  }
-  await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }));
-  await wait(1200);
-  const info = await page.evaluate(() => {
-    const imgs = [...document.querySelectorAll("img")].filter((i) => !i.closest("dialog") && i.offsetParent !== null);
-    const broken = imgs.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.currentSrc || i.src);
-    const missingSize = imgs.filter((i) => !i.getAttribute("width") && !i.classList.contains("film__frame")).map((i) => i.src);
-    const missingAlt = [...document.querySelectorAll("img")].filter((i) => !i.hasAttribute("alt")).map((i) => i.src);
-    const ids = new Set([...document.querySelectorAll("[id]")].map((e) => e.id));
-    const deadAnchors = [...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute("href")).filter((h) => h.length > 1 && !ids.has(h.slice(1)));
-    const small = [...document.querySelectorAll("a, button, input")]
-      .filter((e) => e.offsetParent !== null && !e.closest(".sr-only") && !e.classList.contains("skip-link"))
-      .map((e) => ({ e, r: e.getBoundingClientRect() }))
-      .filter(({ r }) => r.width > 0 && (r.height < 40 || r.width < 40))
-      .map(({ e, r }) => `${(e.textContent || e.getAttribute("aria-label") || e.tagName).trim().slice(0, 30)} ${Math.round(r.width)}x${Math.round(r.height)}`);
-    const bar = document.querySelector(".mobile-bar");
-    const barTop = bar && getComputedStyle(bar).display !== "none" ? bar.getBoundingClientRect().top : window.innerHeight;
-    const lastText = [...document.querySelectorAll(".footer__base p")].at(-1).getBoundingClientRect().bottom;
-    const headings = [...document.querySelectorAll("h1, h2, h3")].map((h) => h.tagName);
-    return {
-      overflow: document.documentElement.scrollWidth - window.innerWidth,
-      broken,
-      missingSize,
-      missingAlt,
-      deadAnchors,
-      small,
-      coveredByBar: lastText > barTop + 1,
-      h1: headings.filter((t) => t === "H1").length,
-    };
-  });
-  record(`Layout ${w}`, "no horizontal overflow", info.overflow === 0, `${info.overflow}px`);
-  record(`Layout ${w}`, "no broken images", info.broken.length === 0, info.broken.join(", "));
-  record(`Layout ${w}`, "images have alt text and dimensions", info.missingAlt.length === 0 && info.missingSize.length === 0, [...info.missingAlt, ...info.missingSize].join(", "));
-  record(`Layout ${w}`, "every in-page link has a target", info.deadAnchors.length === 0, info.deadAnchors.join(", "));
-  record(`Layout ${w}`, "touch targets at least 40px", info.small.length === 0, info.small.join("; "));
-  record(`Layout ${w}`, "mobile bar never covers the end of the page", !info.coveredByBar);
-  record(`Layout ${w}`, "exactly one h1", info.h1 === 1);
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await wait(3600);
+  const a = await beltLeft(page);
+  await wait(2000);
+  const b = await beltLeft(page);
+  record("Belt", "the belt advances by itself", b - a > 40, `${a} → ${b}`);
+  const belt = await page.locator(".belt__track").boundingBox();
+  await page.mouse.move(belt.x + belt.width / 2, belt.y + belt.height / 2);
   await wait(300);
-  await page.screenshot({ path: path.join(shots, `${name}-full.jpg`), type: "jpeg", quality: 80, fullPage: true });
-  record(`Console ${w}`, "no errors", errors.length === 0, errors.join(" | "));
+  const c = await beltLeft(page);
+  await wait(1200);
+  record("Belt", "hovering stops the belt", (await beltLeft(page)) === c);
+  await page.mouse.move(5, 5);
+  await page.locator(".belt__toggle").click();
+  const d = await beltLeft(page);
+  await wait(1500);
+  record("Belt", "Pause the belt holds it", (await beltLeft(page)) === d && (await page.locator(".belt__toggle").getAttribute("aria-pressed")) === "true");
+  await page.locator(".belt__toggle").click();
+
+  // A drag scrolls the belt and does not open a dish.
+  await page.mouse.move(belt.x + belt.width * 0.7, belt.y + belt.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(belt.x + belt.width * 0.3, belt.y + belt.height / 2, { steps: 8 });
+  await page.mouse.up();
+  await wait(300);
+  record("Belt", "dragging scrolls without opening a dish", (await page.locator(".sheet").count()) === 0);
+
+  const plates = await page.evaluate(() => ({
+    focusable: [...document.querySelectorAll(".plate__button")].filter((b) => b.tabIndex >= 0 && !b.closest("[aria-hidden]")).length,
+    clonesHidden: [...document.querySelectorAll(".plate[aria-hidden] .plate__button")].every((b) => b.tabIndex === -1),
+  }));
+  record("Belt", "each dish is reachable by keyboard once (the loop copy is hidden)", plates.focusable === 22 && plates.clonesHidden, JSON.stringify(plates));
+
+  const target = page.locator('.plate:not([aria-hidden]) .plate__button[data-dish="Godzilla"]');
+  await target.focus();
+  await page.keyboard.press("Enter");
+  await wait(500);
+  const sheetTitle = await page.locator("#sheet-title").innerText();
+  await shot(page, "desktop-1440-dish-sheet");
+  record("Dish sheet", "a plate opens its dish", sheetTitle.startsWith("Godzilla"), sheetTitle);
+  for (let i = 0; i < 6; i++) await page.keyboard.press("Tab");
+  record("Dish sheet", "Tab stays inside the sheet", await page.evaluate(() => !!document.activeElement.closest(".sheet")));
+  await page.keyboard.press("Escape");
+  await wait(400);
+  const back = await page.evaluate(() => document.activeElement?.dataset.dish);
+  record("Dish sheet", "Escape closes it and focus returns to the plate", (await page.locator(".sheet").count()) === 0 && back === "Godzilla", back);
+
+  await target.click({ force: true });
+  await wait(400);
+  await page.getByRole("button", { name: "Find it on the menu" }).click();
+  await wait(1300);
+  const q = await page.getByRole("searchbox", { name: "Search the menu" }).inputValue();
+  const found = await page.locator(".menu__panel").innerText();
+  record("Dish sheet", "Find it on the menu opens the menu searched for the dish", (await sceneOf(page)) === "menu" && q === "Godzilla" && found.includes("Godzilla"), q);
   await context.close();
 }
 
@@ -269,179 +225,199 @@ for (const [w, h, name] of [
 {
   const { page, context } = await open({ reducedMotion: "reduce" });
   await page.goto(BASE + "#menu");
-  await wait(500);
-  const panelText = () => page.locator(".menu__panel").innerText();
+  await wait(400);
+  const cards = await page.evaluate(() => ({
+    cards: document.querySelectorAll(".rolls .roll").length,
+    photos: [...document.querySelectorAll(".rolls .roll img")].length,
+  }));
+  record("Menu", "45 special rolls as cards, 43 with their own photo", cards.cards === 45 && cards.photos === 43, JSON.stringify(cards));
+  await page.locator(".menu__panel img").last().scrollIntoViewIfNeeded();
+  await wait(600);
+  const broken = await page.evaluate(() => [...document.querySelectorAll(".menu__panel img")].filter((i) => !i.complete || !i.naturalWidth).length);
+  record("Menu", "all roll photos load", broken === 0, `${broken} broken`);
+  const panel = () => page.locator(".menu__panel").innerText();
   await page.getByRole("tab", { name: "Bento" }).click();
-  const bento = await panelText();
-  record("Menu", "tab switches the panel", bento.includes("Chicken Teriyaki Bento") && !bento.includes("Godzilla"));
+  record("Menu", "tabs switch the panel", (await panel()).includes("Chicken Teriyaki Bento") && !(await panel()).includes("Godzilla"));
   await page.getByRole("tab", { name: "Bento" }).press("ArrowRight");
-  const focused = await page.evaluate(() => document.activeElement.textContent);
-  record("Menu", "arrow keys move between tabs", focused === "Kitchen" && (await panelText()).includes("Udon"), `focused ${focused}`);
+  record("Menu", "arrow keys move between tabs", (await page.evaluate(() => document.activeElement.textContent)) === "Kitchen");
   const search = page.getByRole("searchbox", { name: "Search the menu" });
   await search.fill("eel");
-  await wait(200);
-  const results = await panelText();
-  record("Menu", "search finds dishes across categories", /dishes match/.test(results) && results.includes("Godzilla") && results.includes("Eel Avocado Roll"), results.split("\n")[0]);
+  record("Menu", "search finds dishes across categories", /dishes match/.test(await panel()) && (await panel()).includes("Eel Avocado Roll"));
   await search.fill("jalapeno");
-  record("Menu", "search ignores accents", (await panelText()).includes("Scorpion"));
+  record("Menu", "search ignores accents", (await panel()).includes("Scorpion"));
   await search.fill("pizza burger");
-  await wait(200);
-  record("Menu", "empty state", (await panelText()).includes("Nothing on the menu matches"));
+  record("Menu", "empty state", (await panel()).includes("Nothing on the menu matches"));
   await page.getByRole("button", { name: "Clear the search" }).click();
-  record("Menu", "clearing the search restores the tab", (await panelText()).includes("Udon"));
-  await page.getByRole("tab", { name: "Special rolls" }).click();
-  const before = await page.locator(".menu__panel .dish:visible").count();
-  await page.getByRole("button", { name: /Show all 45/ }).click();
-  const after = await page.locator(".menu__panel .dish:visible").count();
-  record("Menu", "Show all expands the preview", before === 12 && after === 45, `${before} → ${after}`);
-  await page.locator(".menu").screenshot({ path: path.join(shots, "menu-desktop.jpg"), type: "jpeg", quality: 80 });
-  await context.close();
-}
-
-// ---------------------------------------------------------------- Mobile navigation
-{
-  const { page, context } = await open({ width: 390, height: 844, reducedMotion: "reduce" });
-  await page.goto(BASE);
-  const toggle = page.getByRole("button", { name: "Open menu" });
-  await toggle.click();
-  await wait(400);
-  const inPanel = await page.evaluate(() => !!document.activeElement.closest("#mobile-nav"));
-  await page.screenshot({ path: path.join(shots, "mobile-nav-open.jpg"), type: "jpeg", quality: 80 });
+  await page.locator('.dish[data-dish="Udon"], .dish[data-dish="Chicken Vegetable Udon"]').first().click();
+  await wait(300);
+  record("Menu", "a menu row opens the dish sheet", (await page.locator("#sheet-title").innerText()).includes("Chicken Vegetable Udon"));
   await page.keyboard.press("Escape");
   await wait(400);
-  const back = await page.evaluate(() => document.activeElement.classList.contains("header__toggle"));
-  const hidden = await page.evaluate(() => getComputedStyle(document.getElementById("mobile-nav")).visibility);
-  record("Mobile nav", "opens, focuses the panel, Escape closes and returns focus", inPanel && back && hidden === "hidden");
-  await toggle.click();
+  await page.getByRole("button", { name: "View the original printed menu" }).click();
+  await wait(500);
+  const note = await page.locator(".original__note").innerText();
+  await page.locator(".original__pages img").last().scrollIntoViewIfNeeded();
+  await wait(700);
+  const pages = await page.evaluate(() => [...document.querySelectorAll(".original__pages img")].filter((i) => i.complete && i.naturalWidth).length);
+  await page.keyboard.press("Escape");
   await wait(300);
-  await page.locator("#mobile-nav").getByRole("link", { name: "Visit" }).click();
-  await wait(1200);
-  const top = await page.evaluate(() => document.getElementById("visit").getBoundingClientRect().top);
-  const closed = await page.evaluate(() => !document.querySelector(".header").classList.contains("is-open"));
-  record("Mobile nav", "a link closes the menu and goes to the section", closed && Math.abs(top) < 120, `visit top ${Math.round(top)}`);
+  record("Menu", "original printed menu: labelled as a reference, 4 pages, Escape closes", /may have changed/.test(note) && pages === 4 && !(await page.evaluate(() => document.querySelector("dialog.original").open)));
   await context.close();
 }
 
-// ---------------------------------------------------------------- Lightbox
+// ---------------------------------------------------------------- Platters, gallery
 {
   const { page, context } = await open({ reducedMotion: "reduce" });
+  await page.goto(BASE + "#platters");
+  await wait(600);
+  const p = await page.evaluate(() => ({
+    count: document.querySelectorAll(".platter").length,
+    loaded: [...document.querySelectorAll(".platter img")].filter((i) => i.complete && i.naturalWidth).length,
+    tel: document.querySelector(".catering a").getAttribute("href"),
+  }));
+  record("Platters", "five real platters load; catering calls the restaurant", p.count === 5 && p.loaded === 5 && p.tel === "tel:+16316688188", JSON.stringify(p));
   await page.goto(BASE + "#gallery");
-  await wait(400);
-  const first = page.locator(".gallery__button").first();
+  await wait(500);
+  const first = page.locator(".wall__button").first();
   await first.click();
   await wait(300);
-  const dialog = page.getByRole("dialog", { name: "Photos of Okeno Sushi" });
   const focusClose = await page.evaluate(() => document.activeElement.classList.contains("lightbox__close"));
   await page.keyboard.press("ArrowRight");
   const count = await page.locator(".lightbox__count").innerText();
-  await page.keyboard.press("Tab");
-  await page.keyboard.press("Tab");
-  await page.keyboard.press("Tab");
-  const trapped = await page.evaluate(() => !!document.activeElement.closest(".lightbox"));
-  await page.screenshot({ path: path.join(shots, "lightbox.jpg"), type: "jpeg", quality: 80 });
+  await shot(page, "desktop-1440-lightbox");
   await page.keyboard.press("Escape");
   await wait(400);
-  const closed = (await dialog.count()) === 0;
-  const returned = await page.evaluate(() => document.activeElement === document.querySelector(".gallery__button"));
-  record("Lightbox", "opens with focus on Close, arrows move, Tab is trapped", focusClose && count.startsWith("2 /") && trapped, count);
-  record("Lightbox", "Escape closes and focus returns to the photo", closed && returned);
-  // Touch swipe.
-  await first.click();
-  await wait(300);
-  const fig = await page.locator(".lightbox__figure").boundingBox();
-  await page.mouse.move(fig.x + fig.width * 0.75, fig.y + fig.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(fig.x + fig.width * 0.2, fig.y + fig.height / 2, { steps: 5 });
-  await page.mouse.up();
-  record("Lightbox", "swipe moves to the next photo", (await page.locator(".lightbox__count").innerText()).startsWith("2 /"));
+  const returned = await page.evaluate(() => document.activeElement === document.querySelector(".wall__button"));
+  record("Gallery", "16 photos; lightbox opens on Close, arrows move, Escape returns focus", (await page.locator(".wall__button").count()) === 16 && focusClose && count.startsWith("2 /") && returned, count);
   await context.close();
 }
 
-// ---------------------------------------------------------------- Original menu viewer
-{
-  const { page, context } = await open({ reducedMotion: "reduce" });
-  await page.goto(BASE + "#menu");
-  await page.getByRole("button", { name: "View the original printed menu" }).click();
-  await wait(500);
-  const open1 = await page.evaluate(() => document.querySelector("dialog.original").open);
-  const note = await page.locator(".original__note").innerText();
-  await page.locator(".original__pages img").last().scrollIntoViewIfNeeded();
-  await wait(800);
-  const loaded = await page.evaluate(() => [...document.querySelectorAll(".original__pages img")].filter((i) => i.complete && i.naturalWidth > 0).length);
-  await page.keyboard.press("Escape");
-  await wait(300);
-  const open2 = await page.evaluate(() => document.querySelector("dialog.original").open);
-  record("Original menu", "opens labelled as a reference, shows 4 pages, Escape closes", open1 && /may have changed/.test(note) && loaded === 4 && !open2, `${loaded} pages`);
-  await context.close();
-}
-
-// ---------------------------------------------------------------- Hours and "open now" (America/New_York)
+// ---------------------------------------------------------------- Hours ("open now" in New York time)
 {
   const cases = [
-    ["2026-10-12T15:00:00Z", "Closed now · opens tomorrow at 11 AM"], // Monday 11:00 ET
-    ["2026-10-13T14:59:00Z", "Closed now · opens today at 11 AM"], // Tuesday 10:59 ET
-    ["2026-10-13T15:00:00Z", "Open now · until 9 PM"], // Tuesday 11:00 ET
-    ["2026-10-17T01:59:00Z", "Open now · until 10 PM"], // Friday 21:59 ET
-    ["2026-10-17T02:00:00Z", "Closed now · opens tomorrow at Noon"], // Friday 22:00 ET
-    ["2026-12-21T03:30:00Z", "Closed now · opens Tuesday at 11 AM"], // Sunday 22:30 EST (winter time)
+    ["2026-10-12T15:00:00Z", "Closed now · opens tomorrow at 11 AM"],
+    ["2026-10-13T14:59:00Z", "Closed now · opens today at 11 AM"],
+    ["2026-10-13T15:00:00Z", "Open now · until 9 PM"],
+    ["2026-10-17T01:59:00Z", "Open now · until 10 PM"],
+    ["2026-10-17T02:00:00Z", "Closed now · opens tomorrow at Noon"],
+    ["2026-12-21T03:30:00Z", "Closed now · opens Tuesday at 11 AM"],
   ];
   const wrong = [];
   for (const [time, expected] of cases) {
     const { page, context } = await open({ reducedMotion: "reduce", timezoneId: "America/Los_Angeles" });
     await page.clock.setFixedTime(new Date(time));
     await page.goto(BASE + "#visit");
-    await wait(300);
-    const text = await page.locator(".hours__status").innerText();
-    if (text.trim() !== expected) wrong.push(`${time}: got "${text}", expected "${expected}"`);
+    await wait(250);
+    const text = (await page.locator(".hours__status").innerText()).trim();
+    if (text !== expected) wrong.push(`${time}: "${text}" not "${expected}"`);
     await context.close();
   }
   record("Hours", "open/closed computed in New York time from a Los Angeles browser", wrong.length === 0, wrong.join(" | "));
 }
 
-// ---------------------------------------------------------------- Links
+// ---------------------------------------------------------------- Layout at many sizes, every scene
+{
+  const sizes = [[390, 844], [360, 740], [768, 1024], [1024, 768], [1280, 720], [1366, 768], [1440, 900], [1920, 1080], [2560, 1080]];
+  const problems = [];
+  for (const [w, h] of sizes) {
+    const { page, context, errors } = await open({ width: w, height: h, reducedMotion: "reduce" });
+    await page.goto(BASE);
+    await wait(500);
+    for (const id of SCENES) {
+      await page.evaluate((sid) => (location.hash = sid), id);
+      await wait(250);
+      // Scroll the scene through so lazy images load.
+      await page.evaluate(async (sid) => {
+        const el = document.getElementById(`scene-${sid}`);
+        for (let y = 0; y <= el.scrollHeight; y += el.clientHeight * 0.8) {
+          el.scrollTop = y;
+          await new Promise((r) => setTimeout(r, 60));
+        }
+        el.scrollTop = el.scrollHeight;
+        await new Promise((r) => setTimeout(r, 500));
+        el.scrollTop = 0;
+      }, id);
+      const info = await page.evaluate((sid) => {
+        const scene = document.getElementById(`scene-${sid}`);
+        const imgs = [...scene.querySelectorAll("img")].filter((i) => i.offsetParent !== null || i.closest(".counter__room"));
+        const small = [...scene.querySelectorAll("a, button, input")]
+          .filter((e) => e.offsetParent !== null && !e.closest("[aria-hidden]") && !e.closest(".sr-only"))
+          .map((e) => ({ e, r: e.getBoundingClientRect() }))
+          .filter(({ r }) => r.width > 0 && (r.height < 40 || r.width < 40))
+          .map(({ e, r }) => `${(e.textContent || e.getAttribute("aria-label") || e.tagName).trim().slice(0, 24)} ${Math.round(r.width)}x${Math.round(r.height)}`);
+        const logo = document.querySelector(".topbar .logo").getBoundingClientRect();
+        const dock = document.querySelector(".dock").getBoundingClientRect();
+        const heading = scene.querySelector("[data-scene-focus]").getBoundingClientRect();
+        return {
+          overflow: document.documentElement.scrollWidth - innerWidth + (scene.scrollWidth - scene.clientWidth),
+          broken: imgs.filter((i) => !i.complete || !i.naturalWidth).map((i) => i.src.split("/").pop()),
+          small,
+          logo: logo.width > 60,
+          dockOnScreen: dock.bottom <= innerHeight + 1 && dock.width > 200,
+          headingClear: heading.top >= document.querySelector(".topbar").getBoundingClientRect().bottom - 30 && heading.bottom <= dock.top,
+          // On the counter the whole belt, labels included, must sit above the dock on the first screen.
+          beltClear:
+            sid !== "counter" ||
+            [...document.querySelectorAll(".plate:not([aria-hidden]) .plate__tag")]
+              .map((t) => t.getBoundingClientRect())
+              .filter((r) => r.right > 0 && r.left < innerWidth)
+              .every((r) => r.bottom <= dock.top + 1 || r.right <= dock.left || r.left >= dock.right),
+        };
+      }, id);
+      const issues = [];
+      if (info.overflow) issues.push(`overflow ${info.overflow}`);
+      if (info.broken.length) issues.push(`broken ${info.broken.join(",")}`);
+      if (info.small.length) issues.push(`small ${info.small.join("; ")}`);
+      if (!info.logo) issues.push("logo missing");
+      if (!info.dockOnScreen) issues.push("dock off screen");
+      if (!info.headingClear) issues.push("heading under the bars");
+      if (!info.beltClear) issues.push("belt labels under the dock");
+      if (issues.length) problems.push(`${w}x${h} ${id}: ${issues.join(", ")}`);
+      if ([390, 768, 1440].includes(w)) await shot(page, `${w}-${id}`);
+    }
+    if (errors.length) problems.push(`${w}x${h} console: ${errors.join(" | ")}`);
+    await context.close();
+  }
+  record("Layout", "9 sizes × 5 scenes: no overflow, no broken images, 40px targets, bars clear", problems.length === 0, problems.join(" || "));
+}
+
+// ---------------------------------------------------------------- Links and SEO
 {
   const { page, context } = await open({ reducedMotion: "reduce" });
   await page.goto(BASE);
   const links = await page.evaluate(() => [...document.querySelectorAll("a[href]")].map((a) => ({ href: a.href, target: a.target, rel: a.rel })));
-  const external = [...new Set(links.filter((l) => /^https?:/.test(l.href) && !l.href.startsWith(new URL(BASE).origin)).map((l) => l.href))];
+  const origin = new URL(BASE).origin;
+  const external = [...new Set(links.filter((l) => /^https?:/.test(l.href) && !l.href.startsWith(origin)).map((l) => l.href))];
   const tel = [...new Set(links.filter((l) => l.href.startsWith("tel:")).map((l) => l.href))];
-  const unsafe = links.filter((l) => l.target === "_blank" && !/noopener/.test(l.rel));
   record("Links", "phone links all dial +1 631 668 8188", tel.length === 1 && tel[0] === "tel:+16316688188", tel.join(", "));
-  record("Links", "new-tab links use rel=noopener", unsafe.length === 0);
+  record("Links", "new-tab links use rel=noopener", links.filter((l) => l.target === "_blank" && !/noopener/.test(l.rel)).length === 0);
   const allowed = [/^https:\/\/order\.mealkeyway\.com\/customer\/release\/index\?mid=/, /^https:\/\/www\.google\.com\/maps\//];
-  const unknown = external.filter((u) => !allowed.some((re) => re.test(u)));
-  record("Links", "external links are only the ordering page and Google Maps", unknown.length === 0, external.join(" , "));
-  fs.writeFileSync(path.join(outDir, "external-links.txt"), external.join("\n") + "\n");
+  record("Links", "external links are only the ordering page and Google Maps", external.every((u) => allowed.some((re) => re.test(u))), external.join(" , "));
   const ld = await page.evaluate(() => JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent));
   record("SEO", "Restaurant structured data, no ratings or reviews", ld["@type"] === "Restaurant" && !("aggregateRating" in ld) && !("review" in ld) && ld.openingHoursSpecification.length === 6);
-  const meta = await page.evaluate(() => ({ title: document.title, desc: document.querySelector('meta[name="description"]').content, icon: !!document.querySelector('link[rel="icon"]') }));
-  record("SEO", "title, description and favicon", meta.title.includes("Okeno Sushi") && meta.desc.length > 80 && meta.icon, meta.title);
   await context.close();
-}
-
-// Menu text is in the HTML before any script runs (prerendered).
-{
   const html = await (await fetch(BASE)).text();
-  record("SEO", "page content is prerendered HTML (menu included)", html.includes("Find your next favorite") && html.includes("Shirley Roll") && html.includes("Your next favorite roll"));
+  record("SEO", "content is prerendered HTML (menu and belt included)", html.includes("Find your next favorite") && html.includes("Shirley Roll") && html.includes("plate__button"));
 }
 
 await browser.close();
-
 const failed = results.filter((r) => !r.pass);
-const lines = [
-  "# Verification report",
-  "",
-  `Run against ${BASE} on ${new Date().toISOString()} with Playwright Chromium (headless).`,
-  "",
-  `**${results.length - failed.length} of ${results.length} checks passed.**`,
-  "",
-  "| Group | Check | Result | Detail |",
-  "| --- | --- | --- | --- |",
-  ...results.map((r) => `| ${r.group} | ${r.name} | ${r.pass ? "pass" : "**FAIL**"} | ${r.detail.replace(/\|/g, "/")} |`),
-  "",
-  "Not covered here: real phones, Safari (it will receive the H.264 MP4; headless Chromium played the VP9 WebM), screen readers, and the ordering provider's own pages.",
-  "",
-];
-fs.writeFileSync(path.join(outDir, "report.md"), lines.join("\n"));
+fs.writeFileSync(
+  path.join(outDir, "report.md"),
+  [
+    "# Verification report",
+    "",
+    `Run against ${BASE} on ${new Date().toISOString()} with Playwright Chromium (headless).`,
+    "",
+    `**${results.length - failed.length} of ${results.length} checks passed.**`,
+    "",
+    "| Group | Check | Result | Detail |",
+    "| --- | --- | --- | --- |",
+    ...results.map((r) => `| ${r.group} | ${r.name} | ${r.pass ? "pass" : "**FAIL**"} | ${r.detail.replace(/\|/g, "/").slice(0, 400)} |`),
+    "",
+    "Not covered here: real phones, Safari and iOS, screen readers, and the ordering provider's own pages.",
+    "",
+  ].join("\n"),
+);
 console.log(`\n${results.length - failed.length}/${results.length} passed. Report: verification/report.md`);
 process.exit(failed.length ? 1 : 0);

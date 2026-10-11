@@ -1,40 +1,44 @@
 import { useState } from "react";
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { ServiceStrip } from "./components/ServiceStrip";
-import { MenuSection } from "./components/MenuSection";
-import { Story } from "./components/Story";
-import { Gallery } from "./components/Gallery";
-import { Visit } from "./components/Visit";
-import { Catering } from "./components/Catering";
-import { FinalCta } from "./components/FinalCta";
-import { Footer } from "./components/Footer";
-import { MobileBar } from "./components/MobileBar";
+import { SceneProvider, useScene } from "./lib/scenes";
+import { Noren } from "./components/Noren";
+import { TopBar } from "./components/TopBar";
+import { Dock } from "./components/Dock";
+import { DishSheet } from "./components/DishSheet";
 import { OriginalMenu } from "./components/OriginalMenu";
-import { useReveal } from "./lib/useReveal";
+import { Counter } from "./scenes/Counter";
+import { MenuScene } from "./scenes/MenuScene";
+import { PlattersScene } from "./scenes/PlattersScene";
+import { GalleryScene } from "./scenes/GalleryScene";
+import { VisitScene } from "./scenes/VisitScene";
 
-export function App() {
+function Experience() {
   const [originalOpen, setOriginalOpen] = useState(false);
-  useReveal();
+  const { dish } = useScene();
   return (
     <>
-      <a className="skip-link" href="#main">
-        Skip to content
+      <a className="skip-link" href="#scene-menu">
+        Skip to the menu
       </a>
-      <Header />
-      <main id="main">
-        <Hero />
-        <ServiceStrip />
-        <MenuSection onOpenOriginal={() => setOriginalOpen(true)} />
-        <Story />
-        <Gallery />
-        <Visit />
-        <Catering />
-        <FinalCta />
+      <TopBar />
+      <main id="main" className="scenes" inert={dish ? true : undefined}>
+        <Counter />
+        <MenuScene onOpenOriginal={() => setOriginalOpen(true)} />
+        <PlattersScene />
+        <GalleryScene />
+        <VisitScene />
       </main>
-      <Footer onOpenOriginal={() => setOriginalOpen(true)} />
-      <MobileBar />
+      <Dock />
+      <Noren />
+      <DishSheet />
       <OriginalMenu open={originalOpen} onClose={() => setOriginalOpen(false)} />
     </>
+  );
+}
+
+export function App() {
+  return (
+    <SceneProvider>
+      <Experience />
+    </SceneProvider>
   );
 }

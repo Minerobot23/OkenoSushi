@@ -17,21 +17,21 @@ the site goes public.
    ordering page's pickup windows. Confirm, and say whether holiday hours should be shown.
 4. **Catering.** The printed menu advertised catering for home and office. The page invites people
    to call about it and does not promise it. Confirm it is still offered.
-5. **Photo permission.** The four photos are from the restaurant's Google Maps gallery:
-   - the counter photo is by a customer (marlyn meneses);
-   - two food photos are attributed to DoorDash;
-   - the storefront photo's uploader is unknown.
+5. **Photo permission.** The site uses three groups of photos:
+   - 53 dish photos from the restaurant's printed menu (likely shot by its menu printer);
+   - 22 from its online-ordering page;
+   - four place photos from its Google Maps gallery. One is by a customer (marlyn meneses), two
+     are attributed to DoorDash, and the storefront's uploader is unknown.
 
-   Being visible on Google Maps does not grant commercial rights. Before launch, get permission or
-   replace them with the owner's own photos. Drop-in replacements need the same file names and
-   sizes; see `PHOTO-CREDITS.md`.
+   Confirm that the restaurant may use them commercially, or supply its own originals. Better,
+   larger photos would make the site sharper everywhere. See `PHOTO-CREDITS.md`.
 6. **Logo.** It was traced from the printed menu. If the owner has the original vector logo, use
    that instead (`src/data/logo.json`).
 7. **Google rating.** "4.6 · 678 reviews" is a snapshot from October 11, 2026, labelled with that
    date. Update it now and then, or remove it (`GOOGLE_RATING` in `src/data/business.ts`).
 8. **Delivery.** It is not mentioned because it was not verified. Add it only if the restaurant
    offers it through its own ordering page.
-9. **Arrival film.** It is a camera move over the storefront photo, so it shares that photo's
-   permission status (item 5). A 10–15 second phone clip of walking up to the door, filmed by the
-   owner, can replace it without code changes; see `media/README.md`.
+9. **The counter belt** is a design idea for browsing the menu. Okeno is not a conveyor-belt
+   restaurant, and the site does not say it is. If the owner would rather not use the image,
+   the belt can become a plain carousel without other changes.
 10. **Domain and hosting.** Nothing is deployed. Choose where it goes and when.

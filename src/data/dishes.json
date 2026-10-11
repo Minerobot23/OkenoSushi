@@ -1,0 +1,677 @@
+[
+ {
+  "name": "Holiday Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-holiday-roll.jpg",
+  "webp": "/images/dishes/printed-holiday-roll.webp",
+  "width": 177,
+  "height": 91,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Summer Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-summer-roll.jpg",
+  "webp": "/images/dishes/printed-summer-roll.webp",
+  "width": 177,
+  "height": 91,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Burning Love Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-burning-love-roll.jpg",
+  "webp": "/images/dishes/printed-burning-love-roll.webp",
+  "width": 177,
+  "height": 94,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Fancy Lobster Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-fancy-lobster-roll.jpg",
+  "webp": "/images/dishes/printed-fancy-lobster-roll.webp",
+  "width": 177,
+  "height": 94,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Amazing Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-amazing-roll.jpg",
+  "webp": "/images/dishes/printed-amazing-roll.webp",
+  "width": 177,
+  "height": 96,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Scorpion",
+  "kind": "printed",
+  "src": "/images/dishes/printed-scorpion.jpg",
+  "webp": "/images/dishes/printed-scorpion.webp",
+  "width": 177,
+  "height": 96,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Coconut Shrimp Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-coconut-shrimp-roll.jpg",
+  "webp": "/images/dishes/printed-coconut-shrimp-roll.webp",
+  "width": 177,
+  "height": 88,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Crazy Tuna Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-crazy-tuna-roll.jpg",
+  "webp": "/images/dishes/printed-crazy-tuna-roll.webp",
+  "width": 177,
+  "height": 88,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Fire Ball Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-fire-ball-roll.jpg",
+  "webp": "/images/dishes/printed-fire-ball-roll.webp",
+  "width": 177,
+  "height": 85,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Dynamite Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-dynamite-roll.jpg",
+  "webp": "/images/dishes/printed-dynamite-roll.webp",
+  "width": 177,
+  "height": 85,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Eel Dragon",
+  "kind": "printed",
+  "src": "/images/dishes/printed-eel-dragon.jpg",
+  "webp": "/images/dishes/printed-eel-dragon.webp",
+  "width": 176,
+  "height": 108,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Godzilla",
+  "kind": "printed",
+  "src": "/images/dishes/printed-godzilla.jpg",
+  "webp": "/images/dishes/printed-godzilla.webp",
+  "width": 176,
+  "height": 108,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Golden Shrimp Tempura",
+  "kind": "printed",
+  "src": "/images/dishes/printed-golden-shrimp-tempura.jpg",
+  "webp": "/images/dishes/printed-golden-shrimp-tempura.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Happy Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-happy-roll.jpg",
+  "webp": "/images/dishes/printed-happy-roll.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Ikura Salmon Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-ikura-salmon-roll.jpg",
+  "webp": "/images/dishes/printed-ikura-salmon-roll.webp",
+  "width": 176,
+  "height": 105,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Sun Kissed Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-sun-kissed-roll.jpg",
+  "webp": "/images/dishes/printed-sun-kissed-roll.webp",
+  "width": 176,
+  "height": 105,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Jade Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-jade-roll.jpg",
+  "webp": "/images/dishes/printed-jade-roll.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Kabuki Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-kabuki-roll.jpg",
+  "webp": "/images/dishes/printed-kabuki-roll.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Kiwi Vegetable",
+  "kind": "printed",
+  "src": "/images/dishes/printed-kiwi-vegetable.jpg",
+  "webp": "/images/dishes/printed-kiwi-vegetable.webp",
+  "width": 176,
+  "height": 99,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Lobster Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-lobster-roll.jpg",
+  "webp": "/images/dishes/printed-lobster-roll.webp",
+  "width": 176,
+  "height": 99,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "TJ Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-tj-roll.jpg",
+  "webp": "/images/dishes/printed-tj-roll.webp",
+  "width": 176,
+  "height": 95,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "U.P.S. Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-u-p-s-roll.jpg",
+  "webp": "/images/dishes/printed-u-p-s-roll.webp",
+  "width": 176,
+  "height": 95,
+  "source": "Printed menu, page 3"
+ },
+ {
+  "name": "Millennium Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-millennium-roll.jpg",
+  "webp": "/images/dishes/printed-millennium-roll.webp",
+  "width": 176,
+  "height": 108,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Lost Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-lost-roll.jpg",
+  "webp": "/images/dishes/printed-lost-roll.webp",
+  "width": 176,
+  "height": 108,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Out of Control",
+  "kind": "printed",
+  "src": "/images/dishes/printed-out-of-control.jpg",
+  "webp": "/images/dishes/printed-out-of-control.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Phoenix Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-phoenix-roll.jpg",
+  "webp": "/images/dishes/printed-phoenix-roll.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Angry Bird Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-angry-bird-roll.jpg",
+  "webp": "/images/dishes/printed-angry-bird-roll.webp",
+  "width": 176,
+  "height": 105,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Red Dragon",
+  "kind": "printed",
+  "src": "/images/dishes/printed-red-dragon.jpg",
+  "webp": "/images/dishes/printed-red-dragon.webp",
+  "width": 176,
+  "height": 105,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Samurai Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-samurai-roll.jpg",
+  "webp": "/images/dishes/printed-samurai-roll.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Seaweed Vegetable",
+  "kind": "printed",
+  "src": "/images/dishes/printed-seaweed-vegetable.jpg",
+  "webp": "/images/dishes/printed-seaweed-vegetable.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Snow Dragon",
+  "kind": "printed",
+  "src": "/images/dishes/printed-snow-dragon.jpg",
+  "webp": "/images/dishes/printed-snow-dragon.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Snow Mountain",
+  "kind": "printed",
+  "src": "/images/dishes/printed-snow-mountain.jpg",
+  "webp": "/images/dishes/printed-snow-mountain.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Wasabi Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-wasabi-roll.jpg",
+  "webp": "/images/dishes/printed-wasabi-roll.webp",
+  "width": 176,
+  "height": 95,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Volcano Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-volcano-roll.jpg",
+  "webp": "/images/dishes/printed-volcano-roll.webp",
+  "width": 176,
+  "height": 95,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Spider Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-spider-roll.jpg",
+  "webp": "/images/dishes/printed-spider-roll.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Tiger Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-tiger-roll.jpg",
+  "webp": "/images/dishes/printed-tiger-roll.webp",
+  "width": 176,
+  "height": 100,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Shirley Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-shirley-roll.jpg",
+  "webp": "/images/dishes/printed-shirley-roll.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Wonderful Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-wonderful-roll.jpg",
+  "webp": "/images/dishes/printed-wonderful-roll.webp",
+  "width": 176,
+  "height": 98,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Xanadu Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-xanadu-roll.jpg",
+  "webp": "/images/dishes/printed-xanadu-roll.webp",
+  "width": 176,
+  "height": 104,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Yankee Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-yankee-roll.jpg",
+  "webp": "/images/dishes/printed-yankee-roll.webp",
+  "width": 176,
+  "height": 104,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Steak N Shrimp Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-steak-n-shrimp-roll.jpg",
+  "webp": "/images/dishes/printed-steak-n-shrimp-roll.webp",
+  "width": 176,
+  "height": 97,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Sunshine Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-sunshine-roll.jpg",
+  "webp": "/images/dishes/printed-sunshine-roll.webp",
+  "width": 176,
+  "height": 97,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Diamond Roll",
+  "kind": "printed",
+  "src": "/images/dishes/printed-diamond-roll.jpg",
+  "webp": "/images/dishes/printed-diamond-roll.webp",
+  "width": 176,
+  "height": 96,
+  "source": "Printed menu, page 4"
+ },
+ {
+  "name": "Stuffed Shrimp",
+  "kind": "printed",
+  "src": "/images/dishes/printed-stuffed-shrimp.jpg",
+  "webp": "/images/dishes/printed-stuffed-shrimp.webp",
+  "width": 166,
+  "height": 131,
+  "source": "Printed menu, page 2"
+ },
+ {
+  "name": "King Crab Rangoon",
+  "kind": "printed",
+  "src": "/images/dishes/printed-king-crab-rangoon.jpg",
+  "webp": "/images/dishes/printed-king-crab-rangoon.webp",
+  "width": 173,
+  "height": 131,
+  "source": "Printed menu, page 2"
+ },
+ {
+  "name": "Fire Ball",
+  "kind": "printed",
+  "src": "/images/dishes/printed-fire-ball.jpg",
+  "webp": "/images/dishes/printed-fire-ball.webp",
+  "width": 162,
+  "height": 131,
+  "source": "Printed menu, page 2"
+ },
+ {
+  "name": "Tuna Carpaccio with Wasabi Sauce",
+  "kind": "printed",
+  "src": "/images/dishes/printed-tuna-carpaccio-with-wasabi-sauce.jpg",
+  "webp": "/images/dishes/printed-tuna-carpaccio-with-wasabi-sauce.webp",
+  "width": 157,
+  "height": 131,
+  "source": "Printed menu, page 2"
+ },
+ {
+  "name": "Tuna Avocado Salad",
+  "kind": "printed",
+  "src": "/images/dishes/printed-tuna-avocado-salad.jpg",
+  "webp": "/images/dishes/printed-tuna-avocado-salad.webp",
+  "width": 154,
+  "height": 131,
+  "source": "Printed menu, page 2"
+ },
+ {
+  "name": "Sushi & Sashimi For 1",
+  "kind": "platter",
+  "src": "/images/dishes/platter-sushi-sashimi-for-1.png",
+  "webp": "/images/dishes/platter-sushi-sashimi-for-1.webp",
+  "width": 252,
+  "height": 220,
+  "source": "Printed menu, page 1"
+ },
+ {
+  "name": "Sushi & Sashimi Combo For 2",
+  "kind": "platter",
+  "src": "/images/dishes/platter-sushi-sashimi-combo-for-2.png",
+  "webp": "/images/dishes/platter-sushi-sashimi-combo-for-2.webp",
+  "width": 246,
+  "height": 226,
+  "source": "Printed menu, page 1"
+ },
+ {
+  "name": "Party Platter (A)",
+  "kind": "platter",
+  "src": "/images/dishes/platter-party-platter-a.png",
+  "webp": "/images/dishes/platter-party-platter-a.webp",
+  "width": 258,
+  "height": 232,
+  "source": "Printed menu, page 1"
+ },
+ {
+  "name": "Party Platter (B)",
+  "kind": "platter",
+  "src": "/images/dishes/platter-party-platter-b.png",
+  "webp": "/images/dishes/platter-party-platter-b.webp",
+  "width": 248,
+  "height": 236,
+  "source": "Printed menu, page 1"
+ },
+ {
+  "name": "Party Platter (C)",
+  "kind": "platter",
+  "src": "/images/dishes/platter-party-platter-c.png",
+  "webp": "/images/dishes/platter-party-platter-c.webp",
+  "width": 248,
+  "height": 236,
+  "source": "Printed menu, page 1"
+ },
+ {
+  "name": "California Roll",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-california-roll.jpg",
+  "webp": "/images/dishes/ordering-california-roll.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Spicy Tuna Roll",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-spicy-tuna-roll.jpg",
+  "webp": "/images/dishes/ordering-spicy-tuna-roll.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Spicy Salmon Roll",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-spicy-salmon-roll.jpg",
+  "webp": "/images/dishes/ordering-spicy-salmon-roll.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Spicy Kani Roll",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-spicy-kani-roll.jpg",
+  "webp": "/images/dishes/ordering-spicy-kani-roll.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Xanadu Roll",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-xanadu-roll.jpg",
+  "webp": "/images/dishes/ordering-xanadu-roll.webp",
+  "width": 520,
+  "height": 491,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Maki Combo",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-maki-combo.jpg",
+  "webp": "/images/dishes/ordering-maki-combo.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Sashimi Regular",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-sashimi-regular.jpg",
+  "webp": "/images/dishes/ordering-sashimi-regular.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Sushi & Sashimi Combo For 2",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-sushi-sashimi-combo-for-2.jpg",
+  "webp": "/images/dishes/ordering-sushi-sashimi-combo-for-2.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Chicken Teriyaki Bento",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-chicken-teriyaki-bento.jpg",
+  "webp": "/images/dishes/ordering-chicken-teriyaki-bento.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Gyoza (Pork)",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-gyoza-pork.jpg",
+  "webp": "/images/dishes/ordering-gyoza-pork.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Edamame",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-edamame.jpg",
+  "webp": "/images/dishes/ordering-edamame.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Seaweed Salad",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-seaweed-salad.jpg",
+  "webp": "/images/dishes/ordering-seaweed-salad.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Kani Salad",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-kani-salad.jpg",
+  "webp": "/images/dishes/ordering-kani-salad.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Avocado Salad",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-avocado-salad.jpg",
+  "webp": "/images/dishes/ordering-avocado-salad.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Baby Octopus Salad",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-baby-octopus-salad.jpg",
+  "webp": "/images/dishes/ordering-baby-octopus-salad.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Rock Shrimp",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-rock-shrimp.jpg",
+  "webp": "/images/dishes/ordering-rock-shrimp.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Fire Ball",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-fire-ball.jpg",
+  "webp": "/images/dishes/ordering-fire-ball.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Beef Negimaki",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-beef-negimaki.jpg",
+  "webp": "/images/dishes/ordering-beef-negimaki.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Shrimp & Veg Tempura",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-shrimp-veg-tempura-app.jpg",
+  "webp": "/images/dishes/ordering-shrimp-veg-tempura-app.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Spring Roll (Veg.)",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-spring-roll-veg.jpg",
+  "webp": "/images/dishes/ordering-spring-roll-veg.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Chicken Vegetable Udon",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-chicken-vegetable-udon.jpg",
+  "webp": "/images/dishes/ordering-chicken-vegetable-udon.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ },
+ {
+  "name": "Chicken Fried Rice",
+  "kind": "ordering",
+  "src": "/images/dishes/ordering-chicken-fried-rice.jpg",
+  "webp": "/images/dishes/ordering-chicken-fried-rice.webp",
+  "width": 520,
+  "height": 520,
+  "source": "Online-ordering page"
+ }
+]
