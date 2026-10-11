@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Okeno Sushi | Sushi &amp; Japanese food on Glen Drive, Shirley, NY</title>
+    <meta
+      name="description"
+      content="Okeno Sushi at 451 Glen Drive, Shirley, NY: sushi, sashimi, special rolls, bento and kitchen dishes. Browse the menu, order online for pickup, or call (631) 668-8188."
+    />
+    <meta name="theme-color" content="#171A17" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:title" content="Okeno Sushi · Shirley, NY" />
+    <meta property="og:description" content="Sushi, sashimi, and Japanese favorites on Glen Drive." />
+    <meta property="og:image" content="/film/arrival-wide-end.webp" />
+    <!-- Same media queries as WIDE_CUT in src/experience/cuts.ts. -->
+    <link rel="preload" as="image" href="/film/arrival-tall-poster.jpg" media="(max-width: 599.98px), (min-width: 1024px) and (max-aspect-ratio: 19/10)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/film/arrival-wide-poster.jpg" media="(min-width: 600px) and (max-width: 1023.98px), (min-width: 1024px) and (min-aspect-ratio: 19/10)" fetchpriority="high" />
+    <script>
+      // Hero entrance: CSS plays it from first paint; this timer writes the end state even if the
+      // animation never runs (Cinematic Demo Playbook: no access waits on an animation).
+      document.documentElement.classList.add("intro");
+      setTimeout(function () {
+        document.documentElement.classList.remove("intro");
+      }, 2200);
+    </script>
+    <!--structured-data-->
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

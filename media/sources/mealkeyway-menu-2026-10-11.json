@@ -1,0 +1,2733 @@
+{
+ "source": "https://order.mealkeyway.com/customer/release/index?mid=46446152716f555a75486368787758744767753937673d3d",
+ "endpoint": "https://order.mealkeyway.com/merchant/46446152716f555a75486368787758744767753937673d3d/menu?productLine=ONLINE_ORDER&posPlatform=POS",
+ "capturedAt": "2026-10-11",
+ "note": "Trimmed snapshot of the public online-ordering menu (visible items only). Prices are the ordering prices on the capture date.",
+ "merchant": {
+  "name": "Okeno Sushi",
+  "address1": "451 Glen Drive",
+  "city": "Shirley",
+  "state": "NY",
+  "zipCode": "11967",
+  "telephone1": "631-668-8188",
+  "timeZone": "America/New_York",
+  "latitude": 40.8366316,
+  "longitude": -72.8856102,
+  "pickUpOpenTimeRange": {
+   "1": [],
+   "2": [
+    {
+     "fromMidNightDis": 39600,
+     "toMidNightDis": 74700,
+     "pos": 0
+    }
+   ],
+   "3": [
+    {
+     "fromMidNightDis": 39600,
+     "toMidNightDis": 74700,
+     "pos": 0
+    }
+   ],
+   "4": [
+    {
+     "fromMidNightDis": 39600,
+     "toMidNightDis": 74700,
+     "pos": 0
+    }
+   ],
+   "5": [
+    {
+     "fromMidNightDis": 39600,
+     "toMidNightDis": 78300,
+     "pos": 1
+    }
+   ],
+   "6": [
+    {
+     "fromMidNightDis": 43200,
+     "toMidNightDis": 78300,
+     "pos": 2
+    }
+   ],
+   "7": [
+    {
+     "fromMidNightDis": 43200,
+     "toMidNightDis": 74700,
+     "pos": 3
+    }
+   ]
+  },
+  "pickUpPrepareTime": {
+   "min": "15",
+   "max": "20"
+  },
+  "isDelivery": true
+ },
+ "categories": [
+  {
+   "name": "Bento Lunch",
+   "description": "Tue-Fri.11am-3pm,excluding holiday.Served w.California roll,daily appetizer",
+   "items": [
+    {
+     "id": 2880,
+     "name": "(L)Chicken Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 2881,
+     "name": "(L)Shrimp Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 2882,
+     "name": "(L)Beef Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 2883,
+     "name": "(L)Salmon Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 2884,
+     "name": "(L)Shrimp Tempura Bento",
+     "description": "Served w.California roll,daily appetizer",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Kitchen Entree Lunch",
+   "description": "Tue-Fri.11am-3pm,excluding holiday.Served w.soup or salad",
+   "items": [
+    {
+     "id": 2885,
+     "name": "(L)Chicken Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 2886,
+     "name": "(L)Beef Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 2887,
+     "name": "(L)Shrimp Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 2888,
+     "name": "(L)Salmon Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 2889,
+     "name": "(L)Vegetable Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 2890,
+     "name": "(L)Shrimp & Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3026,
+     "name": "(D)Chicken & Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3025,
+     "name": "(D)Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Sushi Bar Lunch",
+   "description": "Tue-Fri.11am-3pm,excluding holiday",
+   "items": [
+    {
+     "id": 2891,
+     "name": "Maki Combo",
+     "description": "Any 3 Rolls from Roll or Hand Roll",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 2892,
+     "name": "Sushi Lunch",
+     "description": "1 California roll,6pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 2893,
+     "name": "Sashimi Lunch",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Soup & Salad",
+   "description": "",
+   "items": [
+    {
+     "id": 2562,
+     "name": "Miso Soup",
+     "description": "",
+     "prices": [
+      {
+       "size": "Small",
+       "amount": 3
+      },
+      {
+       "size": "Large",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "id": 2565,
+     "name": "Clear Soup",
+     "description": "",
+     "prices": [
+      {
+       "size": "Small",
+       "amount": 3
+      },
+      {
+       "size": "Large",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "id": 2600,
+     "name": "Squid Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 8.5
+      }
+     ]
+    },
+    {
+     "id": 2577,
+     "name": "Green Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 4.95
+      }
+     ]
+    },
+    {
+     "id": 2582,
+     "name": "Avocado Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2572,
+     "name": "Kani Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2571,
+     "name": "Seaweed Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2587,
+     "name": "Tuna Avocado Salad",
+     "description": "With Spicy mayonnaise and crunch",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.5
+      }
+     ]
+    },
+    {
+     "id": 2591,
+     "name": "Salmon Avocado Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.5
+      }
+     ]
+    },
+    {
+     "id": 2601,
+     "name": "Salmon Skin Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 8.5
+      }
+     ]
+    },
+    {
+     "id": 2597,
+     "name": "Baby Octopus Salad",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 9.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "House Special Appetizer",
+   "description": "",
+   "items": [
+    {
+     "id": 2604,
+     "name": "Edamame",
+     "description": "Soy Bean",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2606,
+     "name": "Shumai",
+     "description": "Shrimp",
+     "prices": [
+      {
+       "size": "Steam",
+       "amount": 6.5
+      },
+      {
+       "size": "Crispy",
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2607,
+     "name": "Wasabi Shumai",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 7.5
+      }
+     ]
+    },
+    {
+     "id": 2608,
+     "name": "Gyoza(Pork)",
+     "description": "",
+     "prices": [
+      {
+       "size": "Steam",
+       "amount": 6.5
+      },
+      {
+       "size": "Crispy",
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2609,
+     "name": "Gyoza(Veg.)",
+     "description": "",
+     "prices": [
+      {
+       "size": "Steam",
+       "amount": 6.5
+      },
+      {
+       "size": "Crispy",
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2610,
+     "name": "Gyoza Special",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 2611,
+     "name": "Spring Roll(Veg)",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2612,
+     "name": "Beef Negimaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 10.5
+      }
+     ]
+    },
+    {
+     "id": 2613,
+     "name": "Shrimp & Veg Tempura App",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 8.95
+      }
+     ]
+    },
+    {
+     "id": 3023,
+     "name": "Chicken & Veg Tempura App",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 9.5
+      }
+     ]
+    },
+    {
+     "id": 2615,
+     "name": "Fish Tempura App",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 8.95
+      }
+     ]
+    },
+    {
+     "id": 2617,
+     "name": "Rock Shrimp",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 9.5
+      }
+     ]
+    },
+    {
+     "id": 2619,
+     "name": "Tatsuta Age",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 9.5
+      }
+     ]
+    },
+    {
+     "id": 2634,
+     "name": "Tako Yaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 7.95
+      }
+     ]
+    },
+    {
+     "id": 2621,
+     "name": "Coconut Shrimp Appt",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 9.5
+      }
+     ]
+    },
+    {
+     "id": 2618,
+     "name": "Fried Oyster",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 10.5
+      }
+     ]
+    },
+    {
+     "id": 2620,
+     "name": "Fire Ball",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 2624,
+     "name": "Taco Pizza",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 2625,
+     "name": "Naruto",
+     "description": "",
+     "prices": [
+      {
+       "size": "Eel",
+       "amount": 12.95
+      },
+      {
+       "size": "Tuna",
+       "amount": 12.95
+      },
+      {
+       "size": "Salmon",
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 2622,
+     "name": "Tuna Tataki w.Ponzu Sauce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.5
+      }
+     ]
+    },
+    {
+     "id": 2623,
+     "name": "Tuna Carpaccio w.Wasabi Sauce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.5
+      }
+     ]
+    },
+    {
+     "id": 2628,
+     "name": "Tako Sunomono",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 2629,
+     "name": "Stuffed Shrimp",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 2616,
+     "name": "King Crab Rangoon",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 2626,
+     "name": "Tuna Dumpling",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.5
+      }
+     ]
+    },
+    {
+     "id": 2627,
+     "name": "Yellow Tail Jalapeno",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Sushi & Sashimi",
+   "description": "2 pcs each order",
+   "items": [
+    {
+     "id": 3027,
+     "name": "Kani(Crab)",
+     "description": "Kani",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 3028,
+     "name": "Tamago(Egg)",
+     "description": "Tamago",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 3029,
+     "name": "Saba(Mackerel)",
+     "description": "Saba",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 3030,
+     "name": "Inari",
+     "description": "Dry Tofu",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 4.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 4.5
+      }
+     ]
+    },
+    {
+     "id": 3031,
+     "name": "Fluke",
+     "description": "Hirami",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 3032,
+     "name": "Stripe Bass",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 3033,
+     "name": "Hokkigai(Red Clam)",
+     "description": "Hokkigai",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 3038,
+     "name": "Tuna",
+     "description": "Maguro",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 6.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 3039,
+     "name": "Salmon",
+     "description": "Sake",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 6.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 3041,
+     "name": "Yellowtail",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 6.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 3046,
+     "name": "White Tuna",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 3043,
+     "name": "Eel",
+     "description": "Unagi",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 3035,
+     "name": "Ebi(Shrimp)",
+     "description": "Ebi",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 3042,
+     "name": "Scallop",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 6.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 3047,
+     "name": "Smoked Salmon",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 3037,
+     "name": "Tako(Octopus)",
+     "description": "Tako",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 3036,
+     "name": "Ika(Squid)",
+     "description": "lka",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 3034,
+     "name": "Botan Ebi ",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 10
+      },
+      {
+       "size": "Sashimi",
+       "amount": 10
+      }
+     ]
+    },
+    {
+     "id": 3045,
+     "name": "lkura",
+     "description": "Salmon Roe",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 6.5
+      },
+      {
+       "size": "Sashimi",
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 3040,
+     "name": "Masago",
+     "description": "",
+     "prices": [
+      {
+       "size": "Sushi",
+       "amount": 5.95
+      },
+      {
+       "size": "Sashimi",
+       "amount": 5.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Roll/Hand Roll",
+   "description": "",
+   "items": [
+    {
+     "id": 3054,
+     "name": "AAC Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.5
+      }
+     ]
+    },
+    {
+     "id": 2695,
+     "name": "Avocado Roll",
+     "description": "Avocado,rolled in seaweed",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 2696,
+     "name": "Kappa Roll",
+     "description": "Cucumber",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 2697,
+     "name": "Oshinko Roll",
+     "description": "Japanese pickles rolled in seaweed",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 2698,
+     "name": "Nori Roll",
+     "description": "Cook squash wrapped in seaweed",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 2676,
+     "name": "Sweet Potato Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2670,
+     "name": "California Roll",
+     "description": "Crab meat and avocado,wrapped in rice and masago",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2699,
+     "name": "Vegetable Roll",
+     "description": "(5 pcs big roll)Asparagus,avocado,yamagobo,cucumber,oshinko kampyo",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2687,
+     "name": "Tuna Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2689,
+     "name": "Yellowtail & Scallion Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2688,
+     "name": "Salmon Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2704,
+     "name": "Salmon Skin Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.95
+      }
+     ]
+    },
+    {
+     "id": 2667,
+     "name": "Eel Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2668,
+     "name": "Eel Cucumber Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2684,
+     "name": "Boston Roll",
+     "description": "Shrimp,cucumber,lettuce and mayo",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2671,
+     "name": "Alaska Roll",
+     "description": "Salmon,avocado and cucumber",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2682,
+     "name": "Spicy Shrimp Roll",
+     "description": "Shrimp,crunch w.spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2677,
+     "name": "Spicy California Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2681,
+     "name": "Spicy Kani Roll",
+     "description": "Crabmeat stick,crunch spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2690,
+     "name": "Tuna Mango Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2679,
+     "name": "Spicy Salmon Roll",
+     "description": "Salmon,crunch,spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2678,
+     "name": "Spicy Tuna Roll",
+     "description": "Tuna,crunch,spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2680,
+     "name": "Spicy Yellowtail Roll",
+     "description": "Yellowtail,crunchy,spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2691,
+     "name": "Tuna Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2693,
+     "name": "Yellowtail Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2692,
+     "name": "Salmon Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2694,
+     "name": "Shrimp Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2686,
+     "name": "East Roll",
+     "description": "Shrimp,egg,avocado,cucumber and masago",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2672,
+     "name": "Smoke Salmon Cream Cheese Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2669,
+     "name": "Green River Roll",
+     "description": "8pcs,Eel and avocado,topped w.green seaweed powder",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2665,
+     "name": "Snow Crab Asparagus Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 7.5
+      }
+     ]
+    },
+    {
+     "id": 2666,
+     "name": "Snow Crab Avocado Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2685,
+     "name": "Salad Maki Roll",
+     "description": "Kani,shrimp,avocado,mayo",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2703,
+     "name": "Futo Maki Roll",
+     "description": "5pcs,Kani,egg,avocado,cucumber,oshinko,yamagobo,kampyo",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2673,
+     "name": "Shrimp Tempura Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2675,
+     "name": "Fish Tempura Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2674,
+     "name": "Chicken Tempura Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2705,
+     "name": "Yellowtail Jalapeno Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2706,
+     "name": "Tuna Jalapeno Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 2707,
+     "name": "Salmon Jalapeno Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.5
+      }
+     ]
+    },
+    {
+     "id": 3055,
+     "name": "Avo Peauts Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Special Fancy Roll",
+   "description": "",
+   "items": [
+    {
+     "id": 3061,
+     "name": "Amazing Roll",
+     "description": "Deep fried California roll top w.spicy tuna,masago,special sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3109,
+     "name": "Anary Bird Roll",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3059,
+     "name": "Burning Love Roll",
+     "description": "Black pepper tuna,avocado,tempura,asparagus in soy paper.Topped spicy tuna & fresh tuna,masago,scallion special sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 16.5
+      }
+     ]
+    },
+    {
+     "id": 3062,
+     "name": "Coconut Shrimp Roll",
+     "description": "Tempura shrimp avocado inside topped w.snow crab coconut flakes and coconut sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3064,
+     "name": "Crazy Tuna Roll",
+     "description": "Spicy tuna,eel,crunch topped w.black pepper tuna,avocado,special sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3099,
+     "name": "Diamond Roll",
+     "description": "Spicy tuna,salmon,yellowtail crunch topped w.white tuna avocado and red tobiko",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3066,
+     "name": "Dynamite Roll",
+     "description": "Salmon,yellowtail,crab stick,avocado,masago,asparagus and scallion wrapped and battered fried",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 3067,
+     "name": "Eel Dragon",
+     "description": "Crab stick,avocado,masago,eel & sesame on top",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3060,
+     "name": "Fancy Lobster Roll",
+     "description": "Eel,avocado,mango,topped w.spicy lobster crunch and combo sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 16.5
+      }
+     ]
+    },
+    {
+     "id": 3065,
+     "name": "Fire Ball Roll",
+     "description": "Snow crab,eel,avocado topped spicy yellowtail,spicy salmon seasonal seaweed special sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.95
+      }
+     ]
+    },
+    {
+     "id": 3056,
+     "name": "Fire Island",
+     "description": "Kani,avocado and tempura crunch topped w.spicy tuna and scallion",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3068,
+     "name": "Godzilla",
+     "description": "Snow crab & avocado,topped w.whole eel and black tobiko",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.5
+      }
+     ]
+    },
+    {
+     "id": 3069,
+     "name": "Golden Shrimp Tempura",
+     "description": "Shrimp tempura roll topped w.mango",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3070,
+     "name": "Happy Roll",
+     "description": "Snow crab,crab stick,shrimp & scallion on top",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3057,
+     "name": "Holiday Roll",
+     "description": "Spicy yellowtail crunch,topped w.spicy kani layer w.avocado and masago",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3071,
+     "name": "Ikura Salmon Roll",
+     "description": "Salmon skin,cucumber topped w.fresh salmon,seaweed & salmon roe(ikura)",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3073,
+     "name": "Jade Roll",
+     "description": "Spicy tuna,crunch,topped w.avocado,scallion,black tobiko",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.5
+      }
+     ]
+    },
+    {
+     "id": 3074,
+     "name": "Kabuki Roll",
+     "description": "Salmon,avocado,topped w.yellowtail,salmon,avocado",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 3075,
+     "name": "Kiwi Vegetable",
+     "description": "Avocado,kampyo,yamagobo,cucumber topped w.kiwi salad",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 3076,
+     "name": "Lobster Roll",
+     "description": "Lobster w.mayonnaise top w.tuna,salmon,and avocado",
+     "prices": [
+      {
+       "size": null,
+       "amount": 17.5
+      }
+     ]
+    },
+    {
+     "id": 3081,
+     "name": "Lost Roll",
+     "description": "Spicy eel crunch,topped w.spicy tuna crunch.Layered w.avocado",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3079,
+     "name": "Millennium Roll",
+     "description": "Snow crab,eel,avocado,topped w.shrimp,squid,red clam,tuna,salmon and avocado",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3080,
+     "name": "Out of Control",
+     "description": "Snow crab,asparagus,topped w.slices eel and combo sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3082,
+     "name": "Phoenix Roll",
+     "description": "Shrimp,avocado,crunch,topped w.yellowtail,masago and scallion",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3084,
+     "name": "Red Dragon",
+     "description": "Spicy tuna,crunch,topped w.slices of fresh tuna",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3085,
+     "name": "Samurai Roll",
+     "description": "Eel,avocado,shrimp,topped w.snow crab",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3108,
+     "name": "Scorpion",
+     "description": "Crispy rice cream cheese top with spicy tuna.jalapeño .ikura",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3086,
+     "name": "Seaweed Vegetable",
+     "description": "Oshinko yamagobo,kampyo cucumber,topped w.seaweed salad",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 3093,
+     "name": "Shirley Roll",
+     "description": "Snow crab,avocado,cream cheese inside seared salmon,combo sauce crunch & red tobiko on top",
+     "prices": [
+      {
+       "size": null,
+       "amount": 16.5
+      }
+     ]
+    },
+    {
+     "id": 3087,
+     "name": "Snow Dragon",
+     "description": "Snow crab,asparagus,topped w.avocado masago",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 3088,
+     "name": "Snow Mountain",
+     "description": "Shrimp tempura roll,topped w.snow crab",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3092,
+     "name": "Spider Roll",
+     "description": "Soft shell crab,avocado,cucumber w.combo sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 3097,
+     "name": "Steak N Shrimp Roll",
+     "description": "Shrimp tempura topped seared beef,scallion tobiko and combo sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.95
+      }
+     ]
+    },
+    {
+     "id": 3058,
+     "name": "Summer Roll",
+     "description": "Snow crab,avocado crunch,topped w.seared canju tuna,avocado,masago,scallion and wasabi sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3072,
+     "name": "Sun Kissed Roll",
+     "description": "Black pepper tuna,mango,kani topped snow crab w.special sauce tobiko",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.95
+      }
+     ]
+    },
+    {
+     "id": 3098,
+     "name": "Sunshine Roll",
+     "description": "Salmon tempura,avocado,topped w.spicy kani crunch and eel sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3077,
+     "name": "TJ Roll",
+     "description": "Shrimp,cucumber top w.kani salad w.eel sauce & crunchy",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 3091,
+     "name": "Tiger Roll",
+     "description": "Salmon and seaweed,topped on a spicy shrimp and crispy tempura crunch roll",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 3078,
+     "name": "UPS Roll",
+     "description": "Tuna,salmon,cucumber topped w.yellowtail,avocado,masago& scallion",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 3090,
+     "name": "Volcano Roll",
+     "description": "Shrimp tempura roll,topped w.eel and spicy sauce",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3089,
+     "name": "Wasabi Roll",
+     "description": "Spicy lobster shrimp topped avocado,wasabi sauce & wasabi tobiko",
+     "prices": [
+      {
+       "size": null,
+       "amount": 15.5
+      }
+     ]
+    },
+    {
+     "id": 3094,
+     "name": "Wonderful Roll",
+     "description": "Snow crab,avocado,topped w.mango",
+     "prices": [
+      {
+       "size": null,
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 3100,
+     "name": "XMas Roll",
+     "description": "Shrimp tempura,lobster,avocado,mango,wrapped w.soy paper,topped w.eel sauce cut",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 3095,
+     "name": "Xanadu Roll",
+     "description": "Spicy tuna,crunch,topped w.salmon,yellowtail,avocado,spicy mayo,crunch",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    },
+    {
+     "id": 3096,
+     "name": "Yankee Roll",
+     "description": "Spicy kani top w.spicy salmon,white fish & crunch",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Sashimi & Sushi Special",
+   "description": "",
+   "items": [
+    {
+     "id": 2894,
+     "name": "Sushi Regular",
+     "description": "1 Califormia roll and 7 pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 19.95
+      }
+     ]
+    },
+    {
+     "id": 2895,
+     "name": "Sushi Deluxe",
+     "description": "1 California roll and 9 pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 22.5
+      }
+     ]
+    },
+    {
+     "id": 2896,
+     "name": "Salmon Sushi Special",
+     "description": "7 pcs Salmon & salmon roll",
+     "prices": [
+      {
+       "size": null,
+       "amount": 22.5
+      }
+     ]
+    },
+    {
+     "id": 2897,
+     "name": "Tuna Sushi Special",
+     "description": "7 pcs Tuna & tuna roll",
+     "prices": [
+      {
+       "size": null,
+       "amount": 22.5
+      }
+     ]
+    },
+    {
+     "id": 2898,
+     "name": "Tri Color Sushi",
+     "description": "3 pcs Tuna,3 salmon,3 yellowtail,spicy tuna roll",
+     "prices": [
+      {
+       "size": null,
+       "amount": 24.95
+      }
+     ]
+    },
+    {
+     "id": 2899,
+     "name": "Chirashi",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 22.5
+      }
+     ]
+    },
+    {
+     "id": 2900,
+     "name": "Tekka Don",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 23.95
+      }
+     ]
+    },
+    {
+     "id": 2901,
+     "name": "Sashimi Regular",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 23.95
+      }
+     ]
+    },
+    {
+     "id": 2902,
+     "name": "Sashimi Deluxe",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 26.95
+      }
+     ]
+    },
+    {
+     "id": 2903,
+     "name": "Sushi & Sashimi For 1",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 28.95
+      }
+     ]
+    },
+    {
+     "id": 2904,
+     "name": "Sushi & Sashimi Combo For 2",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 58.95
+      }
+     ]
+    },
+    {
+     "id": 2905,
+     "name": "Unaju",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 20.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Party Platter",
+   "description": "",
+   "items": [
+    {
+     "id": 2759,
+     "name": "Party Platter(A)",
+     "description": "4 Maki rolls and 21 pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 49.95
+      }
+     ]
+    },
+    {
+     "id": 2760,
+     "name": "Party Platter(B)",
+     "description": "4 Maki rolls and 21 pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 52.95
+      }
+     ]
+    },
+    {
+     "id": 2761,
+     "name": "Party Platter(C)",
+     "description": "4 Maki rolls and 20 pcs sushi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 55.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Bento Dinner",
+   "description": "",
+   "items": [
+    {
+     "id": 2906,
+     "name": "(D)Chicken Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer and sushi or sashimi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 21.5
+      }
+     ]
+    },
+    {
+     "id": 2907,
+     "name": "(D)Shrimp Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer and sushi or sashimi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 21.5
+      }
+     ]
+    },
+    {
+     "id": 2908,
+     "name": "(D)Beef Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer and sushi or sashimi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 21.5
+      }
+     ]
+    },
+    {
+     "id": 2909,
+     "name": "(D)Salmon Teriyaki Bento",
+     "description": "Served w.California roll,daily appetizer and sushi or sashimi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 21.5
+      }
+     ]
+    },
+    {
+     "id": 2910,
+     "name": "(D)Shrimp Tempura Bento",
+     "description": "Served w.California roll,daily appetizer and sushi or sashimi",
+     "prices": [
+      {
+       "size": null,
+       "amount": 21.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Rice",
+   "description": "",
+   "items": [
+    {
+     "id": 2762,
+     "name": "Egg Fried Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 10.5
+      }
+     ]
+    },
+    {
+     "id": 2763,
+     "name": "Vegetable Fried Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 11.5
+      }
+     ]
+    },
+    {
+     "id": 2764,
+     "name": "Chicken Fried Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 2765,
+     "name": "Shrimp Fried Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 12.95
+      }
+     ]
+    },
+    {
+     "id": 2766,
+     "name": "Steam Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": "Small",
+       "amount": 3
+      },
+      {
+       "size": "Large",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "id": 2767,
+     "name": "Brown Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": "Small",
+       "amount": 3
+      },
+      {
+       "size": "Large",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "id": 2768,
+     "name": "Sushi Rice",
+     "description": "",
+     "prices": [
+      {
+       "size": "Small",
+       "amount": 3
+      },
+      {
+       "size": "Large",
+       "amount": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Kitchen Entree",
+   "description": "All Entree come w.Soup or Salad",
+   "items": [
+    {
+     "id": 2911,
+     "name": "(D)Chicken Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 2912,
+     "name": "(D)Beef Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 2913,
+     "name": "(D)Shrimp Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 2914,
+     "name": "(D)Salmon Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 2915,
+     "name": "(D)Vegetable Teriyaki",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 16.95
+      }
+     ]
+    },
+    {
+     "id": 2916,
+     "name": "(D)Shrimp & Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 3024,
+     "name": "(D)Chicken & Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 18.95
+      }
+     ]
+    },
+    {
+     "id": 2917,
+     "name": "(D)Vegetable Tempura",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 17.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Udon Noodle",
+   "description": "",
+   "items": [
+    {
+     "id": 2769,
+     "name": "Shrimp Tempura Udon",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 14.95
+      }
+     ]
+    },
+    {
+     "id": 2770,
+     "name": "Vegetable Udon",
+     "description": "",
+     "prices": [
+      {
+       "size": "Soup",
+       "amount": 11.95
+      },
+      {
+       "size": "Sauteed",
+       "amount": 11.95
+      }
+     ]
+    },
+    {
+     "id": 2771,
+     "name": "Chicken Vegetable Udon",
+     "description": "",
+     "prices": [
+      {
+       "size": "Soup",
+       "amount": 13.95
+      },
+      {
+       "size": "Sauteed",
+       "amount": 13.95
+      }
+     ]
+    },
+    {
+     "id": 2772,
+     "name": "Shrimp Vegetable Udon",
+     "description": "",
+     "prices": [
+      {
+       "size": "Soup",
+       "amount": 13.95
+      },
+      {
+       "size": "Sauteed",
+       "amount": 13.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Side",
+   "description": "",
+   "items": [
+    {
+     "id": 2954,
+     "name": "Spicy Mayo",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2955,
+     "name": "Eel Sauce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2956,
+     "name": "Mango Sauce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2957,
+     "name": "Dumpling Suce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2958,
+     "name": "Ginger Dressing",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2959,
+     "name": "Wasabi Mayo",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2960,
+     "name": "Side Crunch",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1
+      }
+     ]
+    },
+    {
+     "id": 2961,
+     "name": "Side Teriyaki Sauce",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Drinks",
+   "description": "",
+   "items": [
+    {
+     "id": 2967,
+     "name": "Japanese Soda",
+     "description": "",
+     "prices": [
+      {
+       "size": "Original",
+       "amount": 3.5
+      },
+      {
+       "size": "Strawberry",
+       "amount": 3.5
+      },
+      {
+       "size": "Grape",
+       "amount": 5.5
+      },
+      {
+       "size": "Melon",
+       "amount": 3.5
+      },
+      {
+       "size": "Lychee",
+       "amount": 3.5
+      }
+     ]
+    },
+    {
+     "id": 2968,
+     "name": "Thai Ice Tea",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 4
+      }
+     ]
+    },
+    {
+     "id": 2969,
+     "name": "Coke",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2970,
+     "name": "Diet Coke",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2971,
+     "name": "Brisk Iced Tea",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2972,
+     "name": "Seltzer",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2973,
+     "name": "Ginger Ale",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2974,
+     "name": "Dr Pepper",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2975,
+     "name": "Sprite",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2976,
+     "name": "Apple Juice",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "id": 2977,
+     "name": "S.Pellegrino",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 3.5
+      }
+     ]
+    },
+    {
+     "id": 2978,
+     "name": "Fried Ice Cream",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 6.95
+      }
+     ]
+    },
+    {
+     "id": 2979,
+     "name": "Mochi Ice Cream",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 5
+      }
+     ]
+    },
+    {
+     "id": 2980,
+     "name": "Hot Tea",
+     "description": "",
+     "prices": [
+      {
+       "size": null,
+       "amount": 1.5
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

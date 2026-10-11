@@ -1,0 +1,1878 @@
+{
+  "source": "https://order.mealkeyway.com/customer/release/index?mid=46446152716f555a75486368787758744767753937673d3d",
+  "checked": "2026-10-11",
+  "sections": [
+    {
+      "id": "special-rolls",
+      "label": "Special rolls",
+      "blurb": "The house's signature rolls, from the Shirley Roll to the Godzilla.",
+      "groups": [
+        {
+          "title": "Special fancy rolls",
+          "items": [
+            {
+              "name": "Amazing Roll",
+              "description": "Deep fried California roll top with spicy tuna, masago, special sauce",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Angry Bird Roll",
+              "description": "Shrimp tempura, spicy tuna inside, spicy snow crab, topped in soy paper",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Burning Love Roll",
+              "description": "Black pepper tuna, avocado, tempura, asparagus in soy paper, topped spicy tuna & fresh tuna, masago, scallion special sauce",
+              "prices": [
+                {
+                  "amount": 16.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Coconut Shrimp Roll",
+              "description": "Tempura shrimp avocado inside topped with snow crab coconut flakes and coconut sauce",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Crazy Tuna Roll",
+              "description": "Spicy tuna, eel, crunch topped with black pepper tuna, avocado, special sauce",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Diamond Roll",
+              "description": "Spicy tuna, salmon, yellowtail crunch topped with white tuna avocado and red tobiko",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Dynamite Roll",
+              "description": "Salmon, yellowtail, crab stick, avocado, masago, asparagus and scallion wrapped and battered fried",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Eel Dragon",
+              "description": "Crab stick, avocado, masago, eel & sesame on top",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Fancy Lobster Roll",
+              "description": "Eel, avocado, mango, topped with spicy lobster crunch and combo sauce",
+              "prices": [
+                {
+                  "amount": 16.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Fire Ball Roll",
+              "description": "Snow crab, eel, avocado topped spicy yellowtail, spicy salmon seasonal seaweed special sauce",
+              "prices": [
+                {
+                  "amount": 15.95
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Fire Island",
+              "description": "Kani, avocado and tempura crunch topped with spicy tuna and scallion",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Godzilla",
+              "description": "Snow crab & avocado, topped with whole eel and black tobiko",
+              "prices": [
+                {
+                  "amount": 18.5
+                }
+              ]
+            },
+            {
+              "name": "Golden Shrimp Tempura",
+              "description": "Shrimp tempura roll topped with mango",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ]
+            },
+            {
+              "name": "Happy Roll",
+              "description": "Snow crab, crab stick, shrimp & scallion on top",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ]
+            },
+            {
+              "name": "Holiday Roll",
+              "description": "Spicy yellowtail crunch, topped with spicy kani layer with avocado and masago",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Ikura Salmon Roll",
+              "description": "Salmon skin, cucumber topped with fresh salmon, seaweed & salmon roe (ikura)",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ]
+            },
+            {
+              "name": "Jade Roll",
+              "description": "Spicy tuna, crunch, topped with avocado, scallion, black tobiko",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Kabuki Roll",
+              "description": "Salmon, avocado, topped with yellowtail, salmon, avocado",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "Kiwi Vegetable",
+              "description": "Avocado, kampyo, yamagobo, cucumber topped with kiwi salad",
+              "prices": [
+                {
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "Lobster Roll",
+              "description": "Lobster with mayonnaise top with tuna, salmon, and avocado",
+              "prices": [
+                {
+                  "amount": 17.5
+                }
+              ]
+            },
+            {
+              "name": "Lost Roll",
+              "description": "Spicy eel crunch, topped with spicy tuna crunch, layered with avocado",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Millennium Roll",
+              "description": "Snow crab, eel, avocado, topped with shrimp, squid, red clam, tuna, salmon and avocado",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Out of Control",
+              "description": "Snow crab, asparagus, topped with slices eel and combo sauce",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Phoenix Roll",
+              "description": "Shrimp, avocado, crunch, topped with yellowtail, masago and scallion",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Red Dragon",
+              "description": "Spicy tuna, crunch, topped with slices of fresh tuna",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Samurai Roll",
+              "description": "Eel, avocado, shrimp, topped with snow crab",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Scorpion",
+              "description": "Crispy rice cream cheese top with spicy tuna, jalapeño, ikura",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Seaweed Vegetable",
+              "description": "Oshinko yamagobo, kampyo cucumber, topped with seaweed salad",
+              "prices": [
+                {
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "Shirley Roll",
+              "description": "Snow crab, avocado, cream cheese inside seared salmon, combo sauce crunch & red tobiko on top",
+              "prices": [
+                {
+                  "amount": 16.5
+                }
+              ]
+            },
+            {
+              "name": "Snow Dragon",
+              "description": "Snow crab, asparagus, topped with avocado masago",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "Snow Mountain",
+              "description": "Shrimp tempura roll, topped with snow crab",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Spider Roll",
+              "description": "Soft shell crab, avocado, cucumber with combo sauce",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Steak N Shrimp Roll",
+              "description": "Shrimp tempura topped seared beef, scallion tobiko and combo sauce",
+              "prices": [
+                {
+                  "amount": 15.95
+                }
+              ]
+            },
+            {
+              "name": "Summer Roll",
+              "description": "Snow crab, avocado crunch, topped with seared canju tuna, avocado, masago, scallion and wasabi sauce",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Sun Kissed Roll",
+              "description": "Black pepper tuna, mango, kani topped snow crab with special sauce tobiko",
+              "prices": [
+                {
+                  "amount": 15.95
+                }
+              ]
+            },
+            {
+              "name": "Sunshine Roll",
+              "description": "Salmon tempura, avocado, topped with spicy kani crunch and eel sauce",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "TJ Roll",
+              "description": "Shrimp, cucumber top with kani salad with eel sauce & crunchy",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Tiger Roll",
+              "description": "Salmon and seaweed, topped on a spicy shrimp and crispy tempura crunch roll",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "U.P.S. Roll",
+              "description": "Tuna, salmon, cucumber topped with yellowtail, avocado, masago & scallion",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Volcano Roll",
+              "description": "Shrimp tempura roll, topped with eel and spicy sauce",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Wasabi Roll",
+              "description": "Spicy lobster shrimp topped avocado, wasabi sauce & wasabi tobiko",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Wonderful Roll",
+              "description": "Snow crab, avocado, topped with mango",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "X'Mas Roll",
+              "description": "Shrimp tempura, lobster, avocado, mango, wrapped with soy paper, topped with eel sauce cut",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Xanadu Roll",
+              "description": "Spicy tuna, crunch, topped with salmon, yellowtail, avocado, spicy mayo, crunch",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Yankee Roll",
+              "description": "Spicy kani top with spicy salmon, white fish & crunch",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ],
+              "spicy": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rolls",
+      "label": "Rolls & hand rolls",
+      "blurb": "Classic maki, spicy rolls and vegetable rolls.",
+      "groups": [
+        {
+          "title": "Roll or hand roll",
+          "items": [
+            {
+              "name": "AAC Roll",
+              "prices": [
+                {
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Avocado Roll",
+              "description": "Avocado, rolled in seaweed",
+              "prices": [
+                {
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Kappa Roll",
+              "description": "Cucumber",
+              "prices": [
+                {
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Oshinko Roll",
+              "description": "Japanese pickles rolled in seaweed",
+              "prices": [
+                {
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Nori Roll",
+              "description": "Cooked squash wrapped in seaweed",
+              "prices": [
+                {
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Sweet Potato Roll",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "California Roll",
+              "description": "Crab meat and avocado, wrapped in rice and masago",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Roll",
+              "description": "5 pcs big roll: asparagus, avocado, yamagobo, cucumber, oshinko kampyo",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Tuna Roll",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Yellowtail & Scallion Roll",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Salmon Roll",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Salmon Skin Roll",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Eel Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Eel Cucumber Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Boston Roll",
+              "description": "Shrimp, cucumber, lettuce and mayo",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Alaska Roll",
+              "description": "Salmon, avocado and cucumber",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Spicy Shrimp Roll",
+              "description": "Shrimp, crunch with spicy sauce",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Spicy California Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Spicy Kani Roll",
+              "description": "Crabmeat stick, crunch spicy sauce",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Tuna Mango Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Spicy Salmon Roll",
+              "description": "Salmon, crunch, spicy sauce",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Spicy Tuna Roll",
+              "description": "Tuna, crunch, spicy sauce",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Spicy Yellowtail Roll",
+              "description": "Yellowtail, crunchy, spicy sauce",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Tuna Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Yellowtail Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "East Roll",
+              "description": "Shrimp, egg, avocado, cucumber and masago",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Smoked Salmon Cream Cheese Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Green River Roll",
+              "description": "8 pcs, eel and avocado, topped with green seaweed powder",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Snow Crab Asparagus Roll",
+              "prices": [
+                {
+                  "amount": 7.5
+                }
+              ]
+            },
+            {
+              "name": "Snow Crab Avocado Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Salad Maki Roll",
+              "description": "Kani, shrimp, avocado, mayo",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Futo Maki Roll",
+              "description": "5 pcs, kani, egg, avocado, cucumber, oshinko, yamagobo, kampyo",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Tempura Roll",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Fish Tempura Roll",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Chicken Tempura Roll",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Yellowtail Jalapeno Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Tuna Jalapeno Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Salmon Jalapeno Roll",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Avo Peanuts Roll",
+              "prices": [
+                {
+                  "amount": 5.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sushi",
+      "label": "Sushi & sashimi",
+      "blurb": "By the piece, as a set, or as a platter for the table.",
+      "groups": [
+        {
+          "title": "Sushi & sashimi",
+          "note": "2 pcs each order",
+          "items": [
+            {
+              "name": "Kani (Crab)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Tamago (Egg)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Saba (Mackerel)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Inari",
+              "description": "Dry tofu",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 4.5
+                }
+              ]
+            },
+            {
+              "name": "Fluke",
+              "description": "Hirami",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Stripe Bass",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Hokkigai (Red Clam)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Tuna",
+              "description": "Maguro",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Salmon",
+              "description": "Sake",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Yellowtail",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "White Tuna",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Eel",
+              "description": "Unagi",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.5
+                }
+              ]
+            },
+            {
+              "name": "Ebi (Shrimp)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Scallop",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Smoked Salmon",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Tako (Octopus)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Ika (Squid)",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "name": "Botan Ebi",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "name": "Ikura",
+              "description": "Salmon roe",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Masago",
+              "prices": [
+                {
+                  "label": "Sushi or sashimi",
+                  "amount": 5.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sushi & sashimi specials",
+          "items": [
+            {
+              "name": "Sushi Regular",
+              "description": "1 California roll and 7 pcs sushi",
+              "prices": [
+                {
+                  "amount": 19.95
+                }
+              ]
+            },
+            {
+              "name": "Sushi Deluxe",
+              "description": "1 California roll and 9 pcs sushi",
+              "prices": [
+                {
+                  "amount": 22.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Sushi Special",
+              "description": "7 pcs salmon & salmon roll",
+              "prices": [
+                {
+                  "amount": 22.5
+                }
+              ]
+            },
+            {
+              "name": "Tuna Sushi Special",
+              "description": "7 pcs tuna & tuna roll",
+              "prices": [
+                {
+                  "amount": 22.5
+                }
+              ]
+            },
+            {
+              "name": "Tri Color Sushi",
+              "description": "3 pcs tuna, 3 salmon, 3 yellowtail, spicy tuna roll",
+              "prices": [
+                {
+                  "amount": 24.95
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Chirashi",
+              "prices": [
+                {
+                  "amount": 22.5
+                }
+              ]
+            },
+            {
+              "name": "Tekka Don",
+              "prices": [
+                {
+                  "amount": 23.95
+                }
+              ]
+            },
+            {
+              "name": "Sashimi Regular",
+              "prices": [
+                {
+                  "amount": 23.95
+                }
+              ]
+            },
+            {
+              "name": "Sashimi Deluxe",
+              "prices": [
+                {
+                  "amount": 26.95
+                }
+              ]
+            },
+            {
+              "name": "Sushi & Sashimi For 1",
+              "prices": [
+                {
+                  "amount": 28.95
+                }
+              ]
+            },
+            {
+              "name": "Sushi & Sashimi Combo For 2",
+              "prices": [
+                {
+                  "amount": 58.95
+                }
+              ]
+            },
+            {
+              "name": "Unaju",
+              "prices": [
+                {
+                  "amount": 20.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Party platters",
+          "items": [
+            {
+              "name": "Party Platter (A)",
+              "description": "4 maki rolls and 21 pcs sushi",
+              "prices": [
+                {
+                  "amount": 49.95
+                }
+              ]
+            },
+            {
+              "name": "Party Platter (B)",
+              "description": "4 maki rolls and 21 pcs sushi",
+              "prices": [
+                {
+                  "amount": 52.95
+                }
+              ]
+            },
+            {
+              "name": "Party Platter (C)",
+              "description": "4 maki rolls and 20 pcs sushi",
+              "prices": [
+                {
+                  "amount": 55.95
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bento",
+      "label": "Bento",
+      "blurb": "A full tray: the main, a California roll, a daily appetizer and sushi or sashimi.",
+      "groups": [
+        {
+          "title": "Bento dinner",
+          "items": [
+            {
+              "name": "Chicken Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 21.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 21.5
+                }
+              ]
+            },
+            {
+              "name": "Beef Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 21.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 21.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Tempura Bento",
+              "prices": [
+                {
+                  "amount": 21.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "label": "Kitchen",
+      "blurb": "Teriyaki, tempura, udon and fried rice from the kitchen.",
+      "groups": [
+        {
+          "title": "Kitchen entrées",
+          "note": "All entrées come with soup or salad",
+          "items": [
+            {
+              "name": "Chicken Teriyaki",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Beef Teriyaki",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Teriyaki",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Salmon Teriyaki",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Teriyaki",
+              "prices": [
+                {
+                  "amount": 16.95
+                }
+              ]
+            },
+            {
+              "name": "Shrimp & Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Chicken & Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 18.95
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 17.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Udon noodles",
+          "items": [
+            {
+              "name": "Shrimp Tempura Udon",
+              "prices": [
+                {
+                  "amount": 14.95
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Udon",
+              "prices": [
+                {
+                  "label": "Soup or sauteed",
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "Chicken Vegetable Udon",
+              "prices": [
+                {
+                  "label": "Soup or sauteed",
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Vegetable Udon",
+              "prices": [
+                {
+                  "label": "Soup or sauteed",
+                  "amount": 13.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Rice",
+          "items": [
+            {
+              "name": "Egg Fried Rice",
+              "prices": [
+                {
+                  "amount": 10.5
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Fried Rice",
+              "prices": [
+                {
+                  "amount": 11.5
+                }
+              ]
+            },
+            {
+              "name": "Chicken Fried Rice",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Fried Rice",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Steam Rice",
+              "prices": [
+                {
+                  "label": "Small",
+                  "amount": 3
+                },
+                {
+                  "label": "Large",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "name": "Brown Rice",
+              "prices": [
+                {
+                  "label": "Small",
+                  "amount": 3
+                },
+                {
+                  "label": "Large",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "name": "Sushi Rice",
+              "prices": [
+                {
+                  "label": "Small",
+                  "amount": 3
+                },
+                {
+                  "label": "Large",
+                  "amount": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "starters",
+      "label": "Starters",
+      "blurb": "Soups, salads and house special appetizers.",
+      "groups": [
+        {
+          "title": "Soup & salad",
+          "items": [
+            {
+              "name": "Miso Soup",
+              "prices": [
+                {
+                  "label": "Small",
+                  "amount": 3
+                },
+                {
+                  "label": "Large",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "name": "Clear Soup",
+              "prices": [
+                {
+                  "label": "Small",
+                  "amount": 3
+                },
+                {
+                  "label": "Large",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "name": "Squid Salad",
+              "prices": [
+                {
+                  "amount": 8.5
+                }
+              ]
+            },
+            {
+              "name": "Green Salad",
+              "prices": [
+                {
+                  "amount": 4.95
+                }
+              ]
+            },
+            {
+              "name": "Avocado Salad",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Kani Salad",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Seaweed Salad",
+              "prices": [
+                {
+                  "amount": 6.95
+                }
+              ]
+            },
+            {
+              "name": "Tuna Avocado Salad",
+              "description": "With spicy mayonnaise and crunch",
+              "prices": [
+                {
+                  "amount": 12.5
+                }
+              ],
+              "spicy": true
+            },
+            {
+              "name": "Salmon Avocado Salad",
+              "prices": [
+                {
+                  "amount": 12.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Skin Salad",
+              "prices": [
+                {
+                  "amount": 8.5
+                }
+              ]
+            },
+            {
+              "name": "Baby Octopus Salad",
+              "prices": [
+                {
+                  "amount": 9.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "House special appetizers",
+          "items": [
+            {
+              "name": "Edamame",
+              "description": "Soy bean",
+              "prices": [
+                {
+                  "amount": 5.95
+                }
+              ]
+            },
+            {
+              "name": "Shumai",
+              "description": "Shrimp",
+              "prices": [
+                {
+                  "label": "Steam or crispy",
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Wasabi Shumai",
+              "prices": [
+                {
+                  "amount": 7.5
+                }
+              ]
+            },
+            {
+              "name": "Gyoza (Pork)",
+              "prices": [
+                {
+                  "label": "Steam or crispy",
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Gyoza (Veg.)",
+              "prices": [
+                {
+                  "label": "Steam or crispy",
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Gyoza Special",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Spring Roll (Veg.)",
+              "prices": [
+                {
+                  "amount": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Beef Negimaki",
+              "prices": [
+                {
+                  "amount": 10.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp & Veg Tempura",
+              "prices": [
+                {
+                  "amount": 8.95
+                }
+              ]
+            },
+            {
+              "name": "Chicken & Veg Tempura",
+              "prices": [
+                {
+                  "amount": 9.5
+                }
+              ]
+            },
+            {
+              "name": "Fish Tempura",
+              "prices": [
+                {
+                  "amount": 8.95
+                }
+              ]
+            },
+            {
+              "name": "Rock Shrimp",
+              "prices": [
+                {
+                  "amount": 9.5
+                }
+              ]
+            },
+            {
+              "name": "Tatsuta Age",
+              "prices": [
+                {
+                  "amount": 9.5
+                }
+              ]
+            },
+            {
+              "name": "Tako Yaki",
+              "prices": [
+                {
+                  "amount": 7.95
+                }
+              ]
+            },
+            {
+              "name": "Coconut Shrimp",
+              "prices": [
+                {
+                  "amount": 9.5
+                }
+              ]
+            },
+            {
+              "name": "Fried Oyster",
+              "prices": [
+                {
+                  "amount": 10.5
+                }
+              ]
+            },
+            {
+              "name": "Fire Ball",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Taco Pizza",
+              "prices": [
+                {
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "Naruto",
+              "prices": [
+                {
+                  "label": "Eel, tuna or salmon",
+                  "amount": 12.95
+                }
+              ]
+            },
+            {
+              "name": "Tuna Tataki with Ponzu Sauce",
+              "prices": [
+                {
+                  "amount": 12.5
+                }
+              ]
+            },
+            {
+              "name": "Tuna Carpaccio with Wasabi Sauce",
+              "prices": [
+                {
+                  "amount": 12.5
+                }
+              ]
+            },
+            {
+              "name": "Tako Sunomono",
+              "prices": [
+                {
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "Stuffed Shrimp",
+              "prices": [
+                {
+                  "amount": 11.95
+                }
+              ]
+            },
+            {
+              "name": "King Crab Rangoon",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Tuna Dumpling",
+              "description": "Tuna wrapped snow crab, seaweed salad, topped with avocado cilantro sauce",
+              "prices": [
+                {
+                  "amount": 11.5
+                }
+              ]
+            },
+            {
+              "name": "Yellow Tail Jalapeno",
+              "prices": [
+                {
+                  "amount": 12.95
+                }
+              ],
+              "spicy": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lunch",
+      "label": "Lunch",
+      "blurb": "Tuesday to Friday, 11 AM to 3 PM, excluding holidays.",
+      "groups": [
+        {
+          "title": "Bento lunch",
+          "note": "Served with California roll and daily appetizer",
+          "items": [
+            {
+              "name": "Chicken Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Beef Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Teriyaki Bento",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Tempura Bento",
+              "prices": [
+                {
+                  "amount": 15.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Kitchen entrée lunch",
+          "note": "Served with soup or salad",
+          "items": [
+            {
+              "name": "Chicken Teriyaki",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Beef Teriyaki",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp Teriyaki",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Salmon Teriyaki",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Teriyaki",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ]
+            },
+            {
+              "name": "Shrimp & Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Chicken & Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 14.5
+                }
+              ]
+            },
+            {
+              "name": "Vegetable Tempura",
+              "prices": [
+                {
+                  "amount": 13.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sushi bar lunch",
+          "items": [
+            {
+              "name": "Maki Combo",
+              "description": "Any 3 rolls from roll or hand roll",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "Sushi Lunch",
+              "description": "1 California roll, 6 pcs sushi",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            },
+            {
+              "name": "Sashimi Lunch",
+              "prices": [
+                {
+                  "amount": 13.95
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

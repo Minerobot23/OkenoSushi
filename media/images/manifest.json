@@ -1,0 +1,110 @@
+{
+ "storefront": {
+  "width": 768,
+  "height": 1024,
+  "files": [
+   {
+    "w": 480,
+    "h": 640,
+    "jpg": "storefront-480.jpg",
+    "webp": "storefront-480.webp"
+   },
+   {
+    "w": 768,
+    "h": 1024,
+    "jpg": "storefront-768.jpg",
+    "webp": "storefront-768.webp"
+   }
+  ]
+ },
+ "counter": {
+  "width": 768,
+  "height": 1024,
+  "files": [
+   {
+    "w": 480,
+    "h": 640,
+    "jpg": "counter-480.jpg",
+    "webp": "counter-480.webp"
+   },
+   {
+    "w": 768,
+    "h": 1024,
+    "jpg": "counter-768.jpg",
+    "webp": "counter-768.webp"
+   }
+  ]
+ },
+ "rolls": {
+  "width": 520,
+  "height": 290,
+  "files": [
+   {
+    "w": 520,
+    "h": 290,
+    "jpg": "rolls-520.jpg",
+    "webp": "rolls-520.webp"
+   }
+  ]
+ },
+ "bento": {
+  "width": 520,
+  "height": 290,
+  "files": [
+   {
+    "w": 520,
+    "h": 290,
+    "jpg": "bento-520.jpg",
+    "webp": "bento-520.webp"
+   }
+  ]
+ },
+ "menu-scan-1": {
+  "width": 850,
+  "height": 992,
+  "files": [
+   {
+    "w": 850,
+    "h": 992,
+    "jpg": "menu-scan-1-850.jpg",
+    "webp": "menu-scan-1-850.webp"
+   }
+  ]
+ },
+ "menu-scan-2": {
+  "width": 850,
+  "height": 992,
+  "files": [
+   {
+    "w": 850,
+    "h": 992,
+    "jpg": "menu-scan-2-850.jpg",
+    "webp": "menu-scan-2-850.webp"
+   }
+  ]
+ },
+ "menu-scan-3": {
+  "width": 850,
+  "height": 992,
+  "files": [
+   {
+    "w": 850,
+    "h": 992,
+    "jpg": "menu-scan-3-850.jpg",
+    "webp": "menu-scan-3-850.webp"
+   }
+  ]
+ },
+ "menu-scan-4": {
+  "width": 850,
+  "height": 992,
+  "files": [
+   {
+    "w": 850,
+    "h": 992,
+    "jpg": "menu-scan-4-850.jpg",
+    "webp": "menu-scan-4-850.webp"
+   }
+  ]
+ }
+}

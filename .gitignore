@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+# Film production intermediates (see media/README.md)
+media/**/renders/
+media/**/renders-*/
+media/**/stills/
+__pycache__/
+# Verification output
+verification/tmp/
+dist-ssr/
