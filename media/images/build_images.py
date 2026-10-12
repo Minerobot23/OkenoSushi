@@ -16,10 +16,10 @@ SRC = os.path.join(ROOT, "media", "sources")
 OUT = os.path.join(ROOT, "public", "images")
 
 JOBS = [
-    ("photos/okeno-storefront.jpg", "storefront", [480, 768]),
-    ("photos/okeno-counter-with-rolls.jpg", "counter", [480, 768]),
-    ("photos/okeno-rolls-on-slate.jpg", "rolls", [520]),
-    ("photos/okeno-bento-platter.jpg", "bento", [520]),
+    ("photos/okeno-storefront.jpg", "storefront", [600, 1200]),
+    ("photos/okeno-counter-with-rolls.jpg", "counter", [600, 1200]),
+    ("photos/okeno-rolls-on-slate.jpg", "rolls", [600, 1200]),
+    ("photos/okeno-bento-platter.jpg", "bento", [600, 1200]),
     ("reference-menu/menu1.jpg", "menu-scan-1", [850]),
     ("reference-menu/menu2.jpg", "menu-scan-2", [850]),
     ("reference-menu/menu3.jpg", "menu-scan-3", [850]),

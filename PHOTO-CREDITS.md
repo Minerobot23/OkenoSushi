@@ -33,10 +33,10 @@ Downloaded and visually inspected on October 11, 2026. The original URLs are in
 
 | File | What it shows | Gallery attribution / asset id | Used on the site |
 | --- | --- | --- | --- |
-| okeno-storefront.jpg (768×1024) | The brick storefront and lit Okeno Sushi sign | Maps gallery; uploader not established; b0670bde9442b264 | Visit, Gallery |
-| okeno-counter-with-rolls.jpg (768×1024) | Rolls on a table, the sushi counter and chefs | marlyn meneses, July 2025; 27261a11ff87fc66 | Counter background (blurred), Gallery |
-| okeno-rolls-on-slate.jpg (520×290) | Sauce-topped rolls on slate | DoorDash; de812f97fb415514 | Gallery |
-| okeno-bento-platter.jpg (520×290) | A bento tray | DoorDash; 81644b64a14948b1 | Gallery |
+| okeno-storefront.jpg (3000×4000) | The brick storefront and lit Okeno Sushi sign | Maps gallery; uploader not established; b0670bde9442b264 | Visit, Gallery |
+| okeno-counter-with-rolls.jpg (3000×4000) | Rolls on a table, the sushi counter and chefs | marlyn meneses, July 2025; 27261a11ff87fc66 | Counter background (blurred), Gallery |
+| okeno-rolls-on-slate.jpg (1200×669) | Sauce-topped rolls on slate | DoorDash; de812f97fb415514 | Gallery |
+| okeno-bento-platter.jpg (1200×669) | A bento tray | DoorDash; 81644b64a14948b1 | Gallery |
 
 The gallery lightbox credits each photo.
 

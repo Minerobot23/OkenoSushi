@@ -18,7 +18,7 @@ const structured = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   name: BUSINESS.name,
-  image: "/images/storefront-768.jpg",
+  image: "/images/storefront-1200.jpg",
   telephone: "+1-631-668-8188",
   servesCuisine: ["Sushi", "Japanese"],
   address: {

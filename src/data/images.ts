@@ -38,23 +38,26 @@ const photo = (
   };
 };
 
+/** Small copy of the counter photo for the blurred light behind the counter scene. */
+export const COUNTER_GLOW = "/images/counter-600.jpg";
+
 export const PHOTOS = {
-  counter: photo("counter", "counter", 768, 1024, [480, 768], {
+  counter: photo("counter", "counter", 1200, 1600, [600, 1200], {
     alt: "A plate of sauced rolls with ginger and wasabi on a table, with the wooden sushi counter and two chefs behind it",
     caption: "Rolls at a table by the sushi counter.",
     credit: "Photo: marlyn meneses, via Google Maps",
   }),
-  rolls: photo("rolls", "rolls", 520, 290, [520], {
+  rolls: photo("rolls", "rolls", 1200, 669, [600, 1200], {
     alt: "Sauce-topped sushi rolls on a round dark slate with pickled ginger and wasabi",
     caption: "Rolls from Okeno Sushi.",
     credit: "Photo: DoorDash listing, via Google Maps",
   }),
-  bento: photo("bento", "bento", 520, 290, [520], {
+  bento: photo("bento", "bento", 1200, 669, [600, 1200], {
     alt: "A bento tray with grilled chicken and broccoli, a sesame roll, tempura, dumplings and sashimi",
     caption: "A bento from Okeno Sushi.",
     credit: "Photo: DoorDash listing, via Google Maps",
   }),
-  storefront: photo("storefront", "storefront", 768, 1024, [480, 768], {
+  storefront: photo("storefront", "storefront", 1200, 1600, [600, 1200], {
     alt: "The Okeno Sushi storefront: a brick shopfront with a lit sign reading Okeno Sushi 631-668-8188, an OPEN sign in the window and a glass door",
     caption: "The storefront at 451 Glen Drive.",
     credit: "Photo: Google Maps listing",

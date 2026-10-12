@@ -1,6 +1,6 @@
 # Verification report
 
-Run against http://localhost:4173/ on 2026-10-11T22:47:11.326Z with Playwright Chromium (headless).
+Run against http://localhost:4173/ on 2026-10-12T13:08:05.700Z with Playwright Chromium (headless).
 
 **42 of 42 checks passed.**
 
@@ -21,7 +21,7 @@ Run against http://localhost:4173/ on 2026-10-11T22:47:11.326Z with Playwright C
 | Console | no errors (scene tour) | pass |  |
 | Scenes | a deep link (#visit) opens that scene before anything else | pass |  |
 | Scenes | two quick clicks during a curtain wipe end on the last one | pass | platters |
-| Belt | the belt advances by itself | pass | 137 → 213 |
+| Belt | the belt advances by itself | pass | 135 → 210 |
 | Belt | hovering stops the belt | pass |  |
 | Belt | Pause the belt holds it | pass |  |
 | Belt | dragging scrolls without opening a dish | pass |  |

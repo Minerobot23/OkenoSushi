@@ -3,7 +3,7 @@ import { Belt } from "../components/Belt";
 import { TastingFan } from "../components/TastingFan";
 import { ArrowIcon, StarIcon } from "../components/Icons";
 import { ADDRESS_LINE, GOOGLE_RATING, LINKS } from "../data/business";
-import { PHOTOS } from "../data/images";
+import { COUNTER_GLOW } from "../data/images";
 import { useScene } from "../lib/scenes";
 
 /** Headline words as spans, so they can rise one after another. */
@@ -43,7 +43,7 @@ export function Counter() {
       onPointerMove={onPointerMove}
     >
       <div className="counter__room" aria-hidden="true">
-        <img src={PHOTOS.counter.src} alt="" width={PHOTOS.counter.width} height={PHOTOS.counter.height} />
+        <img src={COUNTER_GLOW} alt="" width={600} height={800} />
       </div>
       <div className="counter__glow" aria-hidden="true" />
 
