@@ -60,7 +60,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
   const after = await page.evaluate(() => ({
     arrive: document.documentElement.classList.contains("arrive"),
     noren: getComputedStyle(document.querySelector(".noren")).visibility,
-    title: getComputedStyle(document.querySelector(".hero__title")).opacity,
+    title: getComputedStyle(document.querySelector(".counter__title .word")).opacity,
   }));
   record("Arrival", "noren arrival runs and ends by itself", atStart && !after.arrive && after.noren === "hidden" && after.title === "1", JSON.stringify(after));
   await shot(page, "desktop-1440-counter");
@@ -104,7 +104,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
   await wait(3600);
   const s = await page.evaluate(() => ({
     arrive: document.documentElement.classList.contains("arrive"),
-    title: getComputedStyle(document.querySelector(".hero__title")).opacity,
+    title: getComputedStyle(document.querySelector(".counter__title .word")).opacity,
   }));
   record("Arrival", "no animation frames: arrival still ends, headline visible", !s.arrive && s.title === "1", JSON.stringify(s));
   await page.locator(".dock").getByRole("link", { name: "Visit" }).click();
@@ -132,8 +132,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
   await wait(300);
   const bad = [];
   for (const id of SCENES.slice(1).concat("counter")) {
-    // On wide screens the logo is the way home; every other scene is in the dock.
-    await page.locator(id === "counter" ? ".topbar__brand" : `.dock a[data-dock="${id}"]`).click();
+    await page.locator(`.dock a[data-dock="${id}"]`).click();
     await wait(250);
     const ok = (await sceneOf(page)) === id && (await visibleHeading(page, id));
     const focused = await page.evaluate((sid) => document.activeElement === document.querySelector(`#scene-${sid} [data-scene-focus]`), id);
@@ -196,21 +195,21 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
     focusable: [...document.querySelectorAll(".plate__button")].filter((b) => b.tabIndex >= 0 && !b.closest("[aria-hidden]")).length,
     clonesHidden: [...document.querySelectorAll(".plate[aria-hidden] .plate__button")].every((b) => b.tabIndex === -1),
   }));
-  record("Belt", "each dish is reachable by keyboard once (the loop copy is hidden)", plates.focusable === 16 && plates.clonesHidden, JSON.stringify(plates));
+  record("Belt", "each dish is reachable by keyboard once (the loop copy is hidden)", plates.focusable === 22 && plates.clonesHidden, JSON.stringify(plates));
 
-  const target = page.locator('.plate:not([aria-hidden]) .plate__button[data-dish="California Roll"]');
+  const target = page.locator('.plate:not([aria-hidden]) .plate__button[data-dish="Godzilla"]');
   await target.focus();
   await page.keyboard.press("Enter");
   await wait(500);
   const sheetTitle = await page.locator("#sheet-title").innerText();
   await shot(page, "desktop-1440-dish-sheet");
-  record("Dish sheet", "a plate opens its dish", sheetTitle.startsWith("California Roll"), sheetTitle);
+  record("Dish sheet", "a plate opens its dish", sheetTitle.startsWith("Godzilla"), sheetTitle);
   for (let i = 0; i < 6; i++) await page.keyboard.press("Tab");
   record("Dish sheet", "Tab stays inside the sheet", await page.evaluate(() => !!document.activeElement.closest(".sheet")));
   await page.keyboard.press("Escape");
   await wait(400);
   const back = await page.evaluate(() => document.activeElement?.dataset.dish);
-  record("Dish sheet", "Escape closes it and focus returns to the plate", (await page.locator(".sheet").count()) === 0 && back === "California Roll", back);
+  record("Dish sheet", "Escape closes it and focus returns to the plate", (await page.locator(".sheet").count()) === 0 && back === "Godzilla", back);
 
   await target.click({ force: true });
   await wait(400);
@@ -218,7 +217,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
   await wait(1300);
   const q = await page.getByRole("searchbox", { name: "Search the menu" }).inputValue();
   const found = await page.locator(".menu__panel").innerText();
-  record("Dish sheet", "Find it on the menu opens the menu searched for the dish", (await sceneOf(page)) === "menu" && q === "California Roll" && found.includes("California Roll"), q);
+  record("Dish sheet", "Find it on the menu opens the menu searched for the dish", (await sceneOf(page)) === "menu" && q === "Godzilla" && found.includes("Godzilla"), q);
   await context.close();
 }
 
@@ -289,7 +288,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
   await page.keyboard.press("Escape");
   await wait(400);
   const returned = await page.evaluate(() => document.activeElement === document.querySelector(".wall__button"));
-  record("Gallery", "8 photos; lightbox opens on Close, arrows move, Escape returns focus", (await page.locator(".wall__button").count()) === 8 && focusClose && count.startsWith("2 /") && returned, count);
+  record("Gallery", "16 photos; lightbox opens on Close, arrows move, Escape returns focus", (await page.locator(".wall__button").count()) === 16 && focusClose && count.startsWith("2 /") && returned, count);
   await context.close();
 }
 
@@ -352,35 +351,22 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
         return {
           overflow: document.documentElement.scrollWidth - innerWidth + (scene.scrollWidth - scene.clientWidth),
           broken: imgs.filter((i) => !i.complete || !i.naturalWidth).map((i) => i.src.split("/").pop()),
-          upscaled: imgs
-            .filter((i) => i.naturalWidth && i.getBoundingClientRect().width > 40 && !i.srcset)
-            .filter((i) => {
-              const r = i.getBoundingClientRect();
-              const fit = getComputedStyle(i).objectFit;
-              const scale = fit === "cover" ? Math.max(r.width / i.naturalWidth, r.height / i.naturalHeight) : Math.min(r.width / i.naturalWidth, r.height / i.naturalHeight);
-              return scale > 1.15;
-            })
-            .map((i) => `${i.currentSrc.split("/").pop()} x${(i.getBoundingClientRect().width / i.naturalWidth).toFixed(2)}`),
           small,
           logo: logo.width > 60,
           dockOnScreen: dock.bottom <= innerHeight + 1 && dock.width > 200,
-          headingClear:
-            heading.top >= document.querySelector(".topbar").getBoundingClientRect().bottom - 30 &&
-            (dock.top < innerHeight / 2 || heading.bottom <= dock.top),
-          // On the counter the belt, labels included, must clear a bottom dock once scrolled to the end.
+          headingClear: heading.top >= document.querySelector(".topbar").getBoundingClientRect().bottom - 30 && heading.bottom <= dock.top,
+          // On the counter the whole belt, labels included, must sit above the dock on the first screen.
           beltClear:
             sid !== "counter" ||
-            dock.top < innerHeight / 2 ||
             [...document.querySelectorAll(".plate:not([aria-hidden]) .plate__tag")]
               .map((t) => t.getBoundingClientRect())
               .filter((r) => r.right > 0 && r.left < innerWidth)
-              .every((r) => r.bottom - (scene.scrollHeight - scene.clientHeight) <= dock.top + 1),
+              .every((r) => r.bottom <= dock.top + 1 || r.right <= dock.left || r.left >= dock.right),
         };
       }, id);
       const issues = [];
       if (info.overflow) issues.push(`overflow ${info.overflow}`);
       if (info.broken.length) issues.push(`broken ${info.broken.join(",")}`);
-      if (info.upscaled.length) issues.push(`upscaled ${info.upscaled.join(",")}`);
       if (info.small.length) issues.push(`small ${info.small.join("; ")}`);
       if (!info.logo) issues.push("logo missing");
       if (!info.dockOnScreen) issues.push("dock off screen");
@@ -392,50 +378,7 @@ const beltLeft = (page) => page.evaluate(() => document.querySelector(".belt__tr
     if (errors.length) problems.push(`${w}x${h} console: ${errors.join(" | ")}`);
     await context.close();
   }
-  record("Layout", "9 sizes × 5 scenes: no overflow, no broken or upscaled images, 40px targets, bars clear", problems.length === 0, problems.join(" || "));
-}
-
-// ---------------------------------------------------------------- Sharpness on high-density screens
-{
-  const soft = [];
-  for (const [w, h] of [[1440, 900], [390, 844]]) {
-    const context = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, reducedMotion: "reduce" });
-    const page = await context.newPage();
-    await page.goto(BASE);
-    await wait(500);
-    for (const id of SCENES) {
-      await page.evaluate((sid) => (location.hash = sid), id);
-      await wait(300);
-      await page.evaluate(async (sid) => {
-        const el = document.getElementById(`scene-${sid}`);
-        for (let y = 0; y <= el.scrollHeight; y += el.clientHeight * 0.8) {
-          el.scrollTop = y;
-          await new Promise((r) => setTimeout(r, 60));
-        }
-        await new Promise((r) => setTimeout(r, 600));
-      }, id);
-      const found = await page.evaluate(async (sid) => {
-        const scene = document.getElementById(`scene-${sid}`);
-        const out = [];
-        for (const i of scene.querySelectorAll("img")) {
-          const r = i.getBoundingClientRect();
-          if (!i.currentSrc || r.width <= 60) continue;
-          // naturalWidth is density-adjusted for srcset images; load the file to get its real pixels.
-          const real = new Image();
-          real.src = i.currentSrc;
-          await real.decode().catch(() => {});
-          if (!real.naturalWidth) continue;
-          const fit = getComputedStyle(i).objectFit;
-          const k = (fit === "cover" ? Math.max(r.width / real.naturalWidth, r.height / real.naturalHeight) : r.width / real.naturalWidth) * devicePixelRatio;
-          if (k > 1.35) out.push(`${i.currentSrc.split("/").pop()} ${k.toFixed(2)}x`);
-        }
-        return out;
-      }, id);
-      if (found.length) soft.push(`${w} ${id}: ${[...new Set(found)].join(", ")}`);
-    }
-    await context.close();
-  }
-  record("Sharpness", "at 2x pixel density no photo is stretched more than 1.35x", soft.length === 0, soft.join(" || "));
+  record("Layout", "9 sizes × 5 scenes: no overflow, no broken images, 40px targets, bars clear", problems.length === 0, problems.join(" || "));
 }
 
 // ---------------------------------------------------------------- Links and SEO

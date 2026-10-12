@@ -11,8 +11,7 @@
 }
 @media (min-width: 1024px) {
   :root {
-    /* The dock moves into the top bar on wide screens. */
-    --dock-space: 0px;
+    --dock-space: 96px;
   }
 }
 
@@ -77,14 +76,15 @@ html:not(.js) .belt__toggle {
   display: none;
 }
 
-/* Entrance: the new scene's content fades up a little, once. */
-.is-entering .scene__inner {
-  animation: soft-in 0.55s cubic-bezier(0.25, 0.6, 0.3, 1) both;
+/* Entrance: elements marked --rise come up in order when a scene opens. */
+.is-entering .rise {
+  animation: rise 0.7s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 80ms);
 }
-@keyframes soft-in {
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(22px);
   }
 }
 
@@ -235,53 +235,46 @@ html:not(.js) .belt__toggle {
   .dock {
     left: 50%;
     right: auto;
-    top: 13px;
-    bottom: auto;
+    bottom: 20px;
     transform: translateX(-50%);
-    padding: 4px;
+    padding: 6px;
     border-radius: 999px;
-    background: rgba(14, 16, 14, 0.55);
-    box-shadow: inset 0 0 0 1px rgba(246, 241, 231, 0.12);
+    box-shadow:
+      inset 0 0 0 1px rgba(246, 241, 231, 0.12),
+      0 20px 50px -20px rgba(0, 0, 0, 0.9);
   }
   .dock__item {
     flex: none;
   }
-  .dock__item--counter,
-  .dock__item--order {
-    display: none;
+  .dock__item--counter {
+    display: block;
   }
   .dock__item a {
     flex-direction: row;
-    min-height: 44px;
+    gap: 8px;
+    min-height: 50px;
     padding: 0 18px;
     border-radius: 999px;
     font-size: 15px;
-    font-weight: 500;
     letter-spacing: 0.01em;
-  }
-  .dock__item a svg {
-    display: none;
   }
   .dock__pill {
     border-radius: 999px;
   }
+  .dock__item--order {
+    margin-left: 6px;
+  }
+  .dock__order {
+    padding: 0 22px !important;
+  }
+}
+@media (min-width: 1024px) and (max-height: 820px) {
+  .dock {
+    bottom: 12px;
+  }
 }
 
-/* ---------- Scene change: a short dip to dark ---------- */
-.veil {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: #0d0f0d;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s ease;
-}
-.wipe .veil {
-  opacity: 1;
-}
-
-/* ---------- Noren curtain (arrival only) ---------- */
+/* ---------- Noren curtain ---------- */
 .noren {
   position: fixed;
   inset: 0;
@@ -290,7 +283,8 @@ html:not(.js) .belt__toggle {
   pointer-events: none;
   visibility: hidden;
 }
-.arrive .noren {
+.arrive .noren,
+.wipe .noren {
   visibility: visible;
 }
 .arrive .noren {
@@ -344,6 +338,9 @@ html:not(.js) .belt__toggle {
   --out: 105%;
   --sk: -4deg;
 }
+.wipe .noren__strip {
+  transform: translateX(0);
+}
 .arrive .noren__strip {
   animation: noren-open 1s cubic-bezier(0.65, 0, 0.3, 1) both;
   animation-delay: calc(1.55s + var(--s) * 40ms);
@@ -392,6 +389,18 @@ html:not(.js) .belt__toggle {
 }
 .arrive .noren__type {
   animation: noren-fade 0.5s ease 0.75s forwards;
+}
+.wipe .noren__logo {
+  opacity: 1;
+  width: min(40vw, 300px);
+  transition-delay: 0.18s;
+}
+.wipe .noren__mark {
+  fill: var(--ivory);
+  stroke: none;
+}
+.wipe .noren__type {
+  opacity: 1;
 }
 @keyframes noren-draw {
   to {
@@ -444,7 +453,7 @@ html:not(.js) .belt__toggle {
   border-radius: 18px 18px 0 0;
   box-shadow: 0 -30px 60px -20px rgba(0, 0, 0, 0.8);
   transform: translateY(100%);
-  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.3, 1);
+  transition: transform 0.34s var(--ease);
   padding-bottom: env(safe-area-inset-bottom);
 }
 .sheet.is-open .sheet__panel {
@@ -483,25 +492,29 @@ html:not(.js) .belt__toggle {
 .sheet__photo img {
   border-radius: 10px;
   box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.9);
+  transform: scale(0.96);
   opacity: 0;
-  transition: opacity 0.4s ease 0.1s;
+  transition:
+    transform 0.5s var(--ease) 0.08s,
+    opacity 0.4s ease 0.08s;
 }
 .sheet.is-open .sheet__photo img {
+  transform: none;
   opacity: 1;
 }
-/* Photos are shown no larger than they really are, so they stay sharp. */
 .sheet__photo--ordering img {
-  width: min(100%, 300px);
+  width: 100%;
+  max-width: 432px;
   aspect-ratio: 1;
   object-fit: cover;
 }
 .sheet__photo--printed img {
-  width: min(100%, 202px);
+  width: min(100%, 300px);
   background: #fff;
   padding: 10px;
 }
 .sheet__photo--platter img {
-  width: min(100%, 220px);
+  width: min(100%, 260px);
   border-radius: 50%;
   box-shadow: 0 26px 40px -16px rgba(0, 0, 0, 0.9);
 }

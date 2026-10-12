@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import "@fontsource/instrument-serif/latin-400.css";
-import "@fontsource/instrument-serif/latin-400-italic.css";
 import "@fontsource-variable/dm-sans/index.css";
 import "./styles/base.css";
 import "./styles/chrome.css";

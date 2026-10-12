@@ -10,20 +10,20 @@ through rather than a long page: an arrival, a main scene you interact with, and
 tap away. The idea is its own, though: **take a seat at the counter.**
 
 - **The arrival.** You walk in under a noren, the split fabric curtain in a Japanese restaurant's
-  doorway. Okeno's own swirl logo draws itself on the vermilion cloth, then the four strips part
-  onto a dark room whose lights come up. The room is a sharp, full-screen close-up of Okeno's
-  rolls at the table, which drifts very slowly closer. It takes about 3 seconds. A click, a key or
-  the wheel skips it, and the navigation works throughout.
-- **The counter.** Under the photo, a slim belt carries 16 of Okeno's real dishes on round
-  plates. It moves slowly by itself, stops when you hover or touch it, and can be dragged, swiped,
-  paused or tabbed through. Tap a plate to open the dish: its photo, ingredients, price, Order
-  online, and "Find it on the menu".
-- **The scenes.** Menu, Platters, Gallery and Visit open from the navigation with a short, soft
-  dip to dark. The curtain is kept for the arrival only, and motion elsewhere is quiet: fades, gentle
-  hovers, nothing that bounces or spins.
+  doorway. Okeno's own swirl logo draws itself on the vermilion cloth, then the four strips part.
+  It takes about 2.5 seconds. A click, a key or the wheel skips it, and the navigation works
+  throughout.
+- **The counter.** A sushi conveyor runs along a honey-wood counter like the one in the restaurant,
+  carrying 22 of Okeno's real dishes on long roll plates and round plates. It advances by itself,
+  stops when you hover or touch it, and can be dragged, swiped, paused or tabbed through. Tap a
+  plate to open the dish: its photo, ingredients, price, Order online, and "Find it on the menu".
+  Behind it, the real dining room is blurred into ambient light that drifts with the pointer. A fan
+  of three dish photos leans toward the pointer too.
+- **The scenes.** Menu, Platters, Gallery and Visit open from the dock with a curtain-wipe
+  transition:
   - **Menu:** 198 dishes, with 43 of the 45 special rolls shown as photo cards.
-  - **Platters:** the five real platters, plus catering.
-  - **Gallery:** 8 full-resolution photos with a lightbox.
+  - **Platters:** five real platters turning slowly like a lazy Susan, plus catering.
+  - **Gallery:** 16 photos with a lightbox.
   - **Visit:** live "Open now", hours and directions.
 
 ## What improved
@@ -63,7 +63,7 @@ npm install
 npm run dev            # development server
 npm run build          # type-check, build, prerender to dist/
 npm run preview        # serve dist/ on http://localhost:4173
-npm run verify         # 43 browser checks against the preview server (verification/report.md)
+npm run verify         # 42 browser checks against the preview server (verification/report.md)
 npm run lint
 ```
 
@@ -99,27 +99,10 @@ How it holds up when things go wrong:
 - **Before the app loads:** a tiny inline script picks the scene from the URL before first paint,
   ends the arrival on a timer, and keeps dock links working even if the app bundle never loads.
 
-## Sharp photos
-
-Earlier versions used the 768 px and 520 px copies of the Google Maps photos. The same photos are
-available at full size: the counter photo and the storefront are 3000 × 4000, and the two food
-photos 1200 × 669. The hero, the gallery and Visit are all cut from these, in several widths, so
-each screen downloads one that is sharp at its pixel density. Smaller sources are shown no larger
-than they really are:
-- the printed-menu roll photos (about 180 px) appear as small thumbnails;
-- the platter cutouts appear at 160 px.
-
-## A hero video, when there is one
-
-There is no real footage of Okeno yet, and the site does not fake any. If the restaurant films a
-steady 6 to 12 second clip (the counter, or a plate being finished), set `HERO_VIDEO` in
-`src/data/images.ts`. It plays muted behind the headline, with the photo as its poster.
-
 ## Decisions made without asking
 
 1. **The arrival film was removed, at your request.** The noren curtain replaces it: a CSS
-   animation built only from Okeno's real logo, not a video. After the second round of feedback,
-   it opens onto the sharp hero photo instead of a blurred room.
+   animation built only from Okeno's real logo, not a video.
 2. **More sushi comes from the restaurant's own published photos.**
    - The printed menu: 48 photos printed above their dish names, so each label is certain.
    - The online-ordering page: 22 photos, each attached to its item.
@@ -139,7 +122,7 @@ steady 6 to 12 second clip (the counter, or a plate being finished), set `HERO_V
 
 ## Verified, and not
 
-`npm run verify` runs 43 checks in headless Chromium against the production build. All passed
+`npm run verify` runs 42 checks in headless Chromium against the production build. All passed
 (`verification/report.md`):
 
 - **Arrival:**
@@ -157,10 +140,8 @@ steady 6 to 12 second clip (the counter, or a plate being finished), set `HERO_V
 - **Menu:** cards, photos, tabs, search and the empty state.
 - **Platters, gallery and lightbox.**
 - **Hours:** "Open now" in New York time, tested from a Los Angeles browser.
-- **Layout:** 9 screen sizes × 5 scenes, checking overflow, broken or stretched images, touch
-  targets, and that the belt clears the phone navigation.
-- **Sharpness:** at 2× pixel density (retina phones and laptops), no photo is stretched more than
-  1.35× its real pixels.
+- **Layout:** 9 screen sizes × 5 scenes, checking overflow, broken images, touch targets, and that
+  the belt stays above the dock.
 - **Links and structured data.**
 
 Not verified: real phones, Safari and iOS, screen readers, and placing an order. See

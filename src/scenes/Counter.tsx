@@ -1,62 +1,71 @@
-import type { CSSProperties } from "react";
+import { useRef, type CSSProperties } from "react";
 import { Belt } from "../components/Belt";
+import { TastingFan } from "../components/TastingFan";
 import { ArrowIcon, StarIcon } from "../components/Icons";
 import { ADDRESS_LINE, GOOGLE_RATING, LINKS } from "../data/business";
-import { HERO_VIDEO, PHOTOS } from "../data/images";
+import { PHOTOS } from "../data/images";
 import { useScene } from "../lib/scenes";
 
-const rise = (i: number) => ({ "--i": i }) as CSSProperties;
-
-/** Portrait screens get the tall crop (counter and chefs above the rolls); others the close-up. */
-const TALL = "(max-aspect-ratio: 4/5)";
+/** Headline words as spans, so they can rise one after another. */
+const words = (list: string[], first: number) =>
+  list.flatMap((word, i) => {
+    const el = (
+      <span key={word} className="word" style={{ "--i": first + i } as CSSProperties}>
+        {word}
+      </span>
+    );
+    return i < list.length - 1 ? [el, " "] : [el];
+  });
 
 /**
- * The counter: what the noren opens onto. One sharp, full-bleed photo of Okeno's own rolls at the
- * table, the restaurant's name and two actions, and the belt of real dishes along the bottom.
+ * The counter: the first scene. A headline, three dishes fanned out, and the belt of Okeno's real
+ * dishes running along a honey-wood counter like the one in the restaurant, with the dining room
+ * itself, blurred, as the light behind it.
  */
 export function Counter() {
   const { scene } = useScene();
-  const wide = PHOTOS.heroWide;
-  const tall = PHOTOS.heroTall;
-  return (
-    <section id="scene-counter" className="scene scene--counter" aria-labelledby="counter-title">
-      <div className="hero">
-        <div className="hero__frame">
-          <picture>
-            <source media={TALL} type="image/webp" srcSet={tall.webpSet} sizes="100vw" />
-            <source media={TALL} srcSet={tall.srcSet} sizes="100vw" />
-            <source type="image/webp" srcSet={wide.webpSet} sizes="100vw" />
-            <img
-              className="hero__img"
-              src={wide.src}
-              srcSet={wide.srcSet}
-              sizes="100vw"
-              alt={wide.alt}
-              width={wide.width}
-              height={wide.height}
-              fetchPriority="high"
-            />
-          </picture>
-          {HERO_VIDEO && (
-            <video className="hero__img hero__video" autoPlay muted loop playsInline poster={wide.src} aria-hidden="true">
-              {HERO_VIDEO.webm && <source src={HERO_VIDEO.webm} type="video/webm" />}
-              <source src={HERO_VIDEO.mp4} type="video/mp4" />
-            </video>
-          )}
-        </div>
-        <div className="hero__shade" aria-hidden="true" />
+  const root = useRef<HTMLElement>(null);
 
-        <div className="hero__copy">
-          <p className="eyebrow hero__in" style={rise(0)}>
+  // Pointer parallax for the fan and the room light: CSS variables only, no animation loop.
+  const onPointerMove = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.pointerType !== "mouse" || !root.current) return;
+    const r = root.current.getBoundingClientRect();
+    root.current.style.setProperty("--px", ((event.clientX - r.left) / r.width - 0.5).toFixed(3));
+    root.current.style.setProperty("--py", ((event.clientY - r.top) / r.height - 0.5).toFixed(3));
+  };
+
+  return (
+    <section
+      ref={root}
+      id="scene-counter"
+      className="scene scene--counter"
+      aria-labelledby="counter-title"
+      onPointerMove={onPointerMove}
+    >
+      <div className="counter__room" aria-hidden="true">
+        <img src={PHOTOS.counter.src} alt="" width={PHOTOS.counter.width} height={PHOTOS.counter.height} />
+      </div>
+      <div className="counter__glow" aria-hidden="true" />
+
+      <div className="counter__stage">
+        <div className="counter__copy">
+          <p className="eyebrow counter__rise" style={{ "--i": 0 } as CSSProperties}>
             Okeno Sushi · Shirley, NY
           </p>
-          <h1 id="counter-title" className="hero__title hero__in" style={rise(1)} tabIndex={-1} data-scene-focus>
-            Your next <em>favorite roll</em> is right here.
+          <h1 id="counter-title" className="counter__title" tabIndex={-1} data-scene-focus>
+            {words(["Your", "next"], 1)}
+            <span className="brushed">
+              {words(["favorite", "roll"], 3)}
+              <svg className="brush" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M6 26 C 70 13, 150 11, 230 17 S 360 29, 394 13" pathLength={1} />
+              </svg>
+            </span>{" "}
+            {words(["is", "right", "here."], 5)}
           </h1>
-          <p className="hero__lede hero__in" style={rise(2)}>
-            Sushi, sashimi, and Japanese favorites on Glen Drive.
+          <p className="counter__lede counter__rise" style={{ "--i": 8 } as CSSProperties}>
+            Sushi, sashimi, and Japanese favorites on Glen Drive. Pick a plate off the belt.
           </p>
-          <div className="hero__actions hero__in" style={rise(3)}>
+          <div className="counter__actions counter__rise" style={{ "--i": 9 } as CSSProperties}>
             <a className="button button--red button--large" href={LINKS.order} target="_blank" rel="noopener">
               Order online <ArrowIcon />
               <span className="sr-only"> (opens in a new tab)</span>
@@ -65,20 +74,20 @@ export function Counter() {
               Explore the menu
             </a>
           </div>
-          <p className="hero__meta hero__in" style={rise(4)}>
+          <p className="counter__meta counter__rise" style={{ "--i": 10 } as CSSProperties}>
             <a href={GOOGLE_RATING.url} target="_blank" rel="noopener" className="rating">
               <StarIcon className="rating__star" />
               <strong>{GOOGLE_RATING.stars}</strong> on Google · {GOOGLE_RATING.reviews} reviews
               <span className="rating__date">as of {GOOGLE_RATING.checked}</span>
               <span className="sr-only"> (opens Google Maps in a new tab)</span>
             </a>
-            <span className="hero__address">{ADDRESS_LINE}</span>
+            <span className="counter__address">{ADDRESS_LINE}</span>
           </p>
         </div>
+        <TastingFan />
       </div>
 
-      <div className="counter__belt">
-        <p className="counter__belt-label">From the menu · tap a plate</p>
+      <div className="counter__wood">
         <Belt active={scene === "counter"} />
       </div>
     </section>

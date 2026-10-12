@@ -13,8 +13,8 @@ export const SCENES: { id: SceneId; label: string; title: string }[] = [
 
 const isScene = (value: string): value is SceneId => SCENES.some((s) => s.id === value);
 
-/** The page dips to dark over this long, the scene swaps, then it fades back up. */
-export const WIPE_MS = 220;
+/** The curtain closes over this long, the scene swaps, then it opens again over the same time. */
+export const WIPE_MS = 420;
 
 type Ctx = {
   scene: SceneId;
@@ -37,7 +37,7 @@ export function useScene() {
 
 /**
  * Switches between full-screen scenes, the way the Fluxline demos move between places, with a
- * short dip to dark (the noren curtain is kept for the arrival only). The visible scene is the `data-scene` attribute on <html> (set before first
+ * noren-curtain wipe. The visible scene is the `data-scene` attribute on <html> (set before first
  * paint by index.html from the URL hash), so the prerendered page never flashes the wrong scene.
  *
  * Nothing waits on an animation: every step of a wipe is a timer, a navigation that arrives
@@ -65,7 +65,7 @@ export function SceneProvider({ children }: { children: ReactNode }) {
       element.scrollTop = 0;
       // Entrance animations run while this class is on; a timer takes it off (end state = visible).
       element.classList.add("is-entering");
-      window.setTimeout(() => element.classList.remove("is-entering"), 900);
+      window.setTimeout(() => element.classList.remove("is-entering"), 1600);
     }
     // Move focus to the new scene's heading so keyboard and screen-reader users land in it.
     const heading = element?.querySelector<HTMLElement>("[data-scene-focus]");

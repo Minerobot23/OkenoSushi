@@ -28,7 +28,6 @@ function Experience() {
         <VisitScene />
       </main>
       <Dock />
-      <div className="veil" aria-hidden="true" />
       <Noren />
       <DishSheet />
       <OriginalMenu open={originalOpen} onClose={() => setOriginalOpen(false)} />

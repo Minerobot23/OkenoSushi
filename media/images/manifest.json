@@ -1,193 +1,61 @@
 {
- "hero-wide": {
-  "width": 2550,
-  "height": 1700,
+ "storefront": {
+  "width": 768,
+  "height": 1024,
   "files": [
    {
-    "w": 1280,
-    "h": 853,
-    "jpg": "hero-wide-1280.jpg",
-    "webp": "hero-wide-1280.webp"
+    "w": 480,
+    "h": 640,
+    "jpg": "storefront-480.jpg",
+    "webp": "storefront-480.webp"
    },
    {
-    "w": 1920,
-    "h": 1280,
-    "jpg": "hero-wide-1920.jpg",
-    "webp": "hero-wide-1920.webp"
-   },
-   {
-    "w": 2550,
-    "h": 1700,
-    "jpg": "hero-wide-2550.jpg",
-    "webp": "hero-wide-2550.webp"
-   }
-  ]
- },
- "hero-tall": {
-  "width": 2400,
-  "height": 3600,
-  "files": [
-   {
-    "w": 750,
-    "h": 1125,
-    "jpg": "hero-tall-750.jpg",
-    "webp": "hero-tall-750.webp"
-   },
-   {
-    "w": 1125,
-    "h": 1688,
-    "jpg": "hero-tall-1125.jpg",
-    "webp": "hero-tall-1125.webp"
-   },
-   {
-    "w": 1500,
-    "h": 2250,
-    "jpg": "hero-tall-1500.jpg",
-    "webp": "hero-tall-1500.webp"
+    "w": 768,
+    "h": 1024,
+    "jpg": "storefront-768.jpg",
+    "webp": "storefront-768.webp"
    }
   ]
  },
  "counter": {
-  "width": 3000,
-  "height": 4000,
+  "width": 768,
+  "height": 1024,
   "files": [
    {
-    "w": 600,
-    "h": 800,
-    "jpg": "counter-600.jpg",
-    "webp": "counter-600.webp"
+    "w": 480,
+    "h": 640,
+    "jpg": "counter-480.jpg",
+    "webp": "counter-480.webp"
    },
    {
-    "w": 1200,
-    "h": 1600,
-    "jpg": "counter-1200.jpg",
-    "webp": "counter-1200.webp"
-   }
-  ]
- },
- "detail-rolls": {
-  "width": 2200,
-  "height": 1500,
-  "files": [
-   {
-    "w": 800,
-    "h": 545,
-    "jpg": "detail-rolls-800.jpg",
-    "webp": "detail-rolls-800.webp"
-   },
-   {
-    "w": 1400,
-    "h": 955,
-    "jpg": "detail-rolls-1400.jpg",
-    "webp": "detail-rolls-1400.webp"
-   }
-  ]
- },
- "detail-counter": {
-  "width": 1850,
-  "height": 1050,
-  "files": [
-   {
-    "w": 800,
-    "h": 454,
-    "jpg": "detail-counter-800.jpg",
-    "webp": "detail-counter-800.webp"
-   },
-   {
-    "w": 1400,
-    "h": 795,
-    "jpg": "detail-counter-1400.jpg",
-    "webp": "detail-counter-1400.webp"
-   }
-  ]
- },
- "detail-tea": {
-  "width": 1280,
-  "height": 1280,
-  "files": [
-   {
-    "w": 600,
-    "h": 600,
-    "jpg": "detail-tea-600.jpg",
-    "webp": "detail-tea-600.webp"
-   },
-   {
-    "w": 1000,
-    "h": 1000,
-    "jpg": "detail-tea-1000.jpg",
-    "webp": "detail-tea-1000.webp"
-   }
-  ]
- },
- "storefront": {
-  "width": 3000,
-  "height": 4000,
-  "files": [
-   {
-    "w": 600,
-    "h": 800,
-    "jpg": "storefront-600.jpg",
-    "webp": "storefront-600.webp"
-   },
-   {
-    "w": 1200,
-    "h": 1600,
-    "jpg": "storefront-1200.jpg",
-    "webp": "storefront-1200.webp"
-   }
-  ]
- },
- "detail-sign": {
-  "width": 2800,
-  "height": 740,
-  "files": [
-   {
-    "w": 900,
-    "h": 238,
-    "jpg": "detail-sign-900.jpg",
-    "webp": "detail-sign-900.webp"
-   },
-   {
-    "w": 1800,
-    "h": 476,
-    "jpg": "detail-sign-1800.jpg",
-    "webp": "detail-sign-1800.webp"
+    "w": 768,
+    "h": 1024,
+    "jpg": "counter-768.jpg",
+    "webp": "counter-768.webp"
    }
   ]
  },
  "rolls": {
-  "width": 1200,
-  "height": 669,
+  "width": 520,
+  "height": 290,
   "files": [
    {
-    "w": 600,
-    "h": 334,
-    "jpg": "rolls-600.jpg",
-    "webp": "rolls-600.webp"
-   },
-   {
-    "w": 1200,
-    "h": 669,
-    "jpg": "rolls-1200.jpg",
-    "webp": "rolls-1200.webp"
+    "w": 520,
+    "h": 290,
+    "jpg": "rolls-520.jpg",
+    "webp": "rolls-520.webp"
    }
   ]
  },
  "bento": {
-  "width": 1200,
-  "height": 669,
+  "width": 520,
+  "height": 290,
   "files": [
    {
-    "w": 600,
-    "h": 334,
-    "jpg": "bento-600.jpg",
-    "webp": "bento-600.webp"
-   },
-   {
-    "w": 1200,
-    "h": 669,
-    "jpg": "bento-1200.jpg",
-    "webp": "bento-1200.webp"
+    "w": 520,
+    "h": 290,
+    "jpg": "bento-520.jpg",
+    "webp": "bento-520.webp"
    }
   ]
  },

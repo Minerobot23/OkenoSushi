@@ -34,9 +34,4 @@ the site goes public.
 9. **The counter belt** is a design idea for browsing the menu. Okeno is not a conveyor-belt
    restaurant, and the site does not say it is. If the owner would rather not use the image,
    the belt can become a plain carousel without other changes.
-10. **A short video.** A steady 6 to 12 second phone clip of the counter, or of a plate being
-    finished, would give the opening even more life. The site has a slot for it (`HERO_VIDEO`
-    in `src/data/images.ts`).
-11. **Domain and hosting.** The demo is on Vercel (project `okeno-sushi-demo`). Its main address,
-    okeno-sushi-demo.vercel.app, is public; other deployment addresses need a Vercel login or a
-    share link. Choose the real domain, and when to go live.
+10. **Domain and hosting.** Nothing is deployed. Choose where it goes and when.
